@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BEA53E292CFE511E00F5CE90 /* HRV Monitoring Watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BEA53E062CFE511D00F5CE90 /* HRV Monitoring Watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BEA53E292CFE511E00F5CE90 /* HRV_Monitoring Watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BEA53E062CFE511D00F5CE90 /* HRV_Monitoring Watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +55,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				BEA53E292CFE511E00F5CE90 /* HRV Monitoring Watch Watch App.app in Embed Watch Content */,
+				BEA53E292CFE511E00F5CE90 /* HRV_Monitoring Watch Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,43 +63,70 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BEA53DD42CFE50D300F5CE90 /* HRV Monitoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HRV Monitoring.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BEA53DE52CFE50D400F5CE90 /* HRV MonitoringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HRV MonitoringTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BEA53DEF2CFE50D400F5CE90 /* HRV MonitoringUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HRV MonitoringUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BEA53E062CFE511D00F5CE90 /* HRV Monitoring Watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HRV Monitoring Watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BEA53E152CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HRV Monitoring Watch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BEA53E1F2CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HRV Monitoring Watch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEA53DD42CFE50D300F5CE90 /* HRV_Monitoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRV_Monitoring.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEA53DE52CFE50D400F5CE90 /* HRV_MonitoringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HRV_MonitoringTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEA53DEF2CFE50D400F5CE90 /* HRV_MonitoringUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HRV_MonitoringUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEA53E062CFE511D00F5CE90 /* HRV_Monitoring Watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HRV_Monitoring Watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEA53E152CFE511E00F5CE90 /* HRV_Monitoring Watch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HRV_Monitoring Watch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEA53E1F2CFE511E00F5CE90 /* HRV_Monitoring Watch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HRV_Monitoring Watch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		BEA53E7B2CFE587000F5CE90 /* Exceptions for "HRV_Monitoring_Watch_App" folder in "HRV_MonitoringTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				ContentView.swift,
+				HRV_Monitoring_WatchApp.swift,
+				"Preview Content/Preview Assets.xcassets",
+			);
+			target = BEA53DE42CFE50D400F5CE90 /* HRV_MonitoringTests */;
+		};
+		BEA53E7C2CFE587000F5CE90 /* Exceptions for "HRV_Monitoring_Watch_App" folder in "HRV_Monitoring Watch Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				ContentView.swift,
+				HRV_Monitoring_WatchApp.swift,
+				"Preview Content/Preview Assets.xcassets",
+			);
+			target = BEA53E052CFE511D00F5CE90 /* HRV_Monitoring Watch Watch App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		BEA53DD62CFE50D300F5CE90 /* HRV Monitoring */ = {
+		BEA53DD62CFE50D300F5CE90 /* HRV_Monitoring */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "HRV Monitoring";
+			path = HRV_Monitoring;
 			sourceTree = "<group>";
 		};
-		BEA53DE82CFE50D400F5CE90 /* HRV MonitoringTests */ = {
+		BEA53DE82CFE50D400F5CE90 /* HRV_MonitoringTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "HRV MonitoringTests";
+			path = HRV_MonitoringTests;
 			sourceTree = "<group>";
 		};
-		BEA53DF22CFE50D400F5CE90 /* HRV MonitoringUITests */ = {
+		BEA53DF22CFE50D400F5CE90 /* HRV_MonitoringUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "HRV MonitoringUITests";
+			path = HRV_MonitoringUITests;
 			sourceTree = "<group>";
 		};
-		BEA53E072CFE511D00F5CE90 /* HRV Monitoring Watch Watch App */ = {
+		BEA53E182CFE511E00F5CE90 /* HRV_Monitoring_Watch_AppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "HRV Monitoring Watch Watch App";
+			path = HRV_Monitoring_Watch_AppTests;
 			sourceTree = "<group>";
 		};
-		BEA53E182CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppTests */ = {
+		BEA53E222CFE511E00F5CE90 /* HRV_Monitoring_Watch_AppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "HRV Monitoring Watch Watch AppTests";
+			path = HRV_Monitoring_Watch_AppUITests;
 			sourceTree = "<group>";
 		};
-		BEA53E222CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppUITests */ = {
+		BEA53E762CFE587000F5CE90 /* HRV_Monitoring_Watch_App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "HRV Monitoring Watch Watch AppUITests";
+			exceptions = (
+				BEA53E7B2CFE587000F5CE90 /* Exceptions for "HRV_Monitoring_Watch_App" folder in "HRV_MonitoringTests" target */,
+				BEA53E7C2CFE587000F5CE90 /* Exceptions for "HRV_Monitoring_Watch_App" folder in "HRV_Monitoring Watch Watch App" target */,
+			);
+			path = HRV_Monitoring_Watch_App;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -153,25 +180,25 @@
 		BEA53DCB2CFE50D300F5CE90 = {
 			isa = PBXGroup;
 			children = (
-				BEA53DD62CFE50D300F5CE90 /* HRV Monitoring */,
-				BEA53DE82CFE50D400F5CE90 /* HRV MonitoringTests */,
-				BEA53DF22CFE50D400F5CE90 /* HRV MonitoringUITests */,
-				BEA53E072CFE511D00F5CE90 /* HRV Monitoring Watch Watch App */,
-				BEA53E182CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppTests */,
-				BEA53E222CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppUITests */,
+				BEA53DD62CFE50D300F5CE90 /* HRV_Monitoring */,
+				BEA53DE82CFE50D400F5CE90 /* HRV_MonitoringTests */,
+				BEA53DF22CFE50D400F5CE90 /* HRV_MonitoringUITests */,
+				BEA53E182CFE511E00F5CE90 /* HRV_Monitoring_Watch_AppTests */,
+				BEA53E222CFE511E00F5CE90 /* HRV_Monitoring_Watch_AppUITests */,
 				BEA53DD52CFE50D300F5CE90 /* Products */,
+				BEA53E762CFE587000F5CE90 /* HRV_Monitoring_Watch_App */,
 			);
 			sourceTree = "<group>";
 		};
 		BEA53DD52CFE50D300F5CE90 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BEA53DD42CFE50D300F5CE90 /* HRV Monitoring.app */,
-				BEA53DE52CFE50D400F5CE90 /* HRV MonitoringTests.xctest */,
-				BEA53DEF2CFE50D400F5CE90 /* HRV MonitoringUITests.xctest */,
-				BEA53E062CFE511D00F5CE90 /* HRV Monitoring Watch Watch App.app */,
-				BEA53E152CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppTests.xctest */,
-				BEA53E1F2CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppUITests.xctest */,
+				BEA53DD42CFE50D300F5CE90 /* HRV_Monitoring.app */,
+				BEA53DE52CFE50D400F5CE90 /* HRV_MonitoringTests.xctest */,
+				BEA53DEF2CFE50D400F5CE90 /* HRV_MonitoringUITests.xctest */,
+				BEA53E062CFE511D00F5CE90 /* HRV_Monitoring Watch Watch App.app */,
+				BEA53E152CFE511E00F5CE90 /* HRV_Monitoring Watch Watch AppTests.xctest */,
+				BEA53E1F2CFE511E00F5CE90 /* HRV_Monitoring Watch Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,9 +206,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BEA53DD32CFE50D300F5CE90 /* HRV Monitoring */ = {
+		BEA53DD32CFE50D300F5CE90 /* HRV_Monitoring */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BEA53DF92CFE50D400F5CE90 /* Build configuration list for PBXNativeTarget "HRV Monitoring" */;
+			buildConfigurationList = BEA53DF92CFE50D400F5CE90 /* Build configuration list for PBXNativeTarget "HRV_Monitoring" */;
 			buildPhases = (
 				BEA53DD02CFE50D300F5CE90 /* Sources */,
 				BEA53DD12CFE50D300F5CE90 /* Frameworks */,
@@ -194,18 +221,18 @@
 				BEA53E282CFE511E00F5CE90 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				BEA53DD62CFE50D300F5CE90 /* HRV Monitoring */,
+				BEA53DD62CFE50D300F5CE90 /* HRV_Monitoring */,
 			);
-			name = "HRV Monitoring";
+			name = HRV_Monitoring;
 			packageProductDependencies = (
 			);
 			productName = "HRV Monitoring";
-			productReference = BEA53DD42CFE50D300F5CE90 /* HRV Monitoring.app */;
+			productReference = BEA53DD42CFE50D300F5CE90 /* HRV_Monitoring.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BEA53DE42CFE50D400F5CE90 /* HRV MonitoringTests */ = {
+		BEA53DE42CFE50D400F5CE90 /* HRV_MonitoringTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BEA53DFC2CFE50D400F5CE90 /* Build configuration list for PBXNativeTarget "HRV MonitoringTests" */;
+			buildConfigurationList = BEA53DFC2CFE50D400F5CE90 /* Build configuration list for PBXNativeTarget "HRV_MonitoringTests" */;
 			buildPhases = (
 				BEA53DE12CFE50D400F5CE90 /* Sources */,
 				BEA53DE22CFE50D400F5CE90 /* Frameworks */,
@@ -217,18 +244,19 @@
 				BEA53DE72CFE50D400F5CE90 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				BEA53DE82CFE50D400F5CE90 /* HRV MonitoringTests */,
+				BEA53DE82CFE50D400F5CE90 /* HRV_MonitoringTests */,
+				BEA53E762CFE587000F5CE90 /* HRV_Monitoring_Watch_App */,
 			);
-			name = "HRV MonitoringTests";
+			name = HRV_MonitoringTests;
 			packageProductDependencies = (
 			);
 			productName = "HRV MonitoringTests";
-			productReference = BEA53DE52CFE50D400F5CE90 /* HRV MonitoringTests.xctest */;
+			productReference = BEA53DE52CFE50D400F5CE90 /* HRV_MonitoringTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BEA53DEE2CFE50D400F5CE90 /* HRV MonitoringUITests */ = {
+		BEA53DEE2CFE50D400F5CE90 /* HRV_MonitoringUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BEA53DFF2CFE50D400F5CE90 /* Build configuration list for PBXNativeTarget "HRV MonitoringUITests" */;
+			buildConfigurationList = BEA53DFF2CFE50D400F5CE90 /* Build configuration list for PBXNativeTarget "HRV_MonitoringUITests" */;
 			buildPhases = (
 				BEA53DEB2CFE50D400F5CE90 /* Sources */,
 				BEA53DEC2CFE50D400F5CE90 /* Frameworks */,
@@ -240,18 +268,18 @@
 				BEA53DF12CFE50D400F5CE90 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				BEA53DF22CFE50D400F5CE90 /* HRV MonitoringUITests */,
+				BEA53DF22CFE50D400F5CE90 /* HRV_MonitoringUITests */,
 			);
-			name = "HRV MonitoringUITests";
+			name = HRV_MonitoringUITests;
 			packageProductDependencies = (
 			);
 			productName = "HRV MonitoringUITests";
-			productReference = BEA53DEF2CFE50D400F5CE90 /* HRV MonitoringUITests.xctest */;
+			productReference = BEA53DEF2CFE50D400F5CE90 /* HRV_MonitoringUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		BEA53E052CFE511D00F5CE90 /* HRV Monitoring Watch Watch App */ = {
+		BEA53E052CFE511D00F5CE90 /* HRV_Monitoring Watch Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BEA53E2A2CFE511E00F5CE90 /* Build configuration list for PBXNativeTarget "HRV Monitoring Watch Watch App" */;
+			buildConfigurationList = BEA53E2A2CFE511E00F5CE90 /* Build configuration list for PBXNativeTarget "HRV_Monitoring Watch Watch App" */;
 			buildPhases = (
 				BEA53E022CFE511D00F5CE90 /* Sources */,
 				BEA53E032CFE511D00F5CE90 /* Frameworks */,
@@ -261,19 +289,16 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				BEA53E072CFE511D00F5CE90 /* HRV Monitoring Watch Watch App */,
-			);
-			name = "HRV Monitoring Watch Watch App";
+			name = "HRV_Monitoring Watch Watch App";
 			packageProductDependencies = (
 			);
 			productName = "HRV Monitoring Watch Watch App";
-			productReference = BEA53E062CFE511D00F5CE90 /* HRV Monitoring Watch Watch App.app */;
+			productReference = BEA53E062CFE511D00F5CE90 /* HRV_Monitoring Watch Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BEA53E142CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppTests */ = {
+		BEA53E142CFE511E00F5CE90 /* HRV_Monitoring Watch Watch AppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BEA53E2E2CFE511E00F5CE90 /* Build configuration list for PBXNativeTarget "HRV Monitoring Watch Watch AppTests" */;
+			buildConfigurationList = BEA53E2E2CFE511E00F5CE90 /* Build configuration list for PBXNativeTarget "HRV_Monitoring Watch Watch AppTests" */;
 			buildPhases = (
 				BEA53E112CFE511E00F5CE90 /* Sources */,
 				BEA53E122CFE511E00F5CE90 /* Frameworks */,
@@ -285,18 +310,18 @@
 				BEA53E172CFE511E00F5CE90 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				BEA53E182CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppTests */,
+				BEA53E182CFE511E00F5CE90 /* HRV_Monitoring_Watch_AppTests */,
 			);
-			name = "HRV Monitoring Watch Watch AppTests";
+			name = "HRV_Monitoring Watch Watch AppTests";
 			packageProductDependencies = (
 			);
 			productName = "HRV Monitoring Watch Watch AppTests";
-			productReference = BEA53E152CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppTests.xctest */;
+			productReference = BEA53E152CFE511E00F5CE90 /* HRV_Monitoring Watch Watch AppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BEA53E1E2CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppUITests */ = {
+		BEA53E1E2CFE511E00F5CE90 /* HRV_Monitoring Watch Watch AppUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BEA53E312CFE511E00F5CE90 /* Build configuration list for PBXNativeTarget "HRV Monitoring Watch Watch AppUITests" */;
+			buildConfigurationList = BEA53E312CFE511E00F5CE90 /* Build configuration list for PBXNativeTarget "HRV_Monitoring Watch Watch AppUITests" */;
 			buildPhases = (
 				BEA53E1B2CFE511E00F5CE90 /* Sources */,
 				BEA53E1C2CFE511E00F5CE90 /* Frameworks */,
@@ -308,13 +333,13 @@
 				BEA53E212CFE511E00F5CE90 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				BEA53E222CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppUITests */,
+				BEA53E222CFE511E00F5CE90 /* HRV_Monitoring_Watch_AppUITests */,
 			);
-			name = "HRV Monitoring Watch Watch AppUITests";
+			name = "HRV_Monitoring Watch Watch AppUITests";
 			packageProductDependencies = (
 			);
 			productName = "HRV Monitoring Watch Watch AppUITests";
-			productReference = BEA53E1F2CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppUITests.xctest */;
+			productReference = BEA53E1F2CFE511E00F5CE90 /* HRV_Monitoring Watch Watch AppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -351,7 +376,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BEA53DCF2CFE50D300F5CE90 /* Build configuration list for PBXProject "HRV Monitoring" */;
+			buildConfigurationList = BEA53DCF2CFE50D300F5CE90 /* Build configuration list for PBXProject "HRV_Monitoring" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -365,12 +390,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BEA53DD32CFE50D300F5CE90 /* HRV Monitoring */,
-				BEA53DE42CFE50D400F5CE90 /* HRV MonitoringTests */,
-				BEA53DEE2CFE50D400F5CE90 /* HRV MonitoringUITests */,
-				BEA53E052CFE511D00F5CE90 /* HRV Monitoring Watch Watch App */,
-				BEA53E142CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppTests */,
-				BEA53E1E2CFE511E00F5CE90 /* HRV Monitoring Watch Watch AppUITests */,
+				BEA53DD32CFE50D300F5CE90 /* HRV_Monitoring */,
+				BEA53DE42CFE50D400F5CE90 /* HRV_MonitoringTests */,
+				BEA53DEE2CFE50D400F5CE90 /* HRV_MonitoringUITests */,
+				BEA53E052CFE511D00F5CE90 /* HRV_Monitoring Watch Watch App */,
+				BEA53E142CFE511E00F5CE90 /* HRV_Monitoring Watch Watch AppTests */,
+				BEA53E1E2CFE511E00F5CE90 /* HRV_Monitoring Watch Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -468,27 +493,27 @@
 /* Begin PBXTargetDependency section */
 		BEA53DE72CFE50D400F5CE90 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BEA53DD32CFE50D300F5CE90 /* HRV Monitoring */;
+			target = BEA53DD32CFE50D300F5CE90 /* HRV_Monitoring */;
 			targetProxy = BEA53DE62CFE50D400F5CE90 /* PBXContainerItemProxy */;
 		};
 		BEA53DF12CFE50D400F5CE90 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BEA53DD32CFE50D300F5CE90 /* HRV Monitoring */;
+			target = BEA53DD32CFE50D300F5CE90 /* HRV_Monitoring */;
 			targetProxy = BEA53DF02CFE50D400F5CE90 /* PBXContainerItemProxy */;
 		};
 		BEA53E172CFE511E00F5CE90 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BEA53E052CFE511D00F5CE90 /* HRV Monitoring Watch Watch App */;
+			target = BEA53E052CFE511D00F5CE90 /* HRV_Monitoring Watch Watch App */;
 			targetProxy = BEA53E162CFE511E00F5CE90 /* PBXContainerItemProxy */;
 		};
 		BEA53E212CFE511E00F5CE90 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BEA53E052CFE511D00F5CE90 /* HRV Monitoring Watch Watch App */;
+			target = BEA53E052CFE511D00F5CE90 /* HRV_Monitoring Watch Watch App */;
 			targetProxy = BEA53E202CFE511E00F5CE90 /* PBXContainerItemProxy */;
 		};
 		BEA53E282CFE511E00F5CE90 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BEA53E052CFE511D00F5CE90 /* HRV Monitoring Watch Watch App */;
+			target = BEA53E052CFE511D00F5CE90 /* HRV_Monitoring Watch Watch App */;
 			targetProxy = BEA53E272CFE511E00F5CE90 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -702,7 +727,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRV Monitoring.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HRV Monitoring";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRV_Monitoring.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HRV_Monitoring";
 				XROS_DEPLOYMENT_TARGET = 2.1;
 			};
 			name = Debug;
@@ -725,7 +750,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRV Monitoring.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HRV Monitoring";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRV_Monitoring.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HRV_Monitoring";
 				XROS_DEPLOYMENT_TARGET = 2.1;
 			};
 			name = Release;
@@ -847,7 +872,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRV Monitoring Watch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HRV Monitoring Watch Watch App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRV_Monitoring Watch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HRV_Monitoring Watch Watch App";
 				WATCHOS_DEPLOYMENT_TARGET = 11.1;
 			};
 			name = Debug;
@@ -866,7 +891,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRV Monitoring Watch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HRV Monitoring Watch Watch App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRV_Monitoring Watch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HRV_Monitoring Watch Watch App";
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 11.1;
 			};
@@ -912,7 +937,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BEA53DCF2CFE50D300F5CE90 /* Build configuration list for PBXProject "HRV Monitoring" */ = {
+		BEA53DCF2CFE50D300F5CE90 /* Build configuration list for PBXProject "HRV_Monitoring" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BEA53DF72CFE50D400F5CE90 /* Debug */,
@@ -921,7 +946,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BEA53DF92CFE50D400F5CE90 /* Build configuration list for PBXNativeTarget "HRV Monitoring" */ = {
+		BEA53DF92CFE50D400F5CE90 /* Build configuration list for PBXNativeTarget "HRV_Monitoring" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BEA53DFA2CFE50D400F5CE90 /* Debug */,
@@ -930,7 +955,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BEA53DFC2CFE50D400F5CE90 /* Build configuration list for PBXNativeTarget "HRV MonitoringTests" */ = {
+		BEA53DFC2CFE50D400F5CE90 /* Build configuration list for PBXNativeTarget "HRV_MonitoringTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BEA53DFD2CFE50D400F5CE90 /* Debug */,
@@ -939,7 +964,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BEA53DFF2CFE50D400F5CE90 /* Build configuration list for PBXNativeTarget "HRV MonitoringUITests" */ = {
+		BEA53DFF2CFE50D400F5CE90 /* Build configuration list for PBXNativeTarget "HRV_MonitoringUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BEA53E002CFE50D400F5CE90 /* Debug */,
@@ -948,7 +973,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BEA53E2A2CFE511E00F5CE90 /* Build configuration list for PBXNativeTarget "HRV Monitoring Watch Watch App" */ = {
+		BEA53E2A2CFE511E00F5CE90 /* Build configuration list for PBXNativeTarget "HRV_Monitoring Watch Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BEA53E2B2CFE511E00F5CE90 /* Debug */,
@@ -957,7 +982,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BEA53E2E2CFE511E00F5CE90 /* Build configuration list for PBXNativeTarget "HRV Monitoring Watch Watch AppTests" */ = {
+		BEA53E2E2CFE511E00F5CE90 /* Build configuration list for PBXNativeTarget "HRV_Monitoring Watch Watch AppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BEA53E2F2CFE511E00F5CE90 /* Debug */,
@@ -966,7 +991,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BEA53E312CFE511E00F5CE90 /* Build configuration list for PBXNativeTarget "HRV Monitoring Watch Watch AppUITests" */ = {
+		BEA53E312CFE511E00F5CE90 /* Build configuration list for PBXNativeTarget "HRV_Monitoring Watch Watch AppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BEA53E322CFE511E00F5CE90 /* Debug */,
