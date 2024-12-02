@@ -1,0 +1,25 @@
+{
+  "RequestData": {
+    "AuthInfo": {
+      "AnonymizedID": "integer",
+      "AccessKey": "varchar(28)"
+    },
+    "Type": "AddData",
+    "CreationDate": "Dateobject",
+    "HRVInfo": {
+      "SDNN": "double",
+      "RMSSD": "double",
+      "PNN50": "double",
+      "HeartBeats": [
+        "integer",
+        "integer",
+        "integer",
+        "so on"
+      ]
+    },
+    "Flags": {
+      "UserFlagged": "bool",
+      "ProgramFlagged": "bool"
+    }
+  }
+}

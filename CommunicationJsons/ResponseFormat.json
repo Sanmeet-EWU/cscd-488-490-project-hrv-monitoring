@@ -1,0 +1,8 @@
+{
+  "ResponseData": {
+    "AuthInfo": {
+      "AnonymizedID": "integer"
+    },
+    "ResponseCode": "integer"
+  }
+}
