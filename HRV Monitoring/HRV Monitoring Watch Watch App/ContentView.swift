@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  HRV_Monitoring
+//  HRV Monitoring Watch Watch App
 //
-//  Created by Austin Harrison on 11/25/24.
+//  Created by William Reese on 12/2/24.
 //
 
 import SwiftUI

@@ -1,13 +1,13 @@
 //
-//  HRV_MonitoringUITestsLaunchTests.swift
-//  HRV_MonitoringUITests
+//  HRV_Monitoring_Watch_Watch_AppUITestsLaunchTests.swift
+//  HRV Monitoring Watch Watch AppUITests
 //
-//  Created by Austin Harrison on 11/25/24.
+//  Created by William Reese on 12/2/24.
 //
 
 import XCTest
 
-final class HRV_MonitoringUITestsLaunchTests: XCTestCase {
+final class HRV_Monitoring_Watch_Watch_AppUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

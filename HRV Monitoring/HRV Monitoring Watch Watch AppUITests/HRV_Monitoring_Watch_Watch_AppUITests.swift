@@ -1,13 +1,13 @@
 //
-//  HRV_MonitoringUITests.swift
-//  HRV_MonitoringUITests
+//  HRV_Monitoring_Watch_Watch_AppUITests.swift
+//  HRV Monitoring Watch Watch AppUITests
 //
-//  Created by Austin Harrison on 11/25/24.
+//  Created by William Reese on 12/2/24.
 //
 
 import XCTest
 
-final class HRV_MonitoringUITests: XCTestCase {
+final class HRV_Monitoring_Watch_Watch_AppUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
