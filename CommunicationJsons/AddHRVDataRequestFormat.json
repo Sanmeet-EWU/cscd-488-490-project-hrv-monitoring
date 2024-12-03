@@ -20,6 +20,15 @@
     "Flags": {
       "UserFlagged": "bool",
       "ProgramFlagged": "bool"
+    },
+    "PersonalData": {
+      "Age": "int",
+      "BMI": "double",
+      "HospitalName": "varchar(28)",
+      "Injury": {
+        "type": "varchar(28)",
+        "Date": "DateObject"
+      }
     }
   }
 }
