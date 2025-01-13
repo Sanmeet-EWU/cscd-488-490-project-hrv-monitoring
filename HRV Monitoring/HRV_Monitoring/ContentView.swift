@@ -12,8 +12,7 @@ struct ContentView: View {
         VStack {
             TopBarView()
                 .padding(20)
-            Spacer()
-            HomeScreenView()
+            AnalyticsScreenView()
         }
     }
 }

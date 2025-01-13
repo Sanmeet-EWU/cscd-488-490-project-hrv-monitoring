@@ -17,7 +17,7 @@ struct TopBarView: View {
                 Spacer()
             }
             HStack {
-                Text("Home")
+                Text("Analytics")
                     .font(.title)
                     .bold()
             }
