@@ -12,11 +12,11 @@ struct AnalyticsScreenView: View {
         VStack {
             Spacer()
             AnalyticsButtonView()
-                .padding(.bottom, 50)
+            Spacer()
             AnalyticsGraphView()
             Spacer()
             AnalyticsStatsView()
-                .padding([.bottom], 50)
+            Spacer()
         }
     }
 }

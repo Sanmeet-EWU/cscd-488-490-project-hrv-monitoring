@@ -16,7 +16,7 @@ struct AnalyticsButtonView: View {
                     .padding(.vertical, 10)
                     .foregroundColor(.white)
                     .font(.title3)
-                    .background(.hrvPrimary)
+                    .background(.hrvButtonSelected)
                     .cornerRadius(16)
                 Text("Month")
                     .padding(.horizontal, 30)

@@ -10,13 +10,16 @@ import SwiftUI
 struct AnalyticsStatsView: View {
     var body: some View {
         HStack {
+            Spacer()
             AnalyticsStatView(statName: "Min")
-            Spacer()
             AnalyticsStatView(statName: "Max")
-            Spacer()
+                .padding(.leading, 20)
+                .padding(.trailing, 10)
             AnalyticsStatView(statName: "Avg")
-            Spacer()
+                .padding(.trailing, 20)
+                .padding(.leading, 10)
             AnalyticsStatView(statName: "Alerts")
+            Spacer()
         }
         .padding([.trailing, .leading], 50)
     }

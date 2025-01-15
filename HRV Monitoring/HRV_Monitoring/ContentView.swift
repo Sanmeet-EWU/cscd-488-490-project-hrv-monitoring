@@ -9,11 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            TopBarView()
-                .padding(20)
-            AnalyticsScreenView()
+        ZStack {
+            NavigationMenuView()
+                .zIndex(1)
+            VStack {
+                TopBarView()
+                    .padding([.top, .trailing, .leading], 20)
+                AnalyticsScreenView()
+            }
         }
+        
     }
 }
 
