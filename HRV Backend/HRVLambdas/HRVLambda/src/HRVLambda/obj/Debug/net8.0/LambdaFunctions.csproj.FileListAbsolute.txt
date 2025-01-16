@@ -1,0 +1,69 @@
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\bin\Debug\net8.0\LambdaFunctions.deps.json
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\bin\Debug\net8.0\LambdaFunctions.runtimeconfig.json
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\bin\Debug\net8.0\LambdaFunctions.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\bin\Debug\net8.0\LambdaFunctions.pdb
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\bin\Debug\net8.0\Amazon.Lambda.Core.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\bin\Debug\net8.0\Amazon.Lambda.Serialization.SystemTextJson.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\LambdaFunctions.csproj.AssemblyReference.cache
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\LambdaFunctions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\LambdaFunctions.AssemblyInfoInputs.cache
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\LambdaFunctions.AssemblyInfo.cs
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\LambdaFunctions.csproj.CoreCompileInputs.cache
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\LambdaFu.53F2FD47.Up2Date
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\LambdaFunctions.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\refint\LambdaFunctions.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\LambdaFunctions.pdb
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\LambdaFunctions.genruntimeconfig.cache
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\ref\LambdaFunctions.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\bin\Debug\net8.0\LambdaFunctions.deps.json
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\bin\Debug\net8.0\LambdaFunctions.runtimeconfig.json
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\bin\Debug\net8.0\LambdaFunctions.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\bin\Debug\net8.0\LambdaFunctions.pdb
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\bin\Debug\net8.0\Amazon.Lambda.Core.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\bin\Debug\net8.0\Amazon.Lambda.Serialization.SystemTextJson.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.csproj.AssemblyReference.cache
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.AssemblyInfoInputs.cache
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.AssemblyInfo.cs
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.csproj.CoreCompileInputs.cache
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFu.53F2FD47.Up2Date
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\obj\Debug\net8.0\refint\LambdaFunctions.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.pdb
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.genruntimeconfig.cache
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVLambda\src\HRVLambda\obj\Debug\net8.0\ref\LambdaFunctions.dll
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\bin\Debug\net8.0\LambdaFunctions.deps.json
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\bin\Debug\net8.0\LambdaFunctions.runtimeconfig.json
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\bin\Debug\net8.0\LambdaFunctions.dll
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\bin\Debug\net8.0\LambdaFunctions.pdb
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\bin\Debug\net8.0\Amazon.Lambda.Core.dll
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\bin\Debug\net8.0\Amazon.Lambda.Serialization.SystemTextJson.dll
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.csproj.AssemblyReference.cache
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.AssemblyInfoInputs.cache
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.AssemblyInfo.cs
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.csproj.CoreCompileInputs.cache
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFu.53F2FD47.Up2Date
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.dll
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\refint\LambdaFunctions.dll
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.pdb
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.genruntimeconfig.cache
+C:\Users\Brady\source\repos\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\ref\LambdaFunctions.dll
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\bin\Debug\net8.0\LambdaFunctions.deps.json
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\bin\Debug\net8.0\LambdaFunctions.runtimeconfig.json
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\bin\Debug\net8.0\LambdaFunctions.dll
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\bin\Debug\net8.0\LambdaFunctions.pdb
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\bin\Debug\net8.0\Amazon.Lambda.Core.dll
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\bin\Debug\net8.0\Amazon.Lambda.Serialization.SystemTextJson.dll
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.csproj.AssemblyReference.cache
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.AssemblyInfoInputs.cache
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.AssemblyInfo.cs
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.csproj.CoreCompileInputs.cache
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.sourcelink.json
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFu.53F2FD47.Up2Date
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.dll
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\refint\LambdaFunctions.dll
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.pdb
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\LambdaFunctions.genruntimeconfig.cache
+C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\HRVLambda\src\HRVLambda\obj\Debug\net8.0\ref\LambdaFunctions.dll
