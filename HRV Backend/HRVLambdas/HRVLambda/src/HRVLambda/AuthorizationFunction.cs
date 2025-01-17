@@ -21,10 +21,12 @@ namespace HRVAuthorizationLambda
             JsonElement authData = doc.RootElement.GetProperty("RequestData").GetProperty("AuthInfo");
             string? AnonymizedID = authData.GetProperty("AnonymizedID").GetString();
             string? AccessKey = authData.GetProperty("AccessKey").GetString();
-            // Perform the comparison or any logic you want
+
             bool result = false;
-            if (AnonymizedID == "ValidName" && AccessKey == "ValidAccessKey") result = true;
-            // Return the result (true or false)
+            //need to get pair from RDS with SQL query
+            if (AnonymizedID == "ValidName" && AccessKey == "ValidAccessKey") 
+                result = true;
+
             return result;
         }
     }
