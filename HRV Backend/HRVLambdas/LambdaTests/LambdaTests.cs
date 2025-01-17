@@ -9,7 +9,7 @@ namespace AuthorizorTests
     public sealed class LambdaTests
     {
         [TestMethod]
-        public void Authorization_FromJsonString_ReturnsTrue()
+        public void Authorization_ValidJsonValues_ReturnsTrue()
         {
             //arrange
             string jsonString =
@@ -19,6 +19,20 @@ namespace AuthorizorTests
             bool returnVal =f.FunctionHandler(jsonString,null);
             //assert
             Assert.IsTrue(returnVal);
+        }
+
+        [TestMethod]
+        [DataRow("{\"RequestData\": {  \"AuthInfo\": { \"AnonymizedID\": \"InValidName\", \"AccessKey\": \"ValidAccessKey\" }}}")]
+        [DataRow("{\"RequestData\": {  \"AuthInfo\": { \"AnonymizedID\": \"ValidName\", \"AccessKey\": \"InValidAccessKey\" }}}")]
+        [DataRow("{\"RequestData\": {  \"AuthInfo\": { \"AnonymizedID\": \"InValidName\", \"AccessKey\": \"InValidAccessKey\" }}}")]
+        public void Authorization_InvalidJsonValue_ReturnFalse(string JsonString)
+        {
+            //arrange
+            //act
+            AuthorizationFunction f = new();
+            bool returnVal = f.FunctionHandler(JsonString, null);
+            //assert
+            Assert.IsFalse(returnVal);
         }
     }
 }
