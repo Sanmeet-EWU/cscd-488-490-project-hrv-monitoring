@@ -1,0 +1,17 @@
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\HRVAuthorizationLambda.csproj.AssemblyReference.cache
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\HRVAuthorizationLambda.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\HRVAuthorizationLambda.AssemblyInfoInputs.cache
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\HRVAuthorizationLambda.AssemblyInfo.cs
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\HRVAuthorizationLambda.csproj.CoreCompileInputs.cache
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\bin\Debug\net8.0\HRVAuthorizationLambda.deps.json
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\bin\Debug\net8.0\HRVAuthorizationLambda.runtimeconfig.json
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\bin\Debug\net8.0\HRVAuthorizationLambda.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\bin\Debug\net8.0\HRVAuthorizationLambda.pdb
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\bin\Debug\net8.0\Amazon.Lambda.Core.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\bin\Debug\net8.0\Amazon.Lambda.Serialization.SystemTextJson.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\HRVAutho.F46002E3.Up2Date
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\HRVAuthorizationLambda.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\refint\HRVAuthorizationLambda.dll
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\HRVAuthorizationLambda.pdb
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\HRVAuthorizationLambda.genruntimeconfig.cache
+C:\Users\Brady\source\repos\HRVAuthorizationLambda\HRVAuthorizationLambda\src\HRVAuthorizationLambda\obj\Debug\net8.0\ref\HRVAuthorizationLambda.dll

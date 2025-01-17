@@ -1,0 +1,13 @@
+{
+  "RequestData": {
+    "AuthInfo": {
+      "AnonymizedID": "integer",
+      "AccessKey": "varchar(28)"
+    },
+    "Type": "UpdateMedications",
+    "Medications": [
+      "varchar(28)",
+      "as many more varchar(28) as you want."
+    ]
+  }
+}
