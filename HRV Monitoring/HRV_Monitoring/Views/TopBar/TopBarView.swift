@@ -8,16 +8,24 @@
 import SwiftUI
 
 struct TopBarView: View {
+    @State var isOpen: Bool
+    
     var body: some View {
         ZStack {
             HStack {
-                Label("Menu", systemImage: "list.bullet")
+                Button(action: {
+                    isOpen = !isOpen
+                }
+                ) {
+                    Image(systemName: "list.bullet")
+                        .foregroundStyle(.black)
+                }
                     .labelStyle(.iconOnly)
                     .padding(10)
                 Spacer()
             }
             HStack {
-                Text("Analytics")
+                Text("Alerts")
                     .font(.title)
                     .bold()
             }
@@ -26,5 +34,5 @@ struct TopBarView: View {
 }
 
 #Preview {
-    TopBarView()
+    TopBarView(isOpen: false)
 }

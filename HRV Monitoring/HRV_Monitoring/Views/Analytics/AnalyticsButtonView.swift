@@ -18,6 +18,8 @@ struct AnalyticsButtonView: View {
                     .font(.title3)
                     .background(.hrvButtonSelected)
                     .cornerRadius(16)
+            }
+            Button {} label: {
                 Text("Month")
                     .padding(.horizontal, 30)
                     .padding(.vertical, 10)
@@ -25,6 +27,8 @@ struct AnalyticsButtonView: View {
                     .font(.title3)
                     .background(.hrvPrimary)
                     .cornerRadius(16)
+            }
+            Button {} label: {
                 Text("Year")
                     .padding(.horizontal, 30)
                     .padding(.vertical, 10)

@@ -10,10 +10,11 @@ import SwiftUI
 struct NavigationButtonView: View {
     var button_text: String
     var image: String
+    var buttonColor: Color = .clear
     
     var body: some View {
         Rectangle()
-            .frame(height: 50)
+            .frame(height: 60)
             .overlay {
                 HStack {
                     Image(systemName: image)
@@ -27,7 +28,7 @@ struct NavigationButtonView: View {
                 
             }
             .border(width: 2, edges: [.top, .bottom], color: .white)
-            .foregroundStyle(.clear)
+            .foregroundStyle(buttonColor)
     }
 }
 

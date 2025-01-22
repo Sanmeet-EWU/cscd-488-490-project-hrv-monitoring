@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NavigationMenuView: View {
-    var body: some View {
+   var body: some View {
         HStack {
             Rectangle()
                 .fill(LinearGradient(
@@ -24,7 +24,7 @@ struct NavigationMenuView: View {
                             .padding(.top, 10)
                         NavigationButtonView(button_text: "Home", image: "house.fill")
                             .padding(.bottom, -10)
-                        NavigationButtonView(button_text: "Analytics", image: "chart.bar.xaxis")
+                        NavigationButtonView(button_text: "Analytics", image: "chart.bar.xaxis", buttonColor: .hrvTertiary)
                             .padding(.bottom, -10)
                         NavigationButtonView(button_text: "Alerts", image: "exclamationmark.triangle.fill")
                             .padding(.bottom, -10)
