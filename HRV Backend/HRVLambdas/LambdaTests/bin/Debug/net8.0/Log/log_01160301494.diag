@@ -1,0 +1,16 @@
+2025-01-16T03:44:01.5085584+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Version: 1.4.1+4f4ed7d3ce76cfa6e671c7a55f8b9cb6f2cb35c5
+2025-01-16T03:44:01.5586179+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging mode: asynchronous
+2025-01-16T03:44:01.5617684+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging level: Information
+2025-01-16T03:44:01.5617878+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION CreateBuilderAsync entry time: 03:44:01.442
+2025-01-16T03:44:01.5685058+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION PID: 21092
+2025-01-16T03:44:01.5688881+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime information: win-x64 - .NET 8.0.11
+2025-01-16T03:44:01.5689167+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\8.0.11\System.Private.CoreLib.dll
+2025-01-16T03:44:01.5689479+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION IsDynamicCodeSupported: True
+2025-01-16T03:44:01.5689553+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Test module: C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\LambdaTests\bin\Debug\net8.0\LambdaTests.dll
+2025-01-16T03:44:01.5701461+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Command line arguments: '--server --diagnostic --diagnostic-verbosity Information --diagnostic-output-directory C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\LambdaTests\bin\Debug\net8.0\Log --results-directory C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\TestResults --client-port 55328'
+2025-01-16T03:44:01.5759629+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION TESTINGPLATFORM_DEFAULT_HANG_TIMEOUT: ''
+2025-01-16T03:44:01.6353484+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting RegisterEnvironmentVariablesConfigurationSource: 'True'
+2025-01-16T03:44:01.6439448+00:00 Microsoft.Testing.Platform.Configurations.JsonConfigurationSource+JsonConfigurationProvider INFORMATION Config file 'C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\LambdaTests\bin\Debug\net8.0\LambdaTests.testconfig.json' not found.
+2025-01-16T03:44:01.6468360+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting PlatformExitProcessOnUnhandledException: 'False', config file: False environment variable:  VSTest mode: False
+2025-01-16T03:44:02.2968833+00:00 Microsoft.Testing.Platform.Requests.TestHostTestFrameworkInvoker INFORMATION Test framework UID: 'MSTestExtension' Version: '3.6.1' DisplayName: 'MSTest' Description: 'MSTest Framework for Microsoft Testing Platform'
+2025-01-16T03:44:02.6347956+00:00 Microsoft.Testing.Extensions.VSTestBridge.ObjectModel.MessageLoggerAdapter INFORMATION Test Parallelization enabled for C:\Users\Brady\Documents\cscd-488-490-project-hrv-monitoring\HRV Backend\HRVLambdas\LambdaTests\bin\Debug\net8.0\LambdaTests.dll (Workers: 4, Scope: MethodLevel)
