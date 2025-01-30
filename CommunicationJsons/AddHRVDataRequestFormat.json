@@ -1,8 +1,8 @@
 {
   "RequestData": {
     "AuthInfo": {
-      "AnonymizedID": "integer",
-      "AccessKey": "varchar(28)"
+      "AnonymizedID": varchar(37),
+      "AccessKey": varchar(37)
     },
     "Type": "AddData",
     "CreationDate": "Dateobject",
@@ -24,9 +24,9 @@
     "PersonalData": {
       "Age": "int",
       "BMI": "double",
-      "HospitalName": "varchar(28)",
+      "HospitalName": varchar(37),
       "Injury": {
-        "type": "varchar(28)",
+        "type": varchar(37),
         "Date": "DateObject"
       }
     }
