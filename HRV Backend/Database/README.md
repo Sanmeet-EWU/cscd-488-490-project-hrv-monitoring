@@ -146,3 +146,6 @@ select * from TimeSectionDetails;
 select * from Medication;
 select * from GAD7Questionnaire;
 select * from HeartRateData;
+
+
+For the lambda, ensure that you use the auto connect feature, and check out the code in below files to implement.
