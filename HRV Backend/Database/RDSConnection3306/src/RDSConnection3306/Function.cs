@@ -26,7 +26,7 @@ public class Function
                 await connection.OpenAsync();
 
                 // Example query to select data
-                string query = "SELECT * FROM SomeTable";
+                string query = "SELECT * FROM UserData";
 
                 using (var command = new MySqlCommand(query, connection))
                 {
