@@ -10,11 +10,11 @@ public class Function
     public async Task<string> FunctionHandler(string input)
     {
         // Aurora cluster endpoint (Replace with your actual cluster endpoint)
-        string host = ""; // replace with endpoint
-        string databaseName = ""; //replace with DB
-        string username = ""; // Replace with your database username
-        string password = ""; // Replace with your database password
-        string connectionString = $"server={host};port=3306;user={username};password={password};database={databaseName}";
+        string? host = Environment.GetEnvironmentVariable("host"); 
+        string? databaseName = Environment.GetEnvironmentVariable("databaseName");
+        string? username = Environment.GetEnvironmentVariable("username"); // Replace with your database username
+        string? password = Environment.GetEnvironmentVariable("password"); // Replace with your database password
+        string? connectionString = $"server={host};port=3306;user={username};password={password};database={databaseName}";
         var results = new List<List<string>>();
 
         try
