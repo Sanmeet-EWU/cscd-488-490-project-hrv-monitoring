@@ -2,16 +2,14 @@
 //  LiveHeartRateManager.swift
 //  HRVMonitoringWatch Watch App
 //
-//  Created by Tyler Woody on 2/18/25.
+//  Created by Tyler Woody and Austin Harrison on 2/18/25.
 //
 
 import HealthKit
 import WatchConnectivity
 import SwiftUI
 
-#if os(watchOS)
 import HealthKit
-#endif
 
 class LiveHeartRateManager: NSObject, ObservableObject {
     static let shared = LiveHeartRateManager()
@@ -26,8 +24,8 @@ class LiveHeartRateManager: NSObject, ObservableObject {
     @Published var latestHeartRate: Double?
     let hrvCalculator = HRVCalculator()
     
-    /// Starts live heart rate updates by requesting HealthKit authorization,
-    /// building the query predicate, and executing the anchored query.
+    // Starts live heart rate updates by requesting HealthKit authorization,
+    // building the query, and executing the anchored query.
     func startLiveUpdates() {
         healthKitManager.requestAuthorization { [weak self] success, error in
             guard let self = self else { return }
@@ -49,20 +47,19 @@ class LiveHeartRateManager: NSObject, ObservableObject {
         }
     }
     
-    /// Helper method to build a predicate for the heart rate query.
-    /// On watchOS, it filters samples from a specific start date.
+    // Helper method to build a predicate for the heart rate query.
+    // On WatchOS,it filters samples from a specific start date.
     private func buildQueryPredicate() -> NSPredicate? {
-        #if os(watchOS)
         // If you need to use an accurate start date from the workout session,
         // consider exposing that from HealthKitManager. Here, we use Date().
         let startDate = Date()
         return HKQuery.predicateForSamples(withStart: startDate, end: nil, options: .strictStartDate)
-        #else
-        return nil
-        #endif
     }
     
-    /// Helper method to create an anchored query with the provided predicate.
+    // Helper method to create an anchored query with the predicate.
+    // Role of an Anchor - The anchor (an instance of HKQueryAnchor) records the
+    // position in the HealthKit data stream corresponding to the most recent sample
+    // your app has processed.
     private func createAnchoredQuery(with predicate: NSPredicate?) -> HKAnchoredObjectQuery {
         guard let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate) else {
             fatalError("Heart rate type is not available.")
@@ -96,32 +93,44 @@ class LiveHeartRateManager: NSObject, ObservableObject {
         return query
     }
     
-    /// Stops the live heart rate updates.
+    // Stops the live heart rate updates.
     func stopLiveUpdates() {
         if let query = heartRateQuery {
             healthKitManager.healthStore.stop(query)
             heartRateQuery = nil
             print("Stopped live heart rate updates.")
         }
-        #if os(watchOS)
         healthKitManager.stopWorkoutSession()
-        #endif
     }
     
-    /// Processes the received heart rate samples.
+    // Processes the recieved heart rate samples.
     private func processSamples(_ samples: [HKSample]?) {
+        // 1. Type Casting:
         guard let samples = samples as? [HKQuantitySample] else { return }
+        
+        // 2. Iterate over each sample:
         for sample in samples {
+            // 3. Extract Heart Rate Value:
+            //    Convert the quantity to a Double using the "count/min" unit.
             let heartRate = sample.quantity.doubleValue(for: HKUnit(from: "count/min"))
             print("❤️ Live Heart Rate: \(Int(heartRate)) BPM")
+            
+            // 4. Update on the Main Thread:
+            //    Use DispatchQueue.main.async because UI updates and other main-thread work should occur on the main thread.
             DispatchQueue.main.async {
+                // Update the published property that the UI observes.
                 self.latestHeartRate = heartRate
+                
+                // Add this heart rate reading to the HRV calculator.
                 self.hrvCalculator.addBeat(heartRate: heartRate, at: Date())
-                // Evaluate HRV and detect events.
+                
+                // Evaluate HRV using the new beat, which could trigger events if thresholds are crossed.
                 EventDetectionManager.shared.evaluateHRV(using: self.hrvCalculator)
-                // Send the heart rate data to the paired device.
+                
+                // Send the heart rate data to another device (like a paired iPhone) using DataSender.
                 DataSender.shared.sendHeartRateData(heartRate: heartRate)
             }
         }
     }
 }
+
