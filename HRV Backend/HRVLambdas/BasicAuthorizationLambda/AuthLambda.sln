@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35506.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthLambda", "AuthLambda\src\AuthLambda\AuthLambda.csproj", "{3C16D35A-5DDE-44BF-9B1E-B6DA26C535BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthLambdaTests", "AuthLambdaTests\AuthLambdaTests.csproj", "{A77AFC15-1499-4876-935E-F39995ADEE31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C16D35A-5DDE-44BF-9B1E-B6DA26C535BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C16D35A-5DDE-44BF-9B1E-B6DA26C535BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C16D35A-5DDE-44BF-9B1E-B6DA26C535BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C16D35A-5DDE-44BF-9B1E-B6DA26C535BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A77AFC15-1499-4876-935E-F39995ADEE31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A77AFC15-1499-4876-935E-F39995ADEE31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A77AFC15-1499-4876-935E-F39995ADEE31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A77AFC15-1499-4876-935E-F39995ADEE31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
