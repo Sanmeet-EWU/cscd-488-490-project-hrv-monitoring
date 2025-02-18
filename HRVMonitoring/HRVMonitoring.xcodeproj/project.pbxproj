@@ -71,7 +71,27 @@
 		BE956B2D2D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HRVMonitoringWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		285DC0012D65461E00A43E77 /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Core/EventDetectionManager.swift,
+				Core/HRVCalculator.swift,
+				Models/Event.swift,
+			);
+			target = BE956B132D6470A700581E0F /* HRVMonitoringWatch Watch App */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		285DBFF72D6545A700A43E77 /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				285DC0012D65461E00A43E77 /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch App" target */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		BE956AB62D64706900581E0F /* HRVMonitoring */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = HRVMonitoring;
@@ -153,6 +173,7 @@
 		BE956AAB2D64706900581E0F = {
 			isa = PBXGroup;
 			children = (
+				285DBFF72D6545A700A43E77 /* Shared */,
 				BE956AB62D64706900581E0F /* HRVMonitoring */,
 				BE956AC72D64706A00581E0F /* HRVMonitoringTests */,
 				BE956AD12D64706A00581E0F /* HRVMonitoringUITests */,
@@ -194,6 +215,7 @@
 				BE956B362D6470A800581E0F /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				285DBFF72D6545A700A43E77 /* Shared */,
 				BE956AB62D64706900581E0F /* HRVMonitoring */,
 			);
 			name = HRVMonitoring;
