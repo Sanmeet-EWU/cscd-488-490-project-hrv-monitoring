@@ -38,8 +38,8 @@ namespace FrontAndBackMerged
                 if (!authorized) 
                     return "24";
                 
-                //bool executeRequest = ExecuteRequest();
-                //if(!executeRequest) return 24;
+                bool executeRequest = ExecuteRequest();
+                if(!executeRequest) return "25";
                 return "10";
             }
             catch (Exception ex)
@@ -48,6 +48,8 @@ namespace FrontAndBackMerged
                 return "24";
             }
         }
+
+
         private bool OpenConnection()
         {
             string? host = Environment.GetEnvironmentVariable("host");
@@ -173,5 +175,39 @@ namespace FrontAndBackMerged
             }
         }
     }
+    
+        private bool ExecuteRequest()
+        {
 
-}
+            switch (RequestType)
+            {
+                case "UpdateMedications":
+                    UpdateMedications();
+                    break;
+                case "AddData":
+                    AddData();
+                    break;
+                case "UpdateQuestionaire":
+                    UpdateQuestionaire();
+                    break;
+                default:
+                    return false;
+            }
+            return true;
+        }
+
+        private void AddData()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void UpdateMedications()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void UpdateQuestionaire()
+        {
+            throw new NotImplementedException();
+        }
+    }
