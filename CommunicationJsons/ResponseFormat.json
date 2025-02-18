@@ -1,7 +1,7 @@
 {
   "ResponseData": {
     "AuthInfo": {
-      "AnonymizedID": "integer"
+      "AnonymizedID": Varchar(37)
     },
     "ResponseCode": "integer"
   }

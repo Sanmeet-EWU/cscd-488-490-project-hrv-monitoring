@@ -1,7 +1,7 @@
 {
   "ResponseData": {
-    "AnonymizedID": "integer",
-    "AccessKey": "varchar(28)",
+    "AnonymizedID": varchar(37),
+    "AccessKey": varchar(37),
     "ResponseCode": "integer"
   }
 }
