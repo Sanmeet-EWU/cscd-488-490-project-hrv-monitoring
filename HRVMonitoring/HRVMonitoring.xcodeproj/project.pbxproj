@@ -1,0 +1,941 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE956B372D6470A800581E0F /* HRVMonitoringWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BE956B142D6470A700581E0F /* HRVMonitoringWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE956AC52D64706A00581E0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE956AAC2D64706900581E0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE956AB32D64706900581E0F;
+			remoteInfo = HRVMonitoring;
+		};
+		BE956ACF2D64706A00581E0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE956AAC2D64706900581E0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE956AB32D64706900581E0F;
+			remoteInfo = HRVMonitoring;
+		};
+		BE956B242D6470A800581E0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE956AAC2D64706900581E0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE956B132D6470A700581E0F;
+			remoteInfo = "HRVMonitoringWatch Watch App";
+		};
+		BE956B2E2D6470A800581E0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE956AAC2D64706900581E0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE956B132D6470A700581E0F;
+			remoteInfo = "HRVMonitoringWatch Watch App";
+		};
+		BE956B352D6470A800581E0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE956AAC2D64706900581E0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE956B132D6470A700581E0F;
+			remoteInfo = "HRVMonitoringWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BE956B3B2D6470A800581E0F /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				BE956B372D6470A800581E0F /* HRVMonitoringWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BE956AB42D64706900581E0F /* HRVMonitoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRVMonitoring.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE956AC42D64706A00581E0F /* HRVMonitoringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HRVMonitoringTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE956ACE2D64706A00581E0F /* HRVMonitoringUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HRVMonitoringUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE956B142D6470A700581E0F /* HRVMonitoringWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HRVMonitoringWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE956B232D6470A800581E0F /* HRVMonitoringWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HRVMonitoringWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE956B2D2D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HRVMonitoringWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		BE956AB62D64706900581E0F /* HRVMonitoring */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HRVMonitoring;
+			sourceTree = "<group>";
+		};
+		BE956AC72D64706A00581E0F /* HRVMonitoringTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HRVMonitoringTests;
+			sourceTree = "<group>";
+		};
+		BE956AD12D64706A00581E0F /* HRVMonitoringUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HRVMonitoringUITests;
+			sourceTree = "<group>";
+		};
+		BE956B152D6470A700581E0F /* HRVMonitoringWatch Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "HRVMonitoringWatch Watch App";
+			sourceTree = "<group>";
+		};
+		BE956B262D6470A800581E0F /* HRVMonitoringWatch Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "HRVMonitoringWatch Watch AppTests";
+			sourceTree = "<group>";
+		};
+		BE956B302D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "HRVMonitoringWatch Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE956AB12D64706900581E0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956AC12D64706A00581E0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956ACB2D64706A00581E0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956B112D6470A700581E0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956B202D6470A800581E0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956B2A2D6470A800581E0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE956AAB2D64706900581E0F = {
+			isa = PBXGroup;
+			children = (
+				BE956AB62D64706900581E0F /* HRVMonitoring */,
+				BE956AC72D64706A00581E0F /* HRVMonitoringTests */,
+				BE956AD12D64706A00581E0F /* HRVMonitoringUITests */,
+				BE956B152D6470A700581E0F /* HRVMonitoringWatch Watch App */,
+				BE956B262D6470A800581E0F /* HRVMonitoringWatch Watch AppTests */,
+				BE956B302D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests */,
+				BE956AB52D64706900581E0F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE956AB52D64706900581E0F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE956AB42D64706900581E0F /* HRVMonitoring.app */,
+				BE956AC42D64706A00581E0F /* HRVMonitoringTests.xctest */,
+				BE956ACE2D64706A00581E0F /* HRVMonitoringUITests.xctest */,
+				BE956B142D6470A700581E0F /* HRVMonitoringWatch Watch App.app */,
+				BE956B232D6470A800581E0F /* HRVMonitoringWatch Watch AppTests.xctest */,
+				BE956B2D2D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE956AB32D64706900581E0F /* HRVMonitoring */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE956AD82D64706A00581E0F /* Build configuration list for PBXNativeTarget "HRVMonitoring" */;
+			buildPhases = (
+				BE956AB02D64706900581E0F /* Sources */,
+				BE956AB12D64706900581E0F /* Frameworks */,
+				BE956AB22D64706900581E0F /* Resources */,
+				BE956B3B2D6470A800581E0F /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE956B362D6470A800581E0F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BE956AB62D64706900581E0F /* HRVMonitoring */,
+			);
+			name = HRVMonitoring;
+			packageProductDependencies = (
+			);
+			productName = HRVMonitoring;
+			productReference = BE956AB42D64706900581E0F /* HRVMonitoring.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE956AC32D64706A00581E0F /* HRVMonitoringTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE956ADB2D64706A00581E0F /* Build configuration list for PBXNativeTarget "HRVMonitoringTests" */;
+			buildPhases = (
+				BE956AC02D64706A00581E0F /* Sources */,
+				BE956AC12D64706A00581E0F /* Frameworks */,
+				BE956AC22D64706A00581E0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE956AC62D64706A00581E0F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BE956AC72D64706A00581E0F /* HRVMonitoringTests */,
+			);
+			name = HRVMonitoringTests;
+			packageProductDependencies = (
+			);
+			productName = HRVMonitoringTests;
+			productReference = BE956AC42D64706A00581E0F /* HRVMonitoringTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE956ACD2D64706A00581E0F /* HRVMonitoringUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE956ADE2D64706A00581E0F /* Build configuration list for PBXNativeTarget "HRVMonitoringUITests" */;
+			buildPhases = (
+				BE956ACA2D64706A00581E0F /* Sources */,
+				BE956ACB2D64706A00581E0F /* Frameworks */,
+				BE956ACC2D64706A00581E0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE956AD02D64706A00581E0F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BE956AD12D64706A00581E0F /* HRVMonitoringUITests */,
+			);
+			name = HRVMonitoringUITests;
+			packageProductDependencies = (
+			);
+			productName = HRVMonitoringUITests;
+			productReference = BE956ACE2D64706A00581E0F /* HRVMonitoringUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		BE956B132D6470A700581E0F /* HRVMonitoringWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE956B382D6470A800581E0F /* Build configuration list for PBXNativeTarget "HRVMonitoringWatch Watch App" */;
+			buildPhases = (
+				BE956B102D6470A700581E0F /* Sources */,
+				BE956B112D6470A700581E0F /* Frameworks */,
+				BE956B122D6470A700581E0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				BE956B152D6470A700581E0F /* HRVMonitoringWatch Watch App */,
+			);
+			name = "HRVMonitoringWatch Watch App";
+			packageProductDependencies = (
+			);
+			productName = "HRVMonitoringWatch Watch App";
+			productReference = BE956B142D6470A700581E0F /* HRVMonitoringWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE956B222D6470A800581E0F /* HRVMonitoringWatch Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE956B3C2D6470A800581E0F /* Build configuration list for PBXNativeTarget "HRVMonitoringWatch Watch AppTests" */;
+			buildPhases = (
+				BE956B1F2D6470A800581E0F /* Sources */,
+				BE956B202D6470A800581E0F /* Frameworks */,
+				BE956B212D6470A800581E0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE956B252D6470A800581E0F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BE956B262D6470A800581E0F /* HRVMonitoringWatch Watch AppTests */,
+			);
+			name = "HRVMonitoringWatch Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "HRVMonitoringWatch Watch AppTests";
+			productReference = BE956B232D6470A800581E0F /* HRVMonitoringWatch Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE956B2C2D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE956B3F2D6470A800581E0F /* Build configuration list for PBXNativeTarget "HRVMonitoringWatch Watch AppUITests" */;
+			buildPhases = (
+				BE956B292D6470A800581E0F /* Sources */,
+				BE956B2A2D6470A800581E0F /* Frameworks */,
+				BE956B2B2D6470A800581E0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE956B2F2D6470A800581E0F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				BE956B302D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests */,
+			);
+			name = "HRVMonitoringWatch Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "HRVMonitoringWatch Watch AppUITests";
+			productReference = BE956B2D2D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE956AAC2D64706900581E0F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1610;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					BE956AB32D64706900581E0F = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					BE956AC32D64706A00581E0F = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = BE956AB32D64706900581E0F;
+					};
+					BE956ACD2D64706A00581E0F = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = BE956AB32D64706900581E0F;
+					};
+					BE956B132D6470A700581E0F = {
+						CreatedOnToolsVersion = 16.1;
+					};
+					BE956B222D6470A800581E0F = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = BE956B132D6470A700581E0F;
+					};
+					BE956B2C2D6470A800581E0F = {
+						CreatedOnToolsVersion = 16.1;
+						TestTargetID = BE956B132D6470A700581E0F;
+					};
+				};
+			};
+			buildConfigurationList = BE956AAF2D64706900581E0F /* Build configuration list for PBXProject "HRVMonitoring" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE956AAB2D64706900581E0F;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = BE956AB52D64706900581E0F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE956AB32D64706900581E0F /* HRVMonitoring */,
+				BE956AC32D64706A00581E0F /* HRVMonitoringTests */,
+				BE956ACD2D64706A00581E0F /* HRVMonitoringUITests */,
+				BE956B132D6470A700581E0F /* HRVMonitoringWatch Watch App */,
+				BE956B222D6470A800581E0F /* HRVMonitoringWatch Watch AppTests */,
+				BE956B2C2D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE956AB22D64706900581E0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956AC22D64706A00581E0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956ACC2D64706A00581E0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956B122D6470A700581E0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956B212D6470A800581E0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956B2B2D6470A800581E0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE956AB02D64706900581E0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956AC02D64706A00581E0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956ACA2D64706A00581E0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956B102D6470A700581E0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956B1F2D6470A800581E0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE956B292D6470A800581E0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE956AC62D64706A00581E0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE956AB32D64706900581E0F /* HRVMonitoring */;
+			targetProxy = BE956AC52D64706A00581E0F /* PBXContainerItemProxy */;
+		};
+		BE956AD02D64706A00581E0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE956AB32D64706900581E0F /* HRVMonitoring */;
+			targetProxy = BE956ACF2D64706A00581E0F /* PBXContainerItemProxy */;
+		};
+		BE956B252D6470A800581E0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE956B132D6470A700581E0F /* HRVMonitoringWatch Watch App */;
+			targetProxy = BE956B242D6470A800581E0F /* PBXContainerItemProxy */;
+		};
+		BE956B2F2D6470A800581E0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE956B132D6470A700581E0F /* HRVMonitoringWatch Watch App */;
+			targetProxy = BE956B2E2D6470A800581E0F /* PBXContainerItemProxy */;
+		};
+		BE956B362D6470A800581E0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE956B132D6470A700581E0F /* HRVMonitoringWatch Watch App */;
+			targetProxy = BE956B352D6470A800581E0F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BE956AD62D64706A00581E0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE956AD72D64706A00581E0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE956AD92D64706A00581E0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HRVMonitoring/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ewu.HRVMonitoring;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE956ADA2D64706A00581E0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HRVMonitoring/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ewu.HRVMonitoring;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BE956ADC2D64706A00581E0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ewu.HRVMonitoringTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRVMonitoring.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HRVMonitoring";
+			};
+			name = Debug;
+		};
+		BE956ADD2D64706A00581E0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ewu.HRVMonitoringTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRVMonitoring.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HRVMonitoring";
+			};
+			name = Release;
+		};
+		BE956ADF2D64706A00581E0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ewu.HRVMonitoringUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HRVMonitoring;
+			};
+			name = Debug;
+		};
+		BE956AE02D64706A00581E0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ewu.HRVMonitoringUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HRVMonitoring;
+			};
+			name = Release;
+		};
+		BE956B392D6470A800581E0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HRVMonitoringWatch Watch App/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HRVMonitoringWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = ewu.HRVMonitoring;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ewu.HRVMonitoring.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.1;
+			};
+			name = Debug;
+		};
+		BE956B3A2D6470A800581E0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HRVMonitoringWatch Watch App/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = HRVMonitoringWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = ewu.HRVMonitoring;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ewu.HRVMonitoring.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.1;
+			};
+			name = Release;
+		};
+		BE956B3D2D6470A800581E0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ewu.HRVMonitoringWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRVMonitoringWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HRVMonitoringWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.1;
+			};
+			name = Debug;
+		};
+		BE956B3E2D6470A800581E0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ewu.HRVMonitoringWatch-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HRVMonitoringWatch Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HRVMonitoringWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.1;
+			};
+			name = Release;
+		};
+		BE956B402D6470A800581E0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ewu.HRVMonitoringWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "HRVMonitoringWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.1;
+			};
+			name = Debug;
+		};
+		BE956B412D6470A800581E0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ewu.HRVMonitoringWatch-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "HRVMonitoringWatch Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE956AAF2D64706900581E0F /* Build configuration list for PBXProject "HRVMonitoring" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE956AD62D64706A00581E0F /* Debug */,
+				BE956AD72D64706A00581E0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE956AD82D64706A00581E0F /* Build configuration list for PBXNativeTarget "HRVMonitoring" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE956AD92D64706A00581E0F /* Debug */,
+				BE956ADA2D64706A00581E0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE956ADB2D64706A00581E0F /* Build configuration list for PBXNativeTarget "HRVMonitoringTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE956ADC2D64706A00581E0F /* Debug */,
+				BE956ADD2D64706A00581E0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE956ADE2D64706A00581E0F /* Build configuration list for PBXNativeTarget "HRVMonitoringUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE956ADF2D64706A00581E0F /* Debug */,
+				BE956AE02D64706A00581E0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE956B382D6470A800581E0F /* Build configuration list for PBXNativeTarget "HRVMonitoringWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE956B392D6470A800581E0F /* Debug */,
+				BE956B3A2D6470A800581E0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE956B3C2D6470A800581E0F /* Build configuration list for PBXNativeTarget "HRVMonitoringWatch Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE956B3D2D6470A800581E0F /* Debug */,
+				BE956B3E2D6470A800581E0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE956B3F2D6470A800581E0F /* Build configuration list for PBXNativeTarget "HRVMonitoringWatch Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE956B402D6470A800581E0F /* Debug */,
+				BE956B412D6470A800581E0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE956AAC2D64706900581E0F /* Project object */;
+}
