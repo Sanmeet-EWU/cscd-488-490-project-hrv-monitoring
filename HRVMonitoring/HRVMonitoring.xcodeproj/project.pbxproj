@@ -81,6 +81,13 @@
 			);
 			target = BE956B132D6470A700581E0F /* HRVMonitoringWatch Watch App */;
 		};
+		285DC0292D654AE500A43E77 /* Exceptions for "HRVMonitoringWatch Watch App" folder in "HRVMonitoring" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Connectivity/DataSender.swift,
+			);
+			target = BE956AB32D64706900581E0F /* HRVMonitoring */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -109,6 +116,9 @@
 		};
 		BE956B152D6470A700581E0F /* HRVMonitoringWatch Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				285DC0292D654AE500A43E77 /* Exceptions for "HRVMonitoringWatch Watch App" folder in "HRVMonitoring" target */,
+			);
 			path = "HRVMonitoringWatch Watch App";
 			sourceTree = "<group>";
 		};
