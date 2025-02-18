@@ -12,9 +12,9 @@ namespace FrontAndBackMerged
 {
     public class Function
     {
-        private static MySqlConnection? Connection;
-        private static APIGatewayHttpApiV2ProxyRequest? Request;
-        private static string? RequestType;
+        private MySqlConnection? Connection { get; set; }
+        private APIGatewayHttpApiV2ProxyRequest? Request { get; set; }
+        private string? RequestType{ get; set; }
 
         public string FunctionHandler(APIGatewayHttpApiV2ProxyRequest request, ILambdaContext context)
         {
