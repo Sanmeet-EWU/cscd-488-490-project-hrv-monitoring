@@ -71,7 +71,34 @@
 		BE956B2D2D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HRVMonitoringWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		285DC0012D65461E00A43E77 /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Core/EventDetectionManager.swift,
+				Core/HRVCalculator.swift,
+				Models/Event.swift,
+			);
+			target = BE956B132D6470A700581E0F /* HRVMonitoringWatch Watch App */;
+		};
+		285DC0292D654AE500A43E77 /* Exceptions for "HRVMonitoringWatch Watch App" folder in "HRVMonitoring" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Connectivity/DataSender.swift,
+			);
+			target = BE956AB32D64706900581E0F /* HRVMonitoring */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		285DBFF72D6545A700A43E77 /* Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				285DC0012D65461E00A43E77 /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch App" target */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		BE956AB62D64706900581E0F /* HRVMonitoring */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = HRVMonitoring;
@@ -89,6 +116,9 @@
 		};
 		BE956B152D6470A700581E0F /* HRVMonitoringWatch Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				285DC0292D654AE500A43E77 /* Exceptions for "HRVMonitoringWatch Watch App" folder in "HRVMonitoring" target */,
+			);
 			path = "HRVMonitoringWatch Watch App";
 			sourceTree = "<group>";
 		};
@@ -153,6 +183,7 @@
 		BE956AAB2D64706900581E0F = {
 			isa = PBXGroup;
 			children = (
+				285DBFF72D6545A700A43E77 /* Shared */,
 				BE956AB62D64706900581E0F /* HRVMonitoring */,
 				BE956AC72D64706A00581E0F /* HRVMonitoringTests */,
 				BE956AD12D64706A00581E0F /* HRVMonitoringUITests */,
@@ -194,6 +225,7 @@
 				BE956B362D6470A800581E0F /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				285DBFF72D6545A700A43E77 /* Shared */,
 				BE956AB62D64706900581E0F /* HRVMonitoring */,
 			);
 			name = HRVMonitoring;
@@ -618,6 +650,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HRVMonitoring/HRVMonitoring.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HRVMonitoring/Preview Content\"";
@@ -646,6 +679,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HRVMonitoring/HRVMonitoring.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HRVMonitoring/Preview Content\"";
@@ -742,12 +776,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "HRVMonitoringWatch Watch App/HRVMonitoringWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HRVMonitoringWatch Watch App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = HRVMonitoringWatch;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs access to health data to display heart rate information. ";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = ewu.HRVMonitoring;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -771,12 +807,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "HRVMonitoringWatch Watch App/HRVMonitoringWatch Watch App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HRVMonitoringWatch Watch App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = HRVMonitoringWatch;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs access to health data to display heart rate information. ";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = ewu.HRVMonitoring;
 				LD_RUNPATH_SEARCH_PATHS = (

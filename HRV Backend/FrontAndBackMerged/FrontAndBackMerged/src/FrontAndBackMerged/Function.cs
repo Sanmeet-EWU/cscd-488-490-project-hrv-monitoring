@@ -12,29 +12,50 @@ namespace FrontAndBackMerged
 {
     public class Function
     {
-        private static MySqlConnection? Connection;
-        private static APIGatewayHttpApiV2ProxyRequest? Request;
+        private MySqlConnection? Connection { get; set; }
+        private APIGatewayHttpApiV2ProxyRequest? Request { get; set; }
+        private string? RequestType{ get; set; }
 
-        public int FunctionHandler(APIGatewayHttpApiV2ProxyRequest request, ILambdaContext context)
+        public string FunctionHandler(APIGatewayHttpApiV2ProxyRequest request, ILambdaContext context)
         {
-            if (request is null)
-                return 20;
-            Request = request;
-            bool opened = OpenConnection();
-            if (!opened) return 21;
-            bool authorized = AuthorizeCredentials();
-            if (!authorized) return 22;
-            //bool executeRequest = ExecuteRequest();
-            //if(!executeRequest) return 23;
-            return 10;
+            try
+            {
+                if (request is null)
+                    return "20";
+                Request = request;
+                
+                bool opened = OpenConnection();
+                if (!opened) 
+                    return "21";
 
+                if (!GetRequestType())
+                    return "22";
+                //If we are creating a user, no authorization needs to be done
+                if (RequestType == "CreateUser") 
+                    return CreateUser();
+                
+                bool authorized = AuthorizeCredentials();
+                if (!authorized) 
+                    return "24";
+                
+                bool executeRequest = ExecuteRequest();
+                if(!executeRequest) return "25";
+                return "10";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected Error: " + Environment.NewLine + ex.Message);
+                return "24";
+            }
         }
+
+
         private bool OpenConnection()
         {
             string? host = Environment.GetEnvironmentVariable("host");
             string? databaseName = Environment.GetEnvironmentVariable("databaseName");
-            string? username = Environment.GetEnvironmentVariable("username"); // Replace with your database username
-            string? password = Environment.GetEnvironmentVariable("password"); // Replace with your database password
+            string? username = Environment.GetEnvironmentVariable("username");
+            string? password = Environment.GetEnvironmentVariable("password");
             string? connectionString = $"server={host};port=3306;user={username};password={password};database={databaseName}";
 
             Connection = new MySqlConnection(connectionString);
@@ -42,20 +63,18 @@ namespace FrontAndBackMerged
             {
                 Connection.Open();
             }
-            catch 
+            catch
             {
                 return false;
             }
             return true;
-
-
         }
 
         private bool AuthorizeCredentials()
         {
-            (string username, string password) usernameAndPassword = PullAuthInfoFromRequest();
-            string username = usernameAndPassword.username;
-            string password = usernameAndPassword.password;
+            (string? username, string? password) usernameAndPassword = PullAuthInfoFromRequest();
+            string? username = usernameAndPassword.username;
+            string? password = usernameAndPassword.password;
             if (usernameAndPassword.username is null || usernameAndPassword.password is null)
                 return false;
 
@@ -90,7 +109,7 @@ namespace FrontAndBackMerged
         {
             try
             {
-                JsonDocument doc = JsonDocument.Parse(Request?.Body);
+                JsonDocument doc = JsonDocument.Parse(Request!.Body);
                 var body = doc.RootElement.GetProperty("body").ToString();
                 var bodyDoc = JsonDocument.Parse(body);
 
@@ -106,11 +125,89 @@ namespace FrontAndBackMerged
 
                 return (AnonymizedID, AccessKey);
             }
-            catch 
+            catch
             {
                 return (null, null);
             }
         }
 
+        private static bool GetRequestType()
+        {
+            try
+            {
+                JsonDocument doc = JsonDocument.Parse(Request!.Body);
+                var body = doc.RootElement.GetProperty("body").ToString();
+                var bodyDoc = JsonDocument.Parse(body);
+                var requestDataString = bodyDoc.RootElement.GetProperty("RequestData").ToString();
+                var requestDataDoc = JsonDocument.Parse(requestDataString);
+                RequestType = requestDataDoc.RootElement.GetProperty("Type").ToString();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        //Returns a comma seperated pair as a string
+        private static string CreateUser()
+        {
+
+            string AnonymizedID = Guid.NewGuid().ToString();
+            string AccessKey = Guid.NewGuid().ToString();
+
+            string query = "INSERT INTO UserData (AccessKey, AnonymizedID) VALUES (@AccessKey, @AnonymizedID)";
+            try
+            {
+                using (MySqlCommand command = new MySqlCommand(query, Connection))
+                {
+                    // Add parameters (Helps with SQL injection)
+                    command.Parameters.AddWithValue("@AnonymizedID", AnonymizedID);
+                    command.Parameters.AddWithValue("@AccessKey", AccessKey);
+                    int result = command.ExecuteNonQuery();
+                    if (result == 0) throw new InvalidOperationException("Did not write to database.");
+                    return $"{AnonymizedID},{AccessKey}";
+                }
+            }
+            catch (Exception ex) {
+                Console.WriteLine("Error when creating new user: "+ex);
+                return "23";
+            }
+        }
     }
-}
+    
+        private bool ExecuteRequest()
+        {
+
+            switch (RequestType)
+            {
+                case "UpdateMedications":
+                    UpdateMedications();
+                    break;
+                case "AddData":
+                    AddData();
+                    break;
+                case "UpdateQuestionaire":
+                    UpdateQuestionaire();
+                    break;
+                default:
+                    return false;
+            }
+            return true;
+        }
+
+        private void AddData()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void UpdateMedications()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void UpdateQuestionaire()
+        {
+            throw new NotImplementedException();
+        }
+    }
