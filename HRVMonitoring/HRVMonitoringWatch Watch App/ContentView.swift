@@ -39,12 +39,6 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            
-=======
-=======
->>>>>>> fed4f02cedc46b8f3de8a6849935903d7fb147ca
             Text("Heart Rate")
                 .font(.headline)
                 .padding()
@@ -94,10 +88,6 @@ struct ContentView: View {
                 LiveHeartRateManager.shared.startLiveUpdates()
                 self.isWorkoutRunning = true
             }
-<<<<<<< HEAD
->>>>>>> fed4f02cedc46b8f3de8a6849935903d7fb147ca
-=======
->>>>>>> fed4f02cedc46b8f3de8a6849935903d7fb147ca
         }
     }
 }
