@@ -7,14 +7,22 @@
 
 import SwiftUI
 
+<<<<<<< HEAD
 struct BeatStruct {
+=======
+struct Beat {
+>>>>>>> 214889f61b37531d2195fb908101812a56a71858
     var delta: Double
 }
 
 struct PulseRateView: View {
     @State var pulseStep: Double = 0
     @State var bpmStep: Double = 0
+<<<<<<< HEAD
     @State var beats: [BeatStruct] = []
+=======
+    @State var beats: [Beat] = []
+>>>>>>> 214889f61b37531d2195fb908101812a56a71858
     let beatYRadius: Double = 0.5
     let beatXRadius: Double = 0.05
     let baseHeight: Double = 0.5
@@ -59,7 +67,11 @@ struct PulseRateView: View {
                 let beatStep: Double = (1.0 / Double(bpm)) * cycleTimeSeconds
                 pulseStep += step
                 if pulseStep > bpmStep + beatStep {
+<<<<<<< HEAD
                     beats.append(BeatStruct(delta: bpmStep))
+=======
+                    beats.append(Beat(delta: bpmStep))
+>>>>>>> 214889f61b37531d2195fb908101812a56a71858
                     bpmStep = pulseStep
                 }
             }

@@ -39,6 +39,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+<<<<<<< HEAD
             Text("Heart Rate")
                 .font(.headline)
                 .padding()
@@ -88,6 +89,9 @@ struct ContentView: View {
                 LiveHeartRateManager.shared.startLiveUpdates()
                 self.isWorkoutRunning = true
             }
+=======
+            
+>>>>>>> 214889f61b37531d2195fb908101812a56a71858
         }
     }
 }
