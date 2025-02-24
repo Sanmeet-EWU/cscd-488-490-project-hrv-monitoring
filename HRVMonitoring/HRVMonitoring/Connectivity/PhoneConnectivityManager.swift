@@ -47,11 +47,15 @@ class PhoneConnectivityManager: NSObject, WCSessionDelegate, ObservableObject {
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         DispatchQueue.main.async {
             print("iOS received message: \(message)")
+            
+            // Handle heart rate data from Watch
             if let heartRate = message["HeartRate"] as? Double {
                 self.latestHeartRate = heartRate
                 self.hrvCalculator.addBeat(heartRate: heartRate, at: Date())
                 print("Received heart rate from Watch: \(heartRate) BPM")
             }
+            
+            // Handle event ended message from Watch
             if let eventAction = message["Event"] as? String, eventAction == "EventEnded" {
                 let isoFormatter = ISO8601DateFormatter()
                 isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
@@ -70,6 +74,17 @@ class PhoneConnectivityManager: NSObject, WCSessionDelegate, ObservableObject {
                     }
                 } else {
                     print("Failed to parse event data from message: \(message)")
+                }
+            }
+            
+            // Handle event handled message from Watch (Confirm/Dismiss)
+            if let eventAction = message["Event"] as? String, eventAction == "EventHandled" {
+                if let eventIDString = message["EventID"] as? String,
+                   let eventID = UUID(uuidString: eventIDString) {
+                    EventDetectionManager.shared.handleEventHandled(eventID: eventID)
+                    print("iOS side: Event \(eventID) was handled on Watch")
+                } else {
+                    print("Failed to parse eventID from EventHandled message: \(message)")
                 }
             }
         }
