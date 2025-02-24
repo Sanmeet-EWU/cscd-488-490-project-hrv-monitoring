@@ -8,18 +8,14 @@
 import SwiftUI
 
 struct AlertHolderView: View {
+    let events: [Event]
+
     var body: some View {
         ScrollView {
-            AlertView()
-            AlertView()
-            AlertView()
-            AlertView()
-            AlertView()
-            AlertView()
+            ForEach(events) { event in
+                AlertView(event: event)
+                    .padding(.bottom, 8)
+            }
         }
     }
-}
-
-#Preview {
-    AlertHolderView()
 }

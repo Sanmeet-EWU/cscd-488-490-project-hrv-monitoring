@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AlertView: View {
+    let event: Event  // Each AlertView corresponds to a single event
+    
     var body: some View {
         RoundedRectangle(cornerRadius: 20)
             .stroke(.hrvTertiary, lineWidth: 3)
@@ -15,36 +17,57 @@ struct AlertView: View {
             .cornerRadius(20)
             .padding([.leading, .trailing], 20)
             .frame(height: 150)
-            .overlay{
+            .overlay {
                 VStack {
                     HStack {
                         Image(systemName: "exclamationmark.triangle")
                             .foregroundColor(.hrvAlertText)
                             .font(.title3)
                             .padding(.leading, 45)
+                        
                         Text("Medical Event Detected")
                             .font(.title3)
-                            .fontWeight(Font.Weight.heavy)
+                            .fontWeight(.heavy)
                             .foregroundColor(.hrvAlertText)
-                        Spacer()
-                        Image(systemName: "x.circle")
-                            .foregroundColor(.hrvAlertText)
-                            .font(.title3)
-                            .padding(.trailing, 35)
                         
+                        Spacer()
+                        
+                        // "X" button -> Dismiss
+                        Button(action: {
+                            // 1) Send 'isConfirmed: false' to phone/watch
+                            DataSender.shared.sendUserResponse(event: event, isConfirmed: false)
+                            // 2) Remove from active events
+                            EventDetectionManager.shared.handleEventHandled(eventID: event.id)
+                        }) {
+                            Image(systemName: "x.circle")
+                                .foregroundColor(.hrvAlertText)
+                                .font(.title3)
+                                .padding(.trailing, 35)
+                        }
                     }
-                        .padding(.top, 20)
+                    .padding(.top, 20)
+                    
                     HStack {
-                        Text("Ongoing - 163 BPM")
+                        // You can display any relevant data about this event
+                        // e.g., start time or a known BPM at detection.
+                        Text("Start: \(event.startTime.formatted())")
                             .padding(.leading, 75)
                             .font(.body)
-                            .fontWeight(Font.Weight.medium)
+                            .fontWeight(.medium)
                             .foregroundStyle(.hrvAlertText)
                         Spacer()
                     }
+                    
                     Spacer()
+                    
                     HStack {
-                        Button {} label: {
+                        // "Help" button -> Confirm
+                        Button(action: {
+                            // 1) Send 'isConfirmed: true' to phone/watch
+                            DataSender.shared.sendUserResponse(event: event, isConfirmed: true)
+                            // 2) Remove from active events
+                            EventDetectionManager.shared.handleEventHandled(eventID: event.id)
+                        }) {
                             Text("Help")
                                 .padding(.horizontal, 30)
                                 .padding(.vertical, 10)
@@ -53,7 +76,8 @@ struct AlertView: View {
                                 .background(.hrvPrimary)
                                 .cornerRadius(16)
                         }
-                            .padding(.leading, 75)
+                        .padding(.leading, 75)
+                        
                         Spacer()
                     }
                     
@@ -61,8 +85,4 @@ struct AlertView: View {
                 }
             }
     }
-}
-
-#Preview {
-    AlertView()
 }
