@@ -66,7 +66,7 @@ struct HomeHeartView: View {
                             do {
                                 try await Task.sleep(for: .seconds(1.0 / Double(fps)))
                                 heartStep += Float(bpm) / (60.0 * Float(fps))
-                                var remainder = heartStep.truncatingRemainder(dividingBy: 1.0)
+                                let remainder = heartStep.truncatingRemainder(dividingBy: 1.0)
                                 if remainder < 0.5 {
                                     heartSize = heartRateEasing(i: maxSize - (maxSize - minSize) * remainder * 2)
                                 }

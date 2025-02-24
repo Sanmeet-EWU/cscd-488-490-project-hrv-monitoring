@@ -13,13 +13,17 @@ func heartRateEasing(i: Float) -> CGFloat {
 }
 
 struct HomepageHeartView: View {
-    @State var bpm: Int = 70
+    @ObservedObject var connectivityManager = PhoneConnectivityManager.shared
     @State var heartStep: Float = 0
     @State var heartSize: CGFloat = 0.9
     
     let maxSize: Float = 0.9
     let minSize: Float = 0.7
     let fps: Int = 60
+    
+    var currentBpm: Float {
+        return Float(connectivityManager.latestHeartRate ?? 0)
+    }
     
     var body: some View {
         Image("heart")
@@ -52,20 +56,17 @@ struct HomepageHeartView: View {
                             .opacity(0.7)
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .task(id: heartStep) {
-                        do {
-                            try await Task.sleep(for: .seconds(1.0 / Double(fps)))
-                            heartStep += Float(bpm) / (60.0 * Float(fps))
-                            var remainder = heartStep.truncatingRemainder(dividingBy: 1.0)
+                    .task {
+                        while !Task.isCancelled {
+                            try? await Task.sleep(for: .seconds(1.0 / Double(fps)))
+                            heartStep += currentBpm / (60.0 * Float(fps))
+                            let remainder = heartStep.truncatingRemainder(dividingBy: 1.0)
                             if remainder < 0.5 {
                                 heartSize = heartRateEasing(i: maxSize - (maxSize - minSize) * remainder * 2)
                             }
                             else {
                                 heartSize = heartRateEasing(i: minSize + (maxSize - minSize) * (remainder * 2 - 1.0))
                             }
-                        }
-                        catch {
-                            heartStep = 0
                         }
                     }
                 }

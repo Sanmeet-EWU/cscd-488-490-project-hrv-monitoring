@@ -12,15 +12,21 @@ struct Beatmeoff {
 }
 
 struct PulseRateView: View {
+    @ObservedObject var connectivityManager = PhoneConnectivityManager.shared
     @State var pulseStep: Double = 0
     @State var bpmStep: Double = 0
     @State var beats: [Beatmeoff] = []
+    
     let beatYRadius: Double = 0.5
     let beatXRadius: Double = 0.05
     let baseHeight: Double = 0.5
     let bpm: Int = 83
     let fps: Int = 60
     let cycleTimeSeconds: Double = 0.5
+    
+    var currentBpm: Double {
+        connectivityManager.latestHeartRate ?? 0
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -52,19 +58,16 @@ struct PulseRateView: View {
         }
         .clipShape(Rectangle())
         .padding([.leading, .trailing], 50)
-        .task(id: pulseStep) {
-            do {
-                try await Task.sleep(for: .seconds(1.0 / Double(fps)))
+        .task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(1.0 / Double(fps)))
                 let step: Double = (1.0 / Double(fps)) / cycleTimeSeconds
-                let beatStep: Double = (1.0 / Double(bpm)) * cycleTimeSeconds
+                let beatStep: Double = (1.0 / currentBpm) * cycleTimeSeconds
                 pulseStep += step
                 if pulseStep > bpmStep + beatStep {
                     beats.append(Beatmeoff(delta: bpmStep))
                     bpmStep = pulseStep
                 }
-            }
-            catch {
-                pulseStep = 0
             }
         }
     }
