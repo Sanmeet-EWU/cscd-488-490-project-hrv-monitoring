@@ -9,12 +9,19 @@ import SwiftUI
 
 @main
 struct HRVMonitoringApp: App {
-    @StateObject private var connectivityManager = PhoneConnectivityManager.shared
+    @State private var hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "HasCompletedOnboarding")
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(connectivityManager)
+            if hasCompletedOnboarding {
+                ContentView()
+            } else {
+                OnboardingView()
+                    .onDisappear {
+                        // Re-check if user completed onboarding
+                        hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "HasCompletedOnboarding")
+                    }
+            }
         }
     }
 }
