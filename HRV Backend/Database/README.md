@@ -79,10 +79,6 @@ ALTER TABLE `TimeSectionDetails` ADD FOREIGN KEY (`AnonymizedID`) REFERENCES `Us
 
 ALTER TABLE `HeartRateData` ADD FOREIGN KEY (`HeartRateDataID`) REFERENCES `TimeSectionDetails` (`HeartRateDataID`);
 
-ALTER TABLE `Medication` ADD FOREIGN KEY (`MedicationsID`) REFERENCES `TimeSectionDetails` (`MedicationsID`);
-
-ALTER TABLE `Medication` ADD FOREIGN KEY (`MedicationsID`) REFERENCES `UserData` (`CurrentMedicationsID`);
-
 ALTER TABLE `GAD7Questionnaire` ADD FOREIGN KEY (`QuestionnaireID`) REFERENCES `TimeSectionDetails` (`QuestionnaireID`);
 
 ALTER TABLE `GAD7Questionnaire` ADD FOREIGN KEY (`QuestionnaireID`) REFERENCES `UserData` (`QuestionnaireID`);
