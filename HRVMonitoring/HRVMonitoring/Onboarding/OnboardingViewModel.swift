@@ -18,9 +18,24 @@ class OnboardingViewModel: ObservableObject {
     @Published var selectedHeightUnit: HeightUnit = .inches
     @Published var selectedWeightUnit: WeightUnit = .pounds
 
-    // For showing a local confirmation alert in the view
     @Published var showConfirmation: Bool = false
 
+    /// A computed property that ensures the user has entered non-empty, valid values.
+    var isFormValid: Bool {
+        let trimmedHeight = heightText.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedWeight = weightText.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedHospital = hospitalName.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard !trimmedHeight.isEmpty,
+              !trimmedWeight.isEmpty,
+              !trimmedHospital.isEmpty,
+              Double(trimmedHeight) != nil,
+              Double(trimmedWeight) != nil else {
+            return false
+        }
+        return true
+    }
+    
     /// Called when user taps "Complete Onboarding"
     func completeOnboarding() {
         // 1) Generate or retrieve user ID
@@ -37,29 +52,25 @@ class OnboardingViewModel: ObservableObject {
         // 4) Calculate BMI
         let bmi = (heightMeters > 0) ? (weightKg / (heightMeters * heightMeters)) : 0
 
-        // 5) Build user profile
+        // 5) Build user profile data
         let userData = UserProfile(
             anonymizedID: userID,
-            height: heightVal,
-            weight: weightVal,
             bmi: bmi,
-            hospitalName: hospitalName,
-            heightUnit: selectedHeightUnit.rawValue,
-            weightUnit: selectedWeightUnit.rawValue
+            hospitalName: hospitalName
         )
 
         // 6) Mark onboarding as completed
         UserDefaults.standard.set(true, forKey: "HasCompletedOnboarding")
 
-        // 7) (Optional) Send data to your backend
-        // CloudManager.shared.addOrUpdateUser(userData: userData) { result in
-        //     switch result {
-        //     case .success:
-        //         print("User data uploaded successfully")
-        //     case .failure(let error):
-        //         print("Failed to upload user data:", error)
-        //     }
-        // }
+        // 7) Send user data to your backend
+//        CloudManager.shared.addOrUpdateUser(userData: userData) { result in
+//            switch result {
+//            case .success:
+//                print("User data uploaded successfully")
+//            case .failure(let error):
+//                print("Failed to upload user data:", error)
+//            }
+//        }
 
         // 8) Show a local success alert
         showConfirmation = true
