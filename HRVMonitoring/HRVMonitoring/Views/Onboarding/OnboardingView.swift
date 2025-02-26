@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     @StateObject private var viewModel = OnboardingViewModel()
-    @State private var navigateToHome = false  // Controls navigation to ContentView
+    @State private var navigateToHome = false  // Controls navigation to HomeScreenView
 
     var body: some View {
         NavigationStack {
@@ -49,6 +49,21 @@ struct OnboardingView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding([.leading, .trailing])
                 
+                // Age input
+                TextField("Age", text: $viewModel.ageText)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(.roundedBorder)
+                    .padding([.leading, .trailing])
+                
+                // Injury type input
+                TextField("Injury Type", text: $viewModel.injuryType)
+                    .textFieldStyle(.roundedBorder)
+                    .padding([.leading, .trailing])
+                
+                // Injury date input
+                DatePicker("Injury Date", selection: $viewModel.injuryDate, displayedComponents: .date)
+                    .datePickerStyle(.compact)
+                    .padding([.leading, .trailing])
                 Spacer()
                 
                 Button("Complete Onboarding") {

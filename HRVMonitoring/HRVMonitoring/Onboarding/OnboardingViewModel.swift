@@ -14,7 +14,10 @@ class OnboardingViewModel: ObservableObject {
     @Published var heightText: String = ""
     @Published var weightText: String = ""
     @Published var hospitalName: String = ""
-
+    @Published var ageText: String = ""
+    @Published var injuryType: String = ""
+    @Published var injuryDate: Date = Date()  // Default to today
+    
     @Published var selectedHeightUnit: HeightUnit = .inches
     @Published var selectedWeightUnit: WeightUnit = .pounds
 
@@ -25,17 +28,21 @@ class OnboardingViewModel: ObservableObject {
         let trimmedHeight = heightText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedWeight = weightText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedHospital = hospitalName.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedAge = ageText.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedInjuryType = injuryType.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !trimmedHeight.isEmpty,
               !trimmedWeight.isEmpty,
               !trimmedHospital.isEmpty,
+              !trimmedAge.isEmpty,
+              !trimmedInjuryType.isEmpty,
               Double(trimmedHeight) != nil,
-              Double(trimmedWeight) != nil else {
+              Double(trimmedWeight) != nil,
+              Int(trimmedAge) != nil else {
             return false
         }
         return true
     }
-    
     /// Called when user taps "Complete Onboarding"
     func completeOnboarding() {
         // 1) Generate or retrieve user ID
@@ -44,22 +51,26 @@ class OnboardingViewModel: ObservableObject {
         // 2) Convert user input to Double
         let heightVal = Double(heightText) ?? 0.0
         let weightVal = Double(weightText) ?? 0.0
-
-        // 3) Convert to metric
+        let age = Int(ageText) ?? 0
+        
+        // 3) Convert height and weight to metric.
         let heightMeters = convertHeightToMeters(value: heightVal, unit: selectedHeightUnit)
         let weightKg = convertWeightToKg(value: weightVal, unit: selectedWeightUnit)
-
-        // 4) Calculate BMI
+        
+        // 4) Calculate BMI (kg / m^2).
         let bmi = (heightMeters > 0) ? (weightKg / (heightMeters * heightMeters)) : 0
 
         // 5) Build user profile data
         let userData = UserProfile(
             anonymizedID: userID,
             bmi: bmi,
-            hospitalName: hospitalName
+            hospitalName: hospitalName,
+            age: age,
+            injuryType: injuryType,
+            injuryDate: injuryDate
         )
-
-        // 6) Mark onboarding as completed
+        
+        // 6) Mark onboarding as completed.
         UserDefaults.standard.set(true, forKey: "HasCompletedOnboarding")
 
         // 7) Send user data to your backend

@@ -23,4 +23,7 @@ struct UserProfile: Codable {
     let anonymizedID: String
     let bmi: Double
     let hospitalName: String
+    let age: Int
+    let injuryType: String
+    let injuryDate: Date
 }
