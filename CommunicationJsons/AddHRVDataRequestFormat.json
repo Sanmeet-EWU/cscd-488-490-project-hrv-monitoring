@@ -1,3 +1,4 @@
+
 {
   "RequestData": {
     "AuthInfo": {
@@ -5,7 +6,6 @@
       "AccessKey": varchar(37)
     },
     "Type": "AddData",
-    "CreationDate": "Dateobject",
     "HRVInfo": {
       "SDNN": "double",
       "RMSSD": "double",
@@ -24,10 +24,11 @@
     "PersonalData": {
       "Age": "int",
       "BMI": "double",
-      "HospitalName": varchar(37),
+      "Gender": "varchar(37)",
+      "HospitalName": "varchar(37)",
       "Injury": {
-        "type": varchar(37),
-        "Date": "DateObject"
+        "type": "varchar(37)",
+        "Date": "yyyy-MM-dd"
       }
     }
   }
