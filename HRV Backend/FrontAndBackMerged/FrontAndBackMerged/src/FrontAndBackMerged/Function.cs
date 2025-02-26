@@ -219,8 +219,7 @@ public class Function
         {
             (string? questionaireID, string? medicationsID) = getUserDataIDS();
             DateTime dateTime = DateTime.Now;
-            Console.WriteLine("DateTime:" + dateTime.ToString());
-
+           
             JsonDocument doc = JsonDocument.Parse(Request!.Body);
             string body = doc.RootElement.GetProperty("body").ToString();
             JsonDocument bodyDoc = JsonDocument.Parse(body);
@@ -250,8 +249,7 @@ public class Function
             string injuryType = InjuryDataJson.RootElement.GetProperty("Type").ToString();
             string injuryDate = InjuryDataJson.RootElement.GetProperty("Date").ToString();
             string timeSectionID = Guid.NewGuid().ToString();
-            Console.WriteLine(injuryDate);
-
+       
             string insertQuery = "INSERT INTO `TimeSectionDetails` (`AnonymizedID`, `TimeSectionID`, `CreatedAt`, `HeartRateDataID`, `SDNN`, `RMSSD`, `PNN50`, `MedicationsID`, `UserFlagged`, `ProgramFlagged`, `Gender`, `BMI`, `Age`, `HospitalName`, `InjuryType`, `DateOfInjury`, `QuestionnaireID`) " +
                          "VALUES (@AnonymizedID, @TimeSectionID, @CreatedAt, @HeartRateDataID, @SDNN, @RMSSD, @PNN50, @MedicationsID, @UserFlagged, @ProgramFlagged, @Gender, @BMI, @Age, @HospitalName, @InjuryType, @DateOfInjury, @QuestionaireID)";
 
@@ -288,7 +286,7 @@ public class Function
 
                 if (rowsAffected == expectedRowsAffected)
                 {
-                    Console.WriteLine($"{rowsAffected} heartbeats added to database");
+                    Console.WriteLine($"{rowsAffected} TimeSection row added to database");
                     return true;
                 }
                 else
@@ -495,9 +493,6 @@ public class Function
 
 
     }
-
-
-
 
     private string[] GetMedicationsFromJSON()
     {
