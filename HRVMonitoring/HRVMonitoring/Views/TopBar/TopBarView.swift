@@ -7,15 +7,26 @@
 
 import SwiftUI
 
+var backslide: AnyTransition {
+    AnyTransition.asymmetric(
+        insertion: .move(edge: .leading),
+        removal: .move(edge: .trailing))
+    .combined(with:
+        AnyTransition.offset(x: 200)
+    )
+}
+
 struct TopBarView: View {
+    @Binding var menuActive: Bool
     var title: String
-    var dismiss: DismissAction
     
     var body: some View {
         ZStack {
             HStack {
                 Button(action: {
-                    dismiss()
+                    withAnimation {
+                        menuActive.toggle()
+                    }
                 }
                 ) {
                     Image(systemName: "list.bullet")
@@ -25,11 +36,16 @@ struct TopBarView: View {
                     .padding(10)
                 Spacer()
             }
+                .transition(.move(edge: menuActive ? .leading : .trailing))
             HStack {
                 Text(title)
                     .font(.title)
                     .bold()
+                    .opacity(menuActive ? 0 : 1)
+                    .transition(.opacity)
+                    .id("TopBarView" + title)
             }
+                
         }
     }
 }
