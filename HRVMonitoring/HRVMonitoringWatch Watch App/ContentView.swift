@@ -30,6 +30,7 @@ struct ContentView: View {
             return mockHeartRateGenerator.currentHeartRate.map { "\(Int($0)) BPM" } ?? "-"
         } else {
             if let rate = liveHeartRateManager.latestHeartRate {
+                print("❤️ Live Heart Rate: \(Int(rate)) BPM")
                 return "\(Int(rate)) BPM"
             } else {
                 return "Waiting..."

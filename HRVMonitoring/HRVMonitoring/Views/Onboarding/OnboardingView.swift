@@ -58,6 +58,7 @@ struct OnboardingView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .padding(.bottom, 40)
+                .disabled(!viewModel.isFormValid)
                 .alert("Profile Saved!", isPresented: $viewModel.showConfirmation) {
                     Button("OK", role: .cancel) { }
                 }

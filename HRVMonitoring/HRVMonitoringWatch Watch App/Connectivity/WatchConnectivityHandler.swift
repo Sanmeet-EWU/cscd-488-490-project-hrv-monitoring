@@ -1,10 +1,3 @@
-//
-//  WatchConnectivityHandler.swift
-//  HRVMonitoringWatch Watch App
-//
-//  Created by Tyler Woody and Austin Harrison on 2/18/25.
-//
-
 import WatchConnectivity
 import SwiftUI
 
@@ -18,7 +11,7 @@ class WatchConnectivityHandler: NSObject, WCSessionDelegate, ObservableObject {
     
     private func activateSession() {
         guard WCSession.isSupported() else {
-            print("WCSession is not supported on this device")
+            print("WatchWCSession is not supported on this device")
             return
         }
         let session = WCSession.default
@@ -30,9 +23,9 @@ class WatchConnectivityHandler: NSObject, WCSessionDelegate, ObservableObject {
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if let error = error {
-            print("WCSession activation error: \(error.localizedDescription)")
+            print("WatchWCSession activation error: \(error.localizedDescription)")
         } else {
-            print("WCSession activated with state: \(activationState.rawValue)")
+            print("WatchWCSession activated with state: \(activationState.rawValue)")
         }
     }
     

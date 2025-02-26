@@ -1,10 +1,3 @@
-//
-//  LiveHeartRateManager.swift
-//  HRVMonitoringWatch Watch App
-//
-//  Created by Tyler Woody and Austin Harrison on 2/18/25.
-//
-
 import HealthKit
 import WatchConnectivity
 import SwiftUI
@@ -12,6 +5,7 @@ import SwiftUI
 import HealthKit
 
 class LiveHeartRateManager: NSObject, ObservableObject {
+    
     static let shared = LiveHeartRateManager()
     
     // Use HealthKitManager for all HealthKit interactions.
@@ -19,9 +13,11 @@ class LiveHeartRateManager: NSObject, ObservableObject {
     
     // Track the query's anchor and the active query.
     private var anchor: HKQueryAnchor?
+    
     private var heartRateQuery: HKAnchoredObjectQuery?
     
     @Published var latestHeartRate: Double?
+    
     let hrvCalculator = HRVCalculator()
     
     // Starts live heart rate updates by requesting HealthKit authorization,
@@ -111,25 +107,35 @@ class LiveHeartRateManager: NSObject, ObservableObject {
         // 2. Iterate over each sample:
         for sample in samples {
             // 3. Extract Heart Rate Value:
-            //    Convert the quantity to a Double using the "count/min" unit.
             let heartRate = sample.quantity.doubleValue(for: HKUnit(from: "count/min"))
             print("❤️ Live Heart Rate: \(Int(heartRate)) BPM")
             
+            // Extract the timestamp directly from the HealthKit sample.
+            let sampleTimestamp = sample.startDate
+            
             // 4. Update on the Main Thread:
-            //    Use DispatchQueue.main.async because UI updates and other main-thread work should occur on the main thread.
             DispatchQueue.main.async {
-                // Update the published property that the UI observes.
                 self.latestHeartRate = heartRate
                 
-                // Add this heart rate reading to the HRV calculator.
-                self.hrvCalculator.addBeat(heartRate: heartRate, at: Date())
-                
-                // Evaluate HRV using the new beat, which could trigger events if thresholds are crossed.
+                // Use the HealthKit timestamp for the HRV calculation.
+//                self.hrvCalculator.addBeat(heartRate: heartRate, at: sampleTimestamp)
                 EventDetectionManager.shared.evaluateHRV(using: self.hrvCalculator)
                 
-                // Send the heart rate data to another device (like a paired iPhone) using DataSender.
-                DataSender.shared.sendHeartRateData(heartRate: heartRate)
+                // Create a HeartRateSample object with the data from HealthKit.
+                let hrSample = HeartRateSample(heartRate: heartRate, timestamp: sampleTimestamp)
+                self.processHeartRate(hrSample)
             }
+        }
+    }
+    private func processHeartRate(_ sample: HeartRateSample) {
+        if WCSession.default.isReachable {
+            // Flush any buffered samples first.
+            WatchDataBuffer.shared.flushBuffer()
+            // Send the current sample (including the original timestamp).
+            DataSender.shared.sendHeartRateData(sample: sample)
+        } else {
+            // Buffer the sample for later.
+            WatchDataBuffer.shared.addSample(sample)
         }
     }
 }

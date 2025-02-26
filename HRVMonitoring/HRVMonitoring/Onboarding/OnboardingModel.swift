@@ -21,10 +21,6 @@ enum WeightUnit: String, CaseIterable {
 /// A simple data model representing the user's profile for onboarding.
 struct UserProfile: Codable {
     let anonymizedID: String
-    let height: Double
-    let weight: Double
     let bmi: Double
     let hospitalName: String
-    let heightUnit: String
-    let weightUnit: String
 }
