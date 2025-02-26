@@ -1,10 +1,3 @@
-//
-//  MockHeartRateGenerator.swift
-//  HRVMonitoringWatch Watch App
-//
-//  Created by Tyler Woody and Austin Harrison on 2/18/25.
-//
-
 import WatchConnectivity
 import SwiftUI
 
@@ -42,30 +35,50 @@ class MockHeartRateGenerator: ObservableObject {
     }
     
     private func generateAndSendHeartRate() {
-        // Double-check we're in mock mode.
-        guard DataModeManager.shared.isMockMode else { return }
-        
-        let variability = Double.random(in: -5...5)
-        if isIncreasing {
-            baseHeartRate += 1.0 + variability
-            if baseHeartRate > 120 { isIncreasing = false }
-        } else {
-            baseHeartRate -= 1.0 + variability
-            if baseHeartRate < 40 { isIncreasing = true }
+            // Double-check we're in mock mode.
+            guard DataModeManager.shared.isMockMode else { return }
+            
+            let variability = Double.random(in: -5...5)
+            if isIncreasing {
+                baseHeartRate += 1.0 + variability
+                if baseHeartRate > 120 { isIncreasing = false }
+            } else {
+                baseHeartRate -= 1.0 + variability
+                if baseHeartRate < 40 { isIncreasing = true }
+            }
+            
+            let realisticHeartRate = max(40, min(120, baseHeartRate))
+            currentHeartRate = realisticHeartRate
+            
+            // Use the current time as the sample's timestamp.
+            let sampleTimestamp = Date()
+            
+            // Add sample to the HRV calculator using the sample's timestamp.
+            hrvCalculator.addBeat(heartRate: realisticHeartRate, at: sampleTimestamp)
+            
+            print("Current RMSSD: \(hrvCalculator.rmssd ?? 0)")
+            
+            // Evaluate HRV (which might trigger events).
+            EventDetectionManager.shared.evaluateHRV(using: hrvCalculator)
+            
+            // Create a HeartRateSample with the realistic heart rate and the precise timestamp.
+            let sample = HeartRateSample(heartRate: realisticHeartRate, timestamp: sampleTimestamp)
+            
+            // Process the sample: if connectivity is available, flush buffered samples and send; otherwise, buffer it.
+            processMockHeartRate(sample: sample)
         }
         
-        let realisticHeartRate = max(40, min(120, baseHeartRate))
-        currentHeartRate = realisticHeartRate
-        
-        hrvCalculator.addBeat(heartRate: realisticHeartRate, at: Date())
-        
-        print("Current RMSSD: \(hrvCalculator.rmssd ?? 0)")
-        
-        // Call the centralized event detection.
-        EventDetectionManager.shared.evaluateHRV(using: hrvCalculator)
-        
-        DataSender.shared.sendHeartRateData(heartRate: realisticHeartRate)
-    }
+        private func processMockHeartRate(sample: HeartRateSample) {
+            if WCSession.default.isReachable {
+                // Flush any buffered samples first.
+                WatchDataBuffer.shared.flushBuffer()
+                // Then send the current sample.
+                DataSender.shared.sendHeartRateData(sample: sample)
+            } else {
+                // Buffer the sample for later transmission.
+                WatchDataBuffer.shared.addSample(sample)
+            }
+        }
 }
 
 extension MockHeartRateGenerator {

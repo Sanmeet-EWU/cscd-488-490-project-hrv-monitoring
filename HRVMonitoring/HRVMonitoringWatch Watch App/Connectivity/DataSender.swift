@@ -1,10 +1,3 @@
-//
-//  DataSender.swift
-//  HRVMonitoringWatch Watch App
-//
-//  Created by Tyler Woody and Austin Harrison on 2/18/25.
-//
-
 import WatchConnectivity
 import SwiftUI
 
@@ -14,26 +7,44 @@ class DataSender: ObservableObject {
     // Computed property to get the default session.
     private var session: WCSession {
         let session = WCSession.default
-        print("WCSession activation state: \(session.activationState.rawValue)")
+        print("WatchWCSession activation state: \(session.activationState.rawValue)")
         return session
     }
     
     // MARK: - Data Sending Methods
     
-    func sendHeartRateData(heartRate: Double) {
+//    func sendHeartRateData(heartRate: Double) {
+//        guard session.isReachable else {
+//            print("📡 ❌ iPhone is not reachable. Cannot send heart rate data.")
+//            return
+//        }
+//        let data: [String: Any] = [
+//            "HeartRate": heartRate,
+//            "Timestamp": Date().timeIntervalSince1970
+//        ]
+//        session.sendMessage(data, replyHandler: nil) { error in
+//            print("📡 ❌ Failed to send heart rate data: \(error.localizedDescription)")
+//        }
+//        print("📡 ✅ Sent heart rate: \(heartRate) BPM to iPhone")
+//    }
+    
+    
+    func sendHeartRateData(sample: HeartRateSample) {
         guard session.isReachable else {
             print("📡 ❌ iPhone is not reachable. Cannot send heart rate data.")
             return
         }
         let data: [String: Any] = [
-            "HeartRate": heartRate,
-            "Timestamp": Date().timeIntervalSince1970
+            "HeartRate": sample.heartRate,
+            "Timestamp": sample.timestamp.timeIntervalSince1970
         ]
+        
         session.sendMessage(data, replyHandler: nil) { error in
             print("📡 ❌ Failed to send heart rate data: \(error.localizedDescription)")
         }
-        print("📡 ✅ Sent heart rate: \(heartRate) BPM to iPhone")
+        print("📡 ✅ Sent heart rate: \(sample.heartRate) BPM at \(sample.timestamp) to iPhone")
     }
+
     
     func sendEventEndData(event: Event) {
         guard session.isReachable else {

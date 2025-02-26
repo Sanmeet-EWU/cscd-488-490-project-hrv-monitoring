@@ -25,22 +25,22 @@ class PhoneConnectivityManager: NSObject, WCSessionDelegate, ObservableObject {
 
     private func activateSession() {
         guard WCSession.isSupported() else {
-            print("❌ WCSession is NOT supported on this device")
+            print("❌ PhoneWCSession is NOT supported on this device")
             return
         }
         let session = WCSession.default
         session.delegate = self
         session.activate()
-        print("📡 WCSession State: \(session.activationState.rawValue)")
+        print("📡 PhoneWCSession State: \(session.activationState.rawValue)")
     }
 
     // MARK: - WCSessionDelegate Methods
 
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         if let error = error {
-            print("iOS WCSession activation error: \(error.localizedDescription)")
+            print("iOS PhoneWCSession activation error: \(error.localizedDescription)")
         } else {
-            print("iOS WCSession activated with state: \(activationState.rawValue)")
+            print("iOS PhoneWCSession activated with state: \(activationState.rawValue)")
         }
     }
 
@@ -49,10 +49,12 @@ class PhoneConnectivityManager: NSObject, WCSessionDelegate, ObservableObject {
             print("iOS received message: \(message)")
             
             // Handle heart rate data from Watch
-            if let heartRate = message["HeartRate"] as? Double {
+            if let heartRate = message["HeartRate"] as? Double,
+               let timestampInterval = message["Timestamp"] as? Double {
+                let timestamp = Date(timeIntervalSince1970: timestampInterval)
                 self.latestHeartRate = heartRate
-                self.hrvCalculator.addBeat(heartRate: heartRate, at: Date())
-                print("Received heart rate from Watch: \(heartRate) BPM")
+                self.hrvCalculator.addBeat(heartRate: heartRate, at: timestamp)
+                print("Received heart rate from Watch: \(heartRate) BPM at \(timestamp)")
             }
             
             // Handle event ended message from Watch
