@@ -44,7 +44,6 @@ let navigationViewData: [NavigationViewData] = [
 
 struct NavigationScreenView: View {
     @State private var navigationMenuActive: Bool = false
-    @State var title: String = "Home"
     @State var currentView = NavigationViewData(
         imageName: "house.fill",
         buttonText: "Home",
@@ -52,23 +51,35 @@ struct NavigationScreenView: View {
     )
     
     var body: some View {
-        ZStack {
-            if navigationMenuActive {
-                NavigationMenuView(currentViewData: $currentView, navigationMenuActive: $navigationMenuActive, buttons: navigationViewData)
-                    .zIndex(2)
-                    .transition(.move(edge: navigationMenuActive ? .leading : .trailing))
-            }
+        ZStack(alignment: .leading) {
             VStack {
                 HStack {
                     TopBarView(menuActive: $navigationMenuActive, title: currentView.buttonText)
-                        .padding([.top, .trailing, .leading], 20)
+                        .padding([.top, .leading, .trailing], 20)
                 }
                 .padding(.leading, navigationMenuActive ? 200 : 0)
                 
                 AnyView(currentView.navigateTo)
-                
             }
-                
+            .contentShape(Rectangle()) // Ensure the entire area is tappable.
+            .blur(radius: navigationMenuActive ? 10 : 0)
+            .animation(.easeInOut, value: navigationMenuActive)
+            .onTapGesture {
+                if navigationMenuActive {
+                    navigationMenuActive = false
+                }
+            }
+            
+            if navigationMenuActive {
+                NavigationMenuView(
+                    currentViewData: $currentView,
+                    navigationMenuActive: $navigationMenuActive,
+                    buttons: navigationViewData
+                )
+                .frame(width: 200)
+                .transition(.move(edge: .leading))
+                .zIndex(1)
+            }
         }
     }
 }

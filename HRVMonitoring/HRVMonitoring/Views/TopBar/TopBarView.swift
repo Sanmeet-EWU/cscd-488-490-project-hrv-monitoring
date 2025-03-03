@@ -23,20 +23,21 @@ struct TopBarView: View {
     var body: some View {
         ZStack {
             HStack {
-                Button(action: {
-                    withAnimation {
-                        menuActive.toggle()
+                if !menuActive {
+                    Button(action: {
+                        withAnimation {
+                            menuActive.toggle()
+                        }
+                    }) {
+                        Image(systemName: "list.bullet")
+                            .foregroundStyle(.black)
                     }
-                }
-                ) {
-                    Image(systemName: "list.bullet")
-                        .foregroundStyle(.black)
-                }
                     .labelStyle(.iconOnly)
                     .padding(10)
+                }
                 Spacer()
             }
-                .transition(.move(edge: menuActive ? .leading : .trailing))
+            .transition(.move(edge: menuActive ? .leading : .trailing))
             HStack {
                 Text(title)
                     .font(.title)
@@ -45,7 +46,6 @@ struct TopBarView: View {
                     .transition(.opacity)
                     .id("TopBarView" + title)
             }
-                
         }
     }
 }
