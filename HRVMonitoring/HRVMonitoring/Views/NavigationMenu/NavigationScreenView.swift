@@ -61,12 +61,14 @@ struct NavigationScreenView: View {
                 
                 AnyView(currentView.navigateTo)
             }
-            .contentShape(Rectangle()) // Ensure the entire area is tappable.
+            .contentShape(Rectangle())
             .blur(radius: navigationMenuActive ? 10 : 0)
             .animation(.easeInOut, value: navigationMenuActive)
             .onTapGesture {
                 if navigationMenuActive {
-                    navigationMenuActive = false
+                    withAnimation(.easeInOut) {
+                        navigationMenuActive = false
+                    }
                 }
             }
             
