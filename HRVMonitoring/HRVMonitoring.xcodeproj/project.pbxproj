@@ -78,6 +78,7 @@
 				Core/EventDetectionManager.swift,
 				Core/HRVCalculator.swift,
 				Models/Event.swift,
+				Models/HeartRateSample.swift,
 			);
 			target = BE956B132D6470A700581E0F /* HRVMonitoringWatch Watch App */;
 		};
@@ -85,7 +86,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Connectivity/DataSender.swift,
-				Shared/HeartRateSample.swift,
 			);
 			target = BE956AB32D64706900581E0F /* HRVMonitoring */;
 		};
