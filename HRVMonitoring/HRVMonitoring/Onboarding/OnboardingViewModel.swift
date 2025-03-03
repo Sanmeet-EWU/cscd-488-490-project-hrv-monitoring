@@ -74,14 +74,14 @@ class OnboardingViewModel: ObservableObject {
         UserDefaults.standard.set(true, forKey: "HasCompletedOnboarding")
 
         // 7) Send user data to your backend
-//        CloudManager.shared.addOrUpdateUser(userData: userData) { result in
-//            switch result {
-//            case .success:
-//                print("User data uploaded successfully")
-//            case .failure(let error):
-//                print("Failed to upload user data:", error)
-//            }
-//        }
+        CloudManager.shared.addOrUpdateUser(userData: userData) { result in
+            switch result {
+            case .success:
+                print("User data uploaded successfully")
+            case .failure(let error):
+                print("Failed to upload user data:", error)
+            }
+        }
 
         // 8) Show a local success alert
         showConfirmation = true
