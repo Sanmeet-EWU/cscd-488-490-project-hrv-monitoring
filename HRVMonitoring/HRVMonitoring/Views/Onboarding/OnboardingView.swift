@@ -64,6 +64,39 @@ struct OnboardingView: View {
                 DatePicker("Injury Date", selection: $viewModel.injuryDate, displayedComponents: .date)
                     .datePickerStyle(.compact)
                     .padding([.leading, .trailing])
+                // Medications Section.
+                VStack(alignment: .leading) {
+                    Text("Medications")
+                        .font(.headline)
+                        .padding(.leading)
+                    
+                    ForEach(Array(viewModel.medications.enumerated()), id: \.element.id) { index, med in
+                        HStack {
+                            Text("Medication \(med.medicationNumber):")
+                            TextField("Enter medication", text: Binding(
+                                get: {
+                                    viewModel.medications[index].medication
+                                },
+                                set: { newValue in
+                                    viewModel.medications[index].medication = newValue
+                                }
+                            ))
+                            .textFieldStyle(.roundedBorder)
+                        }
+                        .padding([.leading, .trailing])
+                    }
+                    
+                    Button(action: {
+                        viewModel.addMedication()
+                    }) {
+                        HStack {
+                            Image(systemName: "plus.circle")
+                            Text("Add Medication")
+                        }
+                    }
+                    .padding(.leading)
+                }
+                
                 Spacer()
                 
                 Button("Complete Onboarding") {
