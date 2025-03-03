@@ -2,7 +2,7 @@
 //  HeartRateSample.swift
 //  HRVMonitoringWatch Watch App
 //
-//  Created by Austin Harrison on 2/25/25.
+//  Created by Austin Harrison and Tyler Woody on 2/25/25.
 //
 
 import Foundation

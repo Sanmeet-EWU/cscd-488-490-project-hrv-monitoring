@@ -1,3 +1,10 @@
+//
+//  PersistenceController.swift
+//  HRVMonitoring
+//
+//  Created by Tyler Woody and Austin Harrison on 2/18/25.
+//
+
 import HealthKit
 import WatchConnectivity
 import SwiftUI
