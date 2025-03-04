@@ -18,7 +18,7 @@ struct QuestionnaireContainerView: View {
         QuestionnaireQuestion(id: 6, text: "Over the last two weeks, how often did you feel afraid as if something awful might happen?")
     ]
     
-    @State private var answers: [Int] = Array(repeating: -1, count: 9)
+    @State private var answers: [Int] = Array(repeating: -1, count: 7)
     @State private var currentQuestionIndex = 0
     @State private var isSubmitting = false
 

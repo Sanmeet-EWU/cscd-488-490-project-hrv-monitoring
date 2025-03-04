@@ -24,7 +24,7 @@ struct Beat {
 /// and computes HRV metrics such as RMSSD, SDNN, and pNN50.
 class HRVCalculator: ObservableObject {
     /// Window size in seconds. Default is 5 minutes (300 seconds).
-    var windowSize: TimeInterval = 45
+    var windowSize: TimeInterval = 30
     
     /// The collected beats within the current window.
     @Published private(set) var beats: [Beat] = []
