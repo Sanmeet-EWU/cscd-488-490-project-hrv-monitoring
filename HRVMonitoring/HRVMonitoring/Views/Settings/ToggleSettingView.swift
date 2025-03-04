@@ -7,18 +7,42 @@
 
 import SwiftUI
 
-struct SettingView: View {
+struct ToggleSettingView: View {
+    var name: String
+    var description: String
+    @State var toggled: Bool
+    
     var body: some View {
         Rectangle()
             .foregroundStyle(.clear)
-            .frame(maxHeight: 150)
-            .padding([.leading, .trailing], 20)
+            .frame(height: 60)
             .overlay {
-                Text("Hello World")
+                VStack {
+                    Toggle(isOn: $toggled) {
+                        VStack {
+                            HStack {
+                                Text(name)
+                                    .font(.headline)
+                                Spacer()
+                            }
+                            HStack {
+                                Text(description)
+                                    .font(.subheadline)
+                                Spacer()
+                            }
+                        }
+                    }
+                }
+                .padding()
             }
+            .padding([.leading, .trailing], 20)
     }
 }
 
 #Preview {
-    SettingView()
+    ToggleSettingView(
+        name: "Example",
+        description: "Placeholder description",
+        toggled: false
+    )
 }
