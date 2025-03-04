@@ -7,20 +7,32 @@
 
 import CoreData
 
-struct PersistenceController {
+class PersistenceController {
     static let shared = PersistenceController()
     
     let container: NSPersistentContainer
     
-    init(inMemory: Bool = false) {
+    private init() {
         container = NSPersistentContainer(name: "HRVDataModel")
-        if inMemory {
-            container.persistentStoreDescriptions.first?.url = URL(fileURLWithPath: "/dev/null")
-        }
         container.loadPersistentStores { storeDescription, error in
-            if let error = error {
-                fatalError("Unresolved error \(error)")
+            if let error = error as NSError? {
+                // Handle the error appropriately.
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+    }
+    
+    // Convenience method to save the context.
+    func saveContext() {
+        let context = container.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                // Proper error handling should be done here.
+                print("Error saving context: \(error.localizedDescription)")
             }
         }
     }
 }
+
