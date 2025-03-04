@@ -1,0 +1,8 @@
+{
+  "ResponseData": {
+    "AuthInfo": {
+      "AnonymizedID": Varchar(37)
+    },
+    "ResponseCode": "integer"
+  }
+}

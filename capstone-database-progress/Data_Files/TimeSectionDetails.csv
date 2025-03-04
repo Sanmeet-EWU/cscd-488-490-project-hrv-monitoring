@@ -1,0 +1,2 @@
+AnonymizedID,TimeSectionID,CreatedAt,HeartRateDataID,SDNN,RMSSD,PNN50,MedicationsID,UserFlagged,ProgramFlagged,Gender,BMI,Age,HospitalName,InjuryType,DateOfInjury,QuestionnaireID
+generated-anonymized-uuid,generated-TimeSectionDetails-uuid,2024-12-01 08:00:00,generated-HeartRateID-uuid,50.2,35.5,10,generated-MedicationsID-uuid,false,true,Male,22.5,30,St.Jude,Sprain,2024-11-25,generated-Questionnaire-uuid
