@@ -33,7 +33,7 @@ let navigationViewData: [NavigationViewData] = [
     NavigationViewData(
         imageName: "gear.circle.fill",
         buttonText: "Settings",
-        navigateTo: HomeScreenView()
+        navigateTo: SettingsContainerView()
     ),
     NavigationViewData(
         imageName: "phone.fill",
