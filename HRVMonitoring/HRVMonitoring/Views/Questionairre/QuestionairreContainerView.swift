@@ -10,14 +10,12 @@ import SwiftUI
 struct QuestionnaireContainerView: View {
     let questions: [QuestionnaireQuestion] = [
         QuestionnaireQuestion(id: 0, text: "Over the last two weeks, how often did you feel nervous, anxious, or on edge?"),
-        QuestionnaireQuestion(id: 1, text: "Over the last two weeks, how often did you worry too much about different things?"),
-        QuestionnaireQuestion(id: 2, text: "Over the last two weeks, how often did you have trouble relaxing?"),
-        QuestionnaireQuestion(id: 3, text: "Over the last two weeks, how often did you feel restless?"),
-        QuestionnaireQuestion(id: 4, text: "Over the last two weeks, how often did you become easily annoyed or irritable?"),
-        QuestionnaireQuestion(id: 5, text: "Over the last two weeks, how often did you feel afraid as if something awful might happen?"),
-        QuestionnaireQuestion(id: 6, text: "Over the last two weeks, how often did you have difficulty controlling your worry?"),
-        QuestionnaireQuestion(id: 7, text: "Over the last two weeks, how often did you feel unable to stop worrying?"),
-        QuestionnaireQuestion(id: 8, text: "Over the last two weeks, how stressed did you feel overall?")
+        QuestionnaireQuestion(id: 1, text: "Over the last two weeks, how often did you feel unable to stop or control worrying?"),
+        QuestionnaireQuestion(id: 2, text: "Over the last two weeks, how often did you worry too much about different things?"),
+        QuestionnaireQuestion(id: 3, text: "Over the last two weeks, how often did you have trouble relaxing?"),
+        QuestionnaireQuestion(id: 4, text: "Over the last two weeks, how often did you feel so restless that it is hard to sit still?"),
+        QuestionnaireQuestion(id: 5, text: "Over the last two weeks, how often did you become easily annoyed or irritable?"),
+        QuestionnaireQuestion(id: 6, text: "Over the last two weeks, how often did you feel afraid as if something awful might happen?")
     ]
     
     @State private var answers: [Int] = Array(repeating: -1, count: 9)
