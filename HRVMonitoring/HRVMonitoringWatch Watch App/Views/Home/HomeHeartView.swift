@@ -24,25 +24,25 @@ struct HomeHeartView: View {
     let minSize: Float = 0.7
     let fps: Int = 60
 
-    private var bpm: Int {
+    private var bpm: Float {
         if dataModeManager.isMockMode {
-            return Int(mockHeartRateGenerator.currentHeartRate ?? 70)
+            return Float(mockHeartRateGenerator.currentHeartRate ?? 70)
         } else {
-            return Int(liveHeartRateManager.latestHeartRate ?? 70)
+            return Float(liveHeartRateManager.latestHeartRate ?? 70)
         }
     }
 
     var body: some View {
         HStack {
             VStack {
-                Text("\(bpm)")
+                Text("\(Int(bpm))")  // Ensure BPM is displayed as an integer
                     .font(.title)
                     .bold()
                 Text("BPM")
                     .font(.body)
             }
             .padding(.trailing, 10)
-            
+
             Image("heart")
                 .resizable()
                 .aspectRatio(CGSize(width: 1, height: 1), contentMode: .fit)
@@ -61,16 +61,16 @@ struct HomeHeartView: View {
                             }
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .task(id: heartStep) {
-                            do {
-                                try await Task.sleep(for: .seconds(1.0 / Double(fps)))
-                                heartStep += Float(bpm) / (60.0 * Float(fps))
+                        .task {
+                            while !Task.isCancelled {
+                                try? await Task.sleep(for: .seconds(1.0 / Double(fps)))
+                                heartStep += bpm / (60.0 * Float(fps))  // Correct heart rate timing
                                 let remainder = heartStep.truncatingRemainder(dividingBy: 1.0)
-                                heartSize = remainder < 0.5 ?
-                                    heartRateEasing(i: maxSize - (maxSize - minSize) * remainder * 2) :
-                                    heartRateEasing(i: minSize + (maxSize - minSize) * (remainder * 2 - 1.0))
-                            } catch {
-                                heartStep = 0
+                                
+                                // Keep the easing function behavior the same as iOS
+                                heartSize = remainder < 0.5
+                                    ? heartRateEasing(i: maxSize - (maxSize - minSize) * remainder * 2)
+                                    : heartRateEasing(i: minSize + (maxSize - minSize) * (remainder * 2 - 1.0))
                             }
                         }
                     }
@@ -88,6 +88,7 @@ struct HomeHeartView: View {
         }
     }
 }
+
 
 #Preview {
     HomeHeartView()
