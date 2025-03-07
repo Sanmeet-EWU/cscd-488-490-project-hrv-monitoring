@@ -38,12 +38,12 @@ struct HomeScreenView: View {
                     (Text(String(hrStr.prefix(1)))
                         .bold()
                         .font(.largeTitle)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.primary)
                      +
                      Text(String(hrStr.suffix(from: hrStr.index(hrStr.startIndex, offsetBy: 1))))
                         .bold()
                         .font(.largeTitle)
-                        .foregroundStyle(.primary)
+                        .foregroundStyle(.black)
                     )
                 }
             } else {
