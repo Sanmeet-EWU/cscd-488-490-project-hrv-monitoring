@@ -192,16 +192,16 @@ public class Function
             case "UpdateMedications":
                 return UpdateMedications();
             case "AddData":
-                return AddData();
+                return AddHeartbeatData();
 
             case "UpdateQuestionaire":
-                return UpdateQuestionaire();
+                return UpdateQuestionnaire();
             default:
                 return false;
         }
     }
 
-    public bool AddData()
+    public bool AddHeartbeatData()
     {
         //Store Heartbeats
         if (!StoreHeartBeats()) return false;
@@ -481,7 +481,6 @@ public class Function
                     Console.WriteLine("Failure writing to database");
                     return false;
                 }
-                return true;
             }
         }
         catch (Exception ex)
@@ -511,8 +510,85 @@ public class Function
         return medications.ToArray();
     }
 
-    public bool UpdateQuestionaire()
+    public bool UpdateQuestionnaire()
     {
-        throw new NotImplementedException();
+        try
+        {
+            string QuestionnaireID = Guid.NewGuid().ToString();
+            int[] gad7 = GetGAD7AnswersFromJSON();
+
+            string insertQuery = "INSERT INTO `GAD7Questionnaire` (`QuestionnaireID`, `GAD1`, `GAD2`,`GAD3`,`GAD4`,`GAD5`,`GAD6`,`GAD7`,`Stress`) VALUES (@questionnaireID,";
+
+            // Create a list to hold the parameters for the medications
+            var parameters = new List<MySqlParameter>();
+
+            for (int i = 0; i < gad7.Length; i++)
+            {
+                // Create unique parameter names for each medication entry
+                string Gad7ParamName = $"@gad7{i}";
+                insertQuery += $"{Gad7ParamName}";
+                if (gad7.Length - 1 != i) insertQuery += ",";
+
+                // Add the parameter to the parameters list
+                parameters.Add(new MySqlParameter(Gad7ParamName, gad7[i]));
+
+            }
+            insertQuery += ")";
+
+            // Create the UPDATE query
+            string updateQuery = $"; UPDATE `UserData` SET `QuestionnaireID` = @questionnaireID WHERE `AnonymizedID` = @anonymizedId;";
+
+            // Add the parameters for the UPDATE query
+            parameters.Add(new MySqlParameter("@questionnaireID", QuestionnaireID));
+            parameters.Add(new MySqlParameter("@anonymizedId", this.AnonymizedID));
+
+            // Combine the queries into one final query string
+            string finalQuery = insertQuery + updateQuery;
+            //Now we send:
+            using (MySqlCommand command = new MySqlCommand(finalQuery, Connection))
+            {
+                command.Parameters.AddRange(parameters.ToArray());
+                int rowsAffected = command.ExecuteNonQuery();
+
+
+                int expectedRowsAffected = 2;  // medications.Length for inserts + 1 for update
+
+                if (rowsAffected == expectedRowsAffected)
+                {
+                    Console.WriteLine($"{rowsAffected} GAD7 changes added to database");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Failure writing to database");
+                    return false;
+                }
+                
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Unexpected Error, failure to write to database: " + ex);
+            return false;
+        }
+
+    }
+
+    private int[] GetGAD7AnswersFromJSON()
+    {
+        JsonDocument doc = JsonDocument.Parse(Request!.Body);
+        string body = doc.RootElement.GetProperty("body").ToString();
+        JsonDocument bodyDoc = JsonDocument.Parse(body);
+        string requestDataString = bodyDoc.RootElement.GetProperty("RequestData").ToString();
+        JsonDocument requestData = JsonDocument.Parse(requestDataString);
+        JsonElement.ArrayEnumerator medicationsEnumerator = requestData.RootElement.GetProperty("Questions").EnumerateArray();
+        List<int> QuestionAnswers = new();
+        foreach (var item in medicationsEnumerator)
+        {
+            item.TryGetInt32(out int value);
+            Console.WriteLine("Added:" +value+" to array for query");
+            QuestionAnswers.Add(value);
+        }
+        return QuestionAnswers.ToArray();
     }
 }
