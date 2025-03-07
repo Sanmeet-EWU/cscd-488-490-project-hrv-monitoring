@@ -6,15 +6,14 @@
     },
     "Type": "UpdateQuestionaire",
     "Questions": [
-      "(GAD1) int(0-4)",
-      "(GAD2) int(0-4)",
-      "(GAD3) int(0-4)",
-      "(GAD4) int(0-4)",
-      "(GAD5) int(0-4)",
-      "(GAD6) int(0-4)",
-      "(GAD7) int(0-4)",
-      "(GAD8) int(0-4)",
-      "(Stress) int(0-4)"
+      "(GAD1) int(0-3)",
+      "(GAD2) int(0-3)",
+      "(GAD3) int(0-3)",
+      "(GAD4) int(0-3)",
+      "(GAD5) int(0-3)",
+      "(GAD6) int(0-3)",
+      "(GAD7) int(0-3)",
+      "(how its effecting them) int(0-3)"
     ]
   }
 }
