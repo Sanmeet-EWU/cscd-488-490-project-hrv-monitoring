@@ -1,5 +1,8 @@
 {
-  "RequestData": {
-    "Type": "CreateUser"
+  "body": {
+    "RequestData": {
+      "Type": "CreateUser"
+
+    }
   }
 }

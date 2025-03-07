@@ -1,19 +1,23 @@
 {
-  "RequestData": {
-    "AuthInfo": {
-      "AnonymizedID": varchar(37),
-      "AccessKey": varchar(37)
-    },
-    "Type": "UpdateQuestionaire",
-    "Questions": [
-      "(GAD1) int(0-3)",
-      "(GAD2) int(0-3)",
-      "(GAD3) int(0-3)",
-      "(GAD4) int(0-3)",
-      "(GAD5) int(0-3)",
-      "(GAD6) int(0-3)",
-      "(GAD7) int(0-3)",
-      "(how its effecting them) int(0-3)"
-    ]
+  "body": {
+    "RequestData": {
+      "AuthInfo": {
+        "AnonymizedID": "varchar(37)",
+        "AccessKey": "varchar(37)"
+      },
+      "Type": "UpdateQuestionaire",
+      "Questions": [
+        "(GAD1) int(0-3)",
+        "(GAD2) int(0-3)",
+        "(GAD3) int(0-3)",
+        "(GAD4) int(0-3)",
+        "(GAD5) int(0-3)",
+        "(GAD6) int(0-3)",
+        "(GAD7) int(0-3)",
+        "(how its effecting them) int(0-3)"
+      ]
+    }
   }
 }
+
+String form is "{\"body\": {\"RequestData\": {\"AuthInfo\": {\"AnonymizedID\": \"varchar(37)\", \"AccessKey\": \"varchar(37)\"}, \"Type\": \"UpdateQuestionaire\", \"Questions\": [0, 1, 4, 2, 0, 3, 1, 4]}}}"

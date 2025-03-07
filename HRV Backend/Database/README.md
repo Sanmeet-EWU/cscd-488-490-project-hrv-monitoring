@@ -50,7 +50,6 @@ CREATE TABLE `GAD7Questionnaire` (
   `GAD5` int,
   `GAD6` int,
   `GAD7` int,
-  `GAD8` int,
   `Stress` int,
   PRIMARY KEY (`QuestionnaireID`)
 );
@@ -79,9 +78,9 @@ ALTER TABLE `TimeSectionDetails` ADD FOREIGN KEY (`AnonymizedID`) REFERENCES `Us
 
 ALTER TABLE `HeartRateData` ADD FOREIGN KEY (`HeartRateDataID`) REFERENCES `TimeSectionDetails` (`HeartRateDataID`);
 
-ALTER TABLE `GAD7Questionnaire` ADD FOREIGN KEY (`QuestionnaireID`) REFERENCES `TimeSectionDetails` (`QuestionnaireID`);
+ALTER TABLE `Medication` ADD FOREIGN KEY (`MedicationsID`) REFERENCES `TimeSectionDetails` (`MedicationsID`);
 
-ALTER TABLE `GAD7Questionnaire` ADD FOREIGN KEY (`QuestionnaireID`) REFERENCES `UserData` (`QuestionnaireID`);
+ALTER TABLE `Medication` ADD FOREIGN KEY (`MedicationsID`) REFERENCES `UserData` (`CurrentMedicationsID`);
 
 To add a user:
 USE HRV;

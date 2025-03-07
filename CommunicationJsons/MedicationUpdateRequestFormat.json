@@ -1,12 +1,14 @@
 {
-  "RequestData": {
-    "AuthInfo": {
-      "AnonymizedID": varchar(37),
-      "AccessKey": varchar(37)
-    },
-    "Type": "UpdateMedications",
-    "Medications": [
-      "as many more varchar(37) as you want."
-    ]
+  "body": {
+    "RequestData": {
+      "AuthInfo": {
+        "AnonymizedID": varchar(37),
+        "AccessKey": varchar(37)
+      },
+      "Type": "UpdateMedications",
+      "Medications": [
+        "as many more varchar(37) as you want."
+      ]
+    }
   }
 }

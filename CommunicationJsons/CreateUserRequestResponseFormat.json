@@ -1,7 +1,3 @@
-{
-  "ResponseData": {
-    "AnonymizedID": varchar(37),
-    "AccessKey": varchar(37),
-    "ResponseCode": "integer"
-  }
-}
+Expect 2 values with a comma betweem in form of:
+
+Id,AccessKey
