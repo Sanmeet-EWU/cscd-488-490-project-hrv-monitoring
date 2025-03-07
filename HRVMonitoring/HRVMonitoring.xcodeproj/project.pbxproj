@@ -77,7 +77,9 @@
 			membershipExceptions = (
 				Core/EventDetectionManager.swift,
 				Core/HRVCalculator.swift,
+				Models/AppStage.swift,
 				Models/Event.swift,
+				Models/HeartRateSample.swift,
 			);
 			target = BE956B132D6470A700581E0F /* HRVMonitoringWatch Watch App */;
 		};
@@ -85,9 +87,17 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Connectivity/DataSender.swift,
-				Shared/HeartRateSample.swift,
 			);
 			target = BE956AB32D64706900581E0F /* HRVMonitoring */;
+		};
+		87A60BDB2D76685D00C5363A /* Exceptions for "HRVMonitoring" folder in "HRVMonitoringWatch Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Persistence/HRVDataManager.swift,
+				Persistence/HRVDataModel.xcdatamodeld,
+				Persistence/PersistenceController.swift,
+			);
+			target = BE956B132D6470A700581E0F /* HRVMonitoringWatch Watch App */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -102,6 +112,9 @@
 		};
 		BE956AB62D64706900581E0F /* HRVMonitoring */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				87A60BDB2D76685D00C5363A /* Exceptions for "HRVMonitoring" folder in "HRVMonitoringWatch Watch App" target */,
+			);
 			path = HRVMonitoring;
 			sourceTree = "<group>";
 		};

@@ -7,78 +7,106 @@
 
 import SwiftUI
 
-/// Handles the logic of onboarding: unit conversion, BMI calculation,
-/// user defaults, and optionally calling CloudManager.
 class OnboardingViewModel: ObservableObject {
-    // Published properties that the view can bind to.
+    // User inputs for height, weight, hospital, age, and injury.
     @Published var heightText: String = ""
     @Published var weightText: String = ""
     @Published var hospitalName: String = ""
-
+    @Published var ageText: String = ""
+    @Published var injuryType: String = ""
+    @Published var injuryDate: Date = Date()
+    
+    // Unit selections.
     @Published var selectedHeightUnit: HeightUnit = .inches
     @Published var selectedWeightUnit: WeightUnit = .pounds
-
+    
+    // Medications: user can add as many as they want.
+    @Published var medications: [Medication] = []
+    
+    // For showing a local confirmation alert.
     @Published var showConfirmation: Bool = false
-
-    /// A computed property that ensures the user has entered non-empty, valid values.
+    
+    /// Checks that required fields are valid. Medications are optional, but if present, they must have non-empty names.
     var isFormValid: Bool {
         let trimmedHeight = heightText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedWeight = weightText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedHospital = hospitalName.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedAge = ageText.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedInjuryType = injuryType.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !trimmedHeight.isEmpty,
               !trimmedWeight.isEmpty,
               !trimmedHospital.isEmpty,
+              !trimmedAge.isEmpty,
+              !trimmedInjuryType.isEmpty,
               Double(trimmedHeight) != nil,
-              Double(trimmedWeight) != nil else {
+              Double(trimmedWeight) != nil,
+              Int(trimmedAge) != nil else {
             return false
         }
-        return true
+        // Medications: if any exist, each must have a non-empty medication string.
+        let medicationsValid = medications.allSatisfy { !$0.medication.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+        return medications.isEmpty || medicationsValid
     }
     
-    /// Called when user taps "Complete Onboarding"
+    // Adds a new empty medication entry.
+    func addMedication() {
+        let newMedNumber = medications.count + 1
+        let newMedication = Medication(id: UUID().uuidString, medicationNumber: newMedNumber, medication: "")
+        medications.append(newMedication)
+    }
+    
+    // Optionally, you might implement removal.
+    func removeMedication(at index: Int) {
+        medications.remove(at: index)
+        // Re-number medications sequentially.
+        for i in 0..<medications.count {
+            medications[i].medicationNumber = i + 1
+        }
+    }
+    
+    // Called when the user taps "Complete Onboarding".
     func completeOnboarding() {
-        // 1) Generate or retrieve user ID
         let userID = retrieveOrGenerateUserID()
-
-        // 2) Convert user input to Double
         let heightVal = Double(heightText) ?? 0.0
         let weightVal = Double(weightText) ?? 0.0
-
-        // 3) Convert to metric
+        let age = Int(ageText) ?? 0
+        
         let heightMeters = convertHeightToMeters(value: heightVal, unit: selectedHeightUnit)
         let weightKg = convertWeightToKg(value: weightVal, unit: selectedWeightUnit)
-
-        // 4) Calculate BMI
+        
         let bmi = (heightMeters > 0) ? (weightKg / (heightMeters * heightMeters)) : 0
-
-        // 5) Build user profile data
+        
+        // Build the user profile using only the required fields.
         let userData = UserProfile(
             anonymizedID: userID,
             bmi: bmi,
-            hospitalName: hospitalName
+            hospitalName: hospitalName,
+            age: age,
+            injuryType: injuryType,
+            injuryDate: injuryDate,
+            medications: medications
         )
-
-        // 6) Mark onboarding as completed
+        
+        // Mark onboarding as completed.
         UserDefaults.standard.set(true, forKey: "HasCompletedOnboarding")
-
-        // 7) Send user data to your backend
-//        CloudManager.shared.addOrUpdateUser(userData: userData) { result in
-//            switch result {
-//            case .success:
-//                print("User data uploaded successfully")
-//            case .failure(let error):
-//                print("Failed to upload user data:", error)
-//            }
-//        }
-
-        // 8) Show a local success alert
+        
+        // Send the user profile to your backend.
+        CloudManager.shared.addOrUpdateUser(userData: userData) { result in
+            switch result {
+            case .success:
+                print("User data uploaded successfully")
+            case .failure(let error):
+                print("Failed to upload user data: \(error)")
+            }
+        }
+        
         showConfirmation = true
         print("Onboarding complete. ID: \(userID), BMI: \(bmi)")
     }
-
+    
     // MARK: - Helpers
-
+    
     private func retrieveOrGenerateUserID() -> String {
         if let existingID = UserDefaults.standard.string(forKey: "AnonymizedID") {
             return existingID
@@ -88,7 +116,7 @@ class OnboardingViewModel: ObservableObject {
             return newID
         }
     }
-
+    
     private func convertHeightToMeters(value: Double, unit: HeightUnit) -> Double {
         switch unit {
         case .centimeters:
@@ -97,7 +125,7 @@ class OnboardingViewModel: ObservableObject {
             return value * 0.0254
         }
     }
-
+    
     private func convertWeightToKg(value: Double, unit: WeightUnit) -> Double {
         switch unit {
         case .kilograms:
@@ -107,3 +135,4 @@ class OnboardingViewModel: ObservableObject {
         }
     }
 }
+

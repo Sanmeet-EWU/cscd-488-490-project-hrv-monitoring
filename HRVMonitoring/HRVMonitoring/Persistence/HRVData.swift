@@ -8,32 +8,45 @@
 import Foundation
 import CoreData
 
-extension HRVData {
-    // Convenience initializer to set up a new HRVData record.
-    convenience init(context: NSManagedObjectContext, sdnn: Double, rmssd: Double, pnn50: Double, heartBeats: [Double], creationDate: Date = Date()) {
-        self.init(context: context)
-        self.id = UUID()
+// MARK: - HRVdata DTO
+
+struct HRVdata: Codable {
+    let id: UUID
+    let creationDate: Date
+    let heartBeats: [Double]
+    let pnn50: Double
+    let rmssd: Double
+    let sdnn: Double
+}
+
+// MARK: - Conversion Helpers
+
+extension HRVdata {
+    // Initialize an HRVdata instance from a Core Data HRVDataModel.
+    init?(from model: HRVDataModel) {
+        guard let id = model.id,
+              let creationDate = model.creationDate,
+              let heartBeats = model.heartBeats else {
+            return nil
+        }
+        self.id = id
         self.creationDate = creationDate
-        self.sdnn = sdnn
-        self.rmssd = rmssd
-        self.pnn50 = pnn50
-        self.heartBeats = heartBeats as NSArray
+        self.heartBeats = heartBeats as! [Double]
+        self.pnn50 = model.pnn50
+        self.rmssd = model.rmssd
+        self.sdnn = model.sdnn
     }
     
-    // Convert this record into the cloud request model.
-    func toCloudRequest(authInfo: AddHRVDataRequest.AuthInfo, flags: AddHRVDataRequest.Flags, personalData: AddHRVDataRequest.PersonalData) -> AddHRVDataRequest? {
-        guard let creationDate = self.creationDate else { return nil }
-        // Build HRVInfo from this HRVData instance.
-        let hrvInfo = AddHRVDataRequest.HRVInfo(sdnn: self.sdnn,
-                                                rmssd: self.rmssd,
-                                                pnn50: self.pnn50,
-                                                heartBeats: self.heartBeats as? [Double] ?? [])
-        let requestData = AddHRVDataRequest.RequestData(authInfo: authInfo,
-                                                        type: "AddData",
-                                                        creationDate: creationDate,
-                                                        hrvInfo: hrvInfo,
-                                                        flags: flags,
-                                                        personalData: personalData)
-        return AddHRVDataRequest(requestData: requestData)
+    // Convert the HRVdata instance back into a HRVDataModel using the provided NSManagedObjectContext.
+    func toCoreDataModel(in context: NSManagedObjectContext) -> HRVDataModel {
+        let model = HRVDataModel(context: context)
+        model.id = self.id
+        model.creationDate = self.creationDate
+        model.heartBeats = self.heartBeats as NSArray
+        model.pnn50 = self.pnn50
+        model.rmssd = self.rmssd
+        model.sdnn = self.sdnn
+        return model
     }
 }
+

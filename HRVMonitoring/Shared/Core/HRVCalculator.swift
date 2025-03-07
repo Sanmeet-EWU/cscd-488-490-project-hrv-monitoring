@@ -2,7 +2,7 @@
 //  HRVCalculator.swift
 //  HRVMonitoring
 //
-//  Created by Tyler Woody on 2/18/25.
+//  Created by Tyler Woody Austin Harrison on 2/18/25.
 //
 
 import Foundation
@@ -24,7 +24,7 @@ struct Beat {
 /// and computes HRV metrics such as RMSSD, SDNN, and pNN50.
 class HRVCalculator: ObservableObject {
     /// Window size in seconds. Default is 5 minutes (300 seconds).
-    var windowSize: TimeInterval = 300
+    var windowSize: TimeInterval = 30
     
     /// The collected beats within the current window.
     @Published private(set) var beats: [Beat] = []
@@ -68,15 +68,54 @@ class HRVCalculator: ObservableObject {
         return (Double(count) / Double(ibis.count - 1)) * 100.0
     }
     
-    /// Adds a new beat and prunes old ones.
+    // Adds a new beat
+    // In a fixed window, we simply accumulate beats until the window duration is reached.
     func addBeat(heartRate: Double, at timestamp: Date = Date()) {
         let newBeat = Beat(timestamp: timestamp, heartRate: heartRate)
         beats.append(newBeat)
-        pruneOldBeats(relativeTo: timestamp)
+        print("Added a beat at \(timestamp)")
+        checkWindowAndCreateRecord()
     }
     
-    /// Removes beats older than the window size.
-    private func pruneOldBeats(relativeTo currentTime: Date) {
-        beats = beats.filter { currentTime.timeIntervalSince($0.timestamp) <= windowSize }
+    // Checks if the fixed window duration has been reached
+    // If so, computes metrics, cretaes a record, and resets the window
+    private func checkWindowAndCreateRecord() {
+        guard let firstBeat = beats.first, let lastBeat = beats.last else {
+            print("No beats available to evaluate window.")
+            return
+        }
+        
+        let windowDuration = lastBeat.timestamp.timeIntervalSince(firstBeat.timestamp)
+        print("Current window duration: \(windowDuration) seconds (Window size required: \(windowSize) seconds)")
+        
+        if windowDuration >= windowSize {
+            let heartRates = beats.map { $0.heartRate }
+            let computedRMSSD = self.rmssd ?? 0.0
+            let computedSDNN = self.sdnn ?? 0.0
+            let computedPNN50 = self.pnn50 ?? 0.0
+            
+            // Create a record using HRVDataManager.
+            HRVDataManager.shared.createHRVData(
+                heartBeats: heartRates,
+                pnn50: computedPNN50,
+                rmssd: computedRMSSD,
+                sdnn: computedSDNN
+            )
+            
+            print("Data saved at \(Date()): Heart rates: \(heartRates)")
+            
+            // Fetch the last saved record and print it.
+            let records = HRVDataManager.shared.fetchHRVData()
+            if let lastRecord = records.last {
+                print("Last record: \(lastRecord)")
+            } else {
+                print("No records found.")
+            }
+            
+            // Reset the fixed window by clearing all beats.
+            beats.removeAll()
+        } else {
+            print("Window not reached yet. Current window duration: \(windowDuration) seconds")
+        }
     }
 }

@@ -10,11 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            NavigationMenuView()
-                .zIndex(1)
-            VStack {
-                HomeScreenView()
-            }
+            NavigationScreenView()
         }
     }
 }

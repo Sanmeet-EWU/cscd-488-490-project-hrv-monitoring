@@ -2,7 +2,7 @@
 //  EventDetectionManager.swift
 //  HRVMonitoring
 //
-//  Created by Tyler Woody on 2/18/25.
+//  Created by Tyler Woody and Austin Harrison on 2/18/25.
 //
 
 import Foundation

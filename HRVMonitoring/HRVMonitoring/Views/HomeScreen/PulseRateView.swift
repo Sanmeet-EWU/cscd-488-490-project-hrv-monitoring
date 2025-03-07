@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Beatmeoff {
+struct moreBeats {
     var delta: Double
 }
 
@@ -15,7 +15,7 @@ struct PulseRateView: View {
     @ObservedObject var connectivityManager = PhoneConnectivityManager.shared
     @State var pulseStep: Double = 0
     @State var bpmStep: Double = 0
-    @State var beats: [Beatmeoff] = []
+    @State var beats: [moreBeats] = []
     
     let beatYRadius: Double = 0.5
     let beatXRadius: Double = 0.05
@@ -65,7 +65,7 @@ struct PulseRateView: View {
                 let beatStep: Double = (1.0 / currentBpm) * cycleTimeSeconds
                 pulseStep += step
                 if pulseStep > bpmStep + beatStep {
-                    beats.append(Beatmeoff(delta: bpmStep))
+                    beats.append(moreBeats(delta: bpmStep))
                     bpmStep = pulseStep
                 }
             }

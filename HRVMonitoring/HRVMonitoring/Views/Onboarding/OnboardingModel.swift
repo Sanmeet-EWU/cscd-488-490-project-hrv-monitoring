@@ -18,9 +18,19 @@ enum WeightUnit: String, CaseIterable {
     case pounds = "lbs"
 }
 
+struct Medication: Codable, Identifiable {
+    let id: String        // MedicationsID (primary key)
+    var medicationNumber: Int
+    var medication: String
+}
+
 /// A simple data model representing the user's profile for onboarding.
 struct UserProfile: Codable {
     let anonymizedID: String
     let bmi: Double
     let hospitalName: String
+    let age: Int
+    let injuryType: String
+    let injuryDate: Date
+    let medications: [Medication]
 }

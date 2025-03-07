@@ -2,7 +2,7 @@
 //  Event.swift
 //  HRVMonitoring
 //
-//  Created by Tyler Woody on 2/18/25.
+//  Created by Tyler Woody Austin Harrison on 2/18/25.
 //
 
 import Foundation
