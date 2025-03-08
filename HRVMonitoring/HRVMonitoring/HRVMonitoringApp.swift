@@ -11,7 +11,8 @@ import SwiftUI
 struct HRVMonitoringApp: App {
     var body: some Scene {
         WindowGroup {
-            AppFlowCoordinator()
+            //AppFlowCoordinator()
+            MockDataTestView()
         }
     }
 }
