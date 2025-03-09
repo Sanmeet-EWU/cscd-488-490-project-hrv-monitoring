@@ -19,16 +19,22 @@ struct HomeEventButtonView: View {
                 .overlay {
                     Text("\(eventManager.events.count)")
                         .font(.caption)
-                        .foregroundStyle(.white)
+                        .foregroundStyle(
+                            eventManager.events.count == 0 ? .white : .orange)
                         .bold()
                     +
                     Text(" Events")
                         .font(.caption2)
                         .foregroundStyle(.white)
                 }
-                .foregroundStyle(.hrvPrimary)
+                .foregroundStyle(.clear)
                 .frame(height: 35)
                 .padding([.trailing, .leading], 15)
         }
     }
 }
+
+#Preview {
+    HomeEventButtonView(onTap: {})
+}
+

@@ -92,4 +92,5 @@ struct HomeHeartView: View {
 
 #Preview {
     HomeHeartView()
+        .environmentObject(EventDetectionManager.shared)
 }

@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE3F24B32D7E4A4F008B499C /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24B22D7E4A4F008B499C /* Collections */; };
+		BE3F24B52D7E4A5F008B499C /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24B42D7E4A5F008B499C /* Collections */; };
+		BE3F24B72D7E4A64008B499C /* _RopeModule in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24B62D7E4A64008B499C /* _RopeModule */; };
+		BE3F24B92D7E4A64008B499C /* BitCollections in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24B82D7E4A64008B499C /* BitCollections */; };
+		BE3F24BB2D7E4A64008B499C /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24BA2D7E4A64008B499C /* DequeModule */; };
+		BE3F24BD2D7E4A64008B499C /* HashTreeCollections in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24BC2D7E4A64008B499C /* HashTreeCollections */; };
+		BE3F24BF2D7E4A64008B499C /* HeapModule in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24BE2D7E4A64008B499C /* HeapModule */; };
+		BE3F24C12D7E4A64008B499C /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24C02D7E4A64008B499C /* OrderedCollections */; };
+		BE3F24C32D7E4A6D008B499C /* _RopeModule in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24C22D7E4A6D008B499C /* _RopeModule */; };
+		BE3F24C52D7E4A6D008B499C /* BitCollections in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24C42D7E4A6D008B499C /* BitCollections */; };
+		BE3F24C72D7E4A6D008B499C /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24C62D7E4A6D008B499C /* DequeModule */; };
+		BE3F24C92D7E4A6D008B499C /* HashTreeCollections in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24C82D7E4A6D008B499C /* HashTreeCollections */; };
+		BE3F24CB2D7E4A6D008B499C /* HeapModule in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24CA2D7E4A6D008B499C /* HeapModule */; };
+		BE3F24CD2D7E4A6D008B499C /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = BE3F24CC2D7E4A6D008B499C /* OrderedCollections */; };
 		BE956B372D6470A800581E0F /* HRVMonitoringWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BE956B142D6470A700581E0F /* HRVMonitoringWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -75,6 +89,9 @@
 		285DC0012D65461E00A43E77 /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Configurations/Configuration.swift,
+				Configurations/Development.swift,
+				Configurations/Production.swift,
 				Core/EventDetectionManager.swift,
 				Core/HRVCalculator.swift,
 				Models/AppStage.swift,
@@ -99,13 +116,88 @@
 			);
 			target = BE956B132D6470A700581E0F /* HRVMonitoringWatch Watch App */;
 		};
+		BE3F24D32D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Configurations/Configuration.swift,
+				Configurations/Development.swift,
+				Configurations/Production.swift,
+			);
+			target = BE956AC32D64706A00581E0F /* HRVMonitoringTests */;
+		};
+		BE3F24D42D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Configurations/Configuration.swift,
+				Configurations/Development.swift,
+				Configurations/Production.swift,
+			);
+			target = BE956ACD2D64706A00581E0F /* HRVMonitoringUITests */;
+		};
+		BE3F24D52D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch AppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Configurations/Configuration.swift,
+				Configurations/Development.swift,
+				Configurations/Production.swift,
+			);
+			target = BE956B222D6470A800581E0F /* HRVMonitoringWatch Watch AppTests */;
+		};
+		BE3F24D62D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch AppUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Configurations/Configuration.swift,
+				Configurations/Development.swift,
+				Configurations/Production.swift,
+			);
+			target = BE956B2C2D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests */;
+		};
+		BE3F24D82D7E50FB008B499C /* Exceptions for "HRVMonitoring" folder in "HRVMonitoring" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = BE956AB32D64706900581E0F /* HRVMonitoring */;
+		};
+		BE3F24E52D7E5577008B499C /* Exceptions for "HRVMonitoringTests" folder in "HRVMonitoringTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = BE956AC32D64706A00581E0F /* HRVMonitoringTests */;
+		};
+		BE3F24E72D7E5578008B499C /* Exceptions for "HRVMonitoringUITests" folder in "HRVMonitoringUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = BE956ACD2D64706A00581E0F /* HRVMonitoringUITests */;
+		};
+		BE3F24E92D7E557D008B499C /* Exceptions for "HRVMonitoringWatch Watch AppTests" folder in "HRVMonitoringWatch Watch AppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"HRVMonitoringWatch-Watch-AppTests-Info.plist",
+			);
+			target = BE956B222D6470A800581E0F /* HRVMonitoringWatch Watch AppTests */;
+		};
+		BE3F24EB2D7E557E008B499C /* Exceptions for "HRVMonitoringWatch Watch AppUITests" folder in "HRVMonitoringWatch Watch AppUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"HRVMonitoringWatch-Watch-AppUITests-Info.plist",
+			);
+			target = BE956B2C2D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		285DBFF72D6545A700A43E77 /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				BE3F24D32D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringTests" target */,
+				BE3F24D42D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringUITests" target */,
 				285DC0012D65461E00A43E77 /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch App" target */,
+				BE3F24D52D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch AppTests" target */,
+				BE3F24D62D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch AppUITests" target */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -113,6 +205,7 @@
 		BE956AB62D64706900581E0F /* HRVMonitoring */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				BE3F24D82D7E50FB008B499C /* Exceptions for "HRVMonitoring" folder in "HRVMonitoring" target */,
 				87A60BDB2D76685D00C5363A /* Exceptions for "HRVMonitoring" folder in "HRVMonitoringWatch Watch App" target */,
 			);
 			path = HRVMonitoring;
@@ -120,11 +213,17 @@
 		};
 		BE956AC72D64706A00581E0F /* HRVMonitoringTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				BE3F24E52D7E5577008B499C /* Exceptions for "HRVMonitoringTests" folder in "HRVMonitoringTests" target */,
+			);
 			path = HRVMonitoringTests;
 			sourceTree = "<group>";
 		};
 		BE956AD12D64706A00581E0F /* HRVMonitoringUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				BE3F24E72D7E5578008B499C /* Exceptions for "HRVMonitoringUITests" folder in "HRVMonitoringUITests" target */,
+			);
 			path = HRVMonitoringUITests;
 			sourceTree = "<group>";
 		};
@@ -138,11 +237,17 @@
 		};
 		BE956B262D6470A800581E0F /* HRVMonitoringWatch Watch AppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				BE3F24E92D7E557D008B499C /* Exceptions for "HRVMonitoringWatch Watch AppTests" folder in "HRVMonitoringWatch Watch AppTests" target */,
+			);
 			path = "HRVMonitoringWatch Watch AppTests";
 			sourceTree = "<group>";
 		};
 		BE956B302D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				BE3F24EB2D7E557E008B499C /* Exceptions for "HRVMonitoringWatch Watch AppUITests" folder in "HRVMonitoringWatch Watch AppUITests" target */,
+			);
 			path = "HRVMonitoringWatch Watch AppUITests";
 			sourceTree = "<group>";
 		};
@@ -153,6 +258,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE3F24C92D7E4A6D008B499C /* HashTreeCollections in Frameworks */,
+				BE3F24C32D7E4A6D008B499C /* _RopeModule in Frameworks */,
+				BE3F24C72D7E4A6D008B499C /* DequeModule in Frameworks */,
+				BE3F24B32D7E4A4F008B499C /* Collections in Frameworks */,
+				BE3F24CB2D7E4A6D008B499C /* HeapModule in Frameworks */,
+				BE3F24CD2D7E4A6D008B499C /* OrderedCollections in Frameworks */,
+				BE3F24C52D7E4A6D008B499C /* BitCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +286,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE3F24BD2D7E4A64008B499C /* HashTreeCollections in Frameworks */,
+				BE3F24B72D7E4A64008B499C /* _RopeModule in Frameworks */,
+				BE3F24BB2D7E4A64008B499C /* DequeModule in Frameworks */,
+				BE3F24B52D7E4A5F008B499C /* Collections in Frameworks */,
+				BE3F24BF2D7E4A64008B499C /* HeapModule in Frameworks */,
+				BE3F24C12D7E4A64008B499C /* OrderedCollections in Frameworks */,
+				BE3F24B92D7E4A64008B499C /* BitCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +313,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE3F24B12D7E4A45008B499C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BE956AAB2D64706900581E0F = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +330,7 @@
 				BE956B152D6470A700581E0F /* HRVMonitoringWatch Watch App */,
 				BE956B262D6470A800581E0F /* HRVMonitoringWatch Watch AppTests */,
 				BE956B302D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests */,
+				BE3F24B12D7E4A45008B499C /* Frameworks */,
 				BE956AB52D64706900581E0F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -244,6 +371,13 @@
 			);
 			name = HRVMonitoring;
 			packageProductDependencies = (
+				BE3F24B22D7E4A4F008B499C /* Collections */,
+				BE3F24C22D7E4A6D008B499C /* _RopeModule */,
+				BE3F24C42D7E4A6D008B499C /* BitCollections */,
+				BE3F24C62D7E4A6D008B499C /* DequeModule */,
+				BE3F24C82D7E4A6D008B499C /* HashTreeCollections */,
+				BE3F24CA2D7E4A6D008B499C /* HeapModule */,
+				BE3F24CC2D7E4A6D008B499C /* OrderedCollections */,
 			);
 			productName = HRVMonitoring;
 			productReference = BE956AB42D64706900581E0F /* HRVMonitoring.app */;
@@ -312,6 +446,13 @@
 			);
 			name = "HRVMonitoringWatch Watch App";
 			packageProductDependencies = (
+				BE3F24B42D7E4A5F008B499C /* Collections */,
+				BE3F24B62D7E4A64008B499C /* _RopeModule */,
+				BE3F24B82D7E4A64008B499C /* BitCollections */,
+				BE3F24BA2D7E4A64008B499C /* DequeModule */,
+				BE3F24BC2D7E4A64008B499C /* HashTreeCollections */,
+				BE3F24BE2D7E4A64008B499C /* HeapModule */,
+				BE3F24C02D7E4A64008B499C /* OrderedCollections */,
 			);
 			productName = "HRVMonitoringWatch Watch App";
 			productReference = BE956B142D6470A700581E0F /* HRVMonitoringWatch Watch App.app */;
@@ -406,6 +547,9 @@
 			);
 			mainGroup = BE956AAB2D64706900581E0F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BE956AB52D64706900581E0F /* Products */;
 			projectDirPath = "";
@@ -542,6 +686,8 @@
 /* Begin XCBuildConfiguration section */
 		BE956AD62D64706A00581E0F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 285DBFF72D6545A700A43E77 /* Shared */;
+			baseConfigurationReferenceRelativePath = Configurations/Development.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -605,6 +751,8 @@
 		};
 		BE956AD72D64706A00581E0F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 285DBFF72D6545A700A43E77 /* Shared */;
+			baseConfigurationReferenceRelativePath = Configurations/Production.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -671,6 +819,7 @@
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HRVMonitoring/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -705,6 +854,7 @@
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HRVMonitoring/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -734,6 +884,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HRVMonitoringTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ewu.HRVMonitoringTests;
@@ -752,6 +903,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HRVMonitoringTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ewu.HRVMonitoringTests;
@@ -769,6 +921,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HRVMonitoringUITests/Info.plist;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ewu.HRVMonitoringUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -785,6 +938,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HRVMonitoringUITests/Info.plist;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ewu.HRVMonitoringUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -807,6 +961,7 @@
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HRVMonitoringWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = HRVMonitoringWatch;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs access to health data to display heart rate information. ";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -839,6 +994,7 @@
 				DEVELOPMENT_TEAM = 7ZTT37X4QG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HRVMonitoringWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = HRVMonitoringWatch;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs access to health data to display heart rate information. ";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -866,6 +1022,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HRVMonitoringWatch-Watch-AppTests-Info.plist";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ewu.HRVMonitoringWatch-Watch-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -885,6 +1042,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HRVMonitoringWatch-Watch-AppTests-Info.plist";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ewu.HRVMonitoringWatch-Watch-AppTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -903,6 +1061,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HRVMonitoringWatch-Watch-AppUITests-Info.plist";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ewu.HRVMonitoringWatch-Watch-AppUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -921,6 +1080,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HRVMonitoringWatch-Watch-AppUITests-Info.plist";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ewu.HRVMonitoringWatch-Watch-AppUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1000,6 +1160,90 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BE3F24B22D7E4A4F008B499C /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		BE3F24B42D7E4A5F008B499C /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+		BE3F24B62D7E4A64008B499C /* _RopeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = _RopeModule;
+		};
+		BE3F24B82D7E4A64008B499C /* BitCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = BitCollections;
+		};
+		BE3F24BA2D7E4A64008B499C /* DequeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = DequeModule;
+		};
+		BE3F24BC2D7E4A64008B499C /* HashTreeCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = HashTreeCollections;
+		};
+		BE3F24BE2D7E4A64008B499C /* HeapModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = HeapModule;
+		};
+		BE3F24C02D7E4A64008B499C /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+		BE3F24C22D7E4A6D008B499C /* _RopeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = _RopeModule;
+		};
+		BE3F24C42D7E4A6D008B499C /* BitCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = BitCollections;
+		};
+		BE3F24C62D7E4A6D008B499C /* DequeModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = DequeModule;
+		};
+		BE3F24C82D7E4A6D008B499C /* HashTreeCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = HashTreeCollections;
+		};
+		BE3F24CA2D7E4A6D008B499C /* HeapModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = HeapModule;
+		};
+		BE3F24CC2D7E4A6D008B499C /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE3F23EC2D7E3FDF008B499C /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE956AAC2D64706900581E0F /* Project object */;
 }

@@ -44,7 +44,6 @@ class MockHeartRateGenerator: ObservableObject {
     private func generateAndSendHeartRate() {
             // Double-check we're in mock mode.
             guard DataModeManager.shared.isMockMode else { return }
-            
             let variability = Double.random(in: -5...5)
             if isIncreasing {
                 baseHeartRate += 1.0 + variability
