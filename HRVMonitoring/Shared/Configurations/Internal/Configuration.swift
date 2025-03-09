@@ -9,7 +9,10 @@
 import Foundation
 
 protocol Configuration {
+    // HRV Settings
+    /// The size of the HRV calculation window in seconds.
     var HRV_WINDOW_SIZE: Double {get}
+    /// If true, use the mock data generator, otherwise if False, use live data.
     var MOCK_DATA: Bool {get}
 }
 
@@ -42,14 +45,17 @@ enum ProjectConfig {
     static var runEnvironment: String {
         return try! ConfigurationFile.value(for: "RUN_ENVIRONMENT")
     }
+    static var developmentConfiguration = DevelopmentConfiguration()
+    static var productionConfiguration = ProductionConfiguration()
+    
     static var active: Configuration {
         switch ProjectConfig.runEnvironment {
             case "Development":
-                return DevelopmentConfiguration()
+                return ProjectConfig.developmentConfiguration
             case "Production":
-                return ProductionConfiguration()
+                return ProjectConfig.productionConfiguration
             default:
-                return ProductionConfiguration()
+                return ProjectConfig.productionConfiguration
         }
     }
 }

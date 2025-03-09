@@ -89,8 +89,8 @@
 		285DC0012D65461E00A43E77 /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Configurations/Configuration.swift,
 				Configurations/Development.swift,
+				Configurations/Internal/Configuration.swift,
 				Configurations/Production.swift,
 				Core/EventDetectionManager.swift,
 				Core/HRVCalculator.swift,
@@ -119,8 +119,8 @@
 		BE3F24D32D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Configurations/Configuration.swift,
 				Configurations/Development.swift,
+				Configurations/Internal/Configuration.swift,
 				Configurations/Production.swift,
 			);
 			target = BE956AC32D64706A00581E0F /* HRVMonitoringTests */;
@@ -128,8 +128,8 @@
 		BE3F24D42D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Configurations/Configuration.swift,
 				Configurations/Development.swift,
+				Configurations/Internal/Configuration.swift,
 				Configurations/Production.swift,
 			);
 			target = BE956ACD2D64706A00581E0F /* HRVMonitoringUITests */;
@@ -137,8 +137,8 @@
 		BE3F24D52D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch AppTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Configurations/Configuration.swift,
 				Configurations/Development.swift,
+				Configurations/Internal/Configuration.swift,
 				Configurations/Production.swift,
 			);
 			target = BE956B222D6470A800581E0F /* HRVMonitoringWatch Watch AppTests */;
@@ -146,8 +146,8 @@
 		BE3F24D62D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch AppUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Configurations/Configuration.swift,
 				Configurations/Development.swift,
+				Configurations/Internal/Configuration.swift,
 				Configurations/Production.swift,
 			);
 			target = BE956B2C2D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests */;
@@ -687,7 +687,7 @@
 		BE956AD62D64706A00581E0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReferenceAnchor = 285DBFF72D6545A700A43E77 /* Shared */;
-			baseConfigurationReferenceRelativePath = Configurations/Development.xcconfig;
+			baseConfigurationReferenceRelativePath = Configurations/Internal/Development.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -752,7 +752,7 @@
 		BE956AD72D64706A00581E0F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReferenceAnchor = 285DBFF72D6545A700A43E77 /* Shared */;
-			baseConfigurationReferenceRelativePath = Configurations/Production.xcconfig;
+			baseConfigurationReferenceRelativePath = Configurations/Internal/Production.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
