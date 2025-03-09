@@ -12,10 +12,32 @@ struct AlertHolderView: View {
 
     var body: some View {
         ScrollView {
-            ForEach(events) { event in
-                AlertView(event: event)
-                    .padding(.bottom, 8)
+            VStack {
+                ForEach(Array(events)) { event in
+                    ZStack {
+                        AlertView(event: event)
+                            .padding(.bottom, 8)
+                            
+                    }
+                    .zIndex(1)
+                    .transition(.opacity)
+                    
+                }
             }
         }
     }
 }
+
+#Preview {
+    AlertHolderView(
+        events: [
+            Event(
+                id: UUID(),
+                startTime: Date.now,
+                endTime: Date.now,
+                isConfirmed: false
+            )
+        ]
+    )
+}
+

@@ -9,10 +9,12 @@ import SwiftUI
 
 struct AlertsButton: View {
     var text: String
-    var selected: Bool
+    @State var selected: Bool
     
     var body: some View {
-        Button {} label: {
+        Button {
+            selected = !selected
+        } label: {
             Image(systemName: selected ? "checkmark" : "xmark")
             Text(text)
                 .font(.title3)

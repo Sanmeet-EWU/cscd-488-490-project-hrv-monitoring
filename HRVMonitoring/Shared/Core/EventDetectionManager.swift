@@ -32,6 +32,11 @@ class EventDetectionManager: ObservableObject {
             endEvent(event: event)
         }
     }
+    
+    public func newEvent() {
+        self.startEvent()
+        self.endEvent(event:self.activeEvent!)
+    }
 
     
     private func startEvent() {

@@ -12,8 +12,8 @@ struct AlertView: View {
     
     var body: some View {
         RoundedRectangle(cornerRadius: 20)
-            .stroke(.hrvTertiary, lineWidth: 3)
-            .background(.hrvSecondary)
+            .stroke(.hrvTertiary, lineWidth: 5)
+            .background(.white)
             .cornerRadius(20)
             .padding([.leading, .trailing], 20)
             .frame(height: 150)
@@ -61,19 +61,19 @@ struct AlertView: View {
                     Spacer()
                     
                     HStack {
-                        // "Help" button -> Confirm
+                        // "Confirm" button -> Confirm
                         Button(action: {
                             // 1) Send 'isConfirmed: true' to phone/watch
                             DataSender.shared.sendUserResponse(event: event, isConfirmed: true)
                             // 2) Remove from active events
                             EventDetectionManager.shared.handleEventHandled(eventID: event.id)
                         }) {
-                            Text("Help")
+                            Text("Confirm")
                                 .padding(.horizontal, 30)
                                 .padding(.vertical, 10)
                                 .foregroundColor(.white)
                                 .font(.title3)
-                                .background(.hrvPrimary)
+                                .background(.hrvTertiary)
                                 .cornerRadius(16)
                         }
                         .padding(.leading, 75)
@@ -85,4 +85,15 @@ struct AlertView: View {
                 }
             }
     }
+}
+
+#Preview {
+    AlertView(
+        event: Event(
+            id: UUID(),
+            startTime: Date.now,
+            endTime: Date.now,
+            isConfirmed: false
+        )
+    )
 }

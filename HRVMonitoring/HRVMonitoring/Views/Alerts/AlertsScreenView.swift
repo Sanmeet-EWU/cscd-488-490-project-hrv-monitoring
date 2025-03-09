@@ -9,12 +9,31 @@ import SwiftUI
 
 struct AlertsScreenView: View {
     @ObservedObject private var eventDetector = EventDetectionManager.shared
+    @State var createEvent: Bool = false
+    
+    func createEventFunc() {
+        EventDetectionManager.shared.newEvent()
+    }
     
     var body: some View {
         VStack {
             HStack {
-                Button {} label: {
+                Button {
+                    createEvent = true
+                } label: {
                     Image(systemName: "plus")
+                }
+                .alert(isPresented: $createEvent) {
+                    Alert(
+                        title: Text("Create Event?"),
+                        primaryButton: .default(
+                            Text("Create"),
+                            action: createEventFunc
+                        ),
+                        secondaryButton: .destructive(
+                            Text("Cancel")
+                        )
+                    )
                 }
                 .padding(.vertical, 10)
                 .padding(.horizontal, 10)
