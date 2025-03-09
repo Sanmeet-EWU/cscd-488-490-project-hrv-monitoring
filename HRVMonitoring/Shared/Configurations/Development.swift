@@ -13,4 +13,6 @@ struct DevelopmentConfiguration: Configuration {
     var HRV_WINDOW_SIZE: Double = 30.0
     /// If true, use the mock data generator, otherwise if False, use live data.
     var MOCK_DATA: Bool = true
+    /// The RMSSD threshold to trigger events.
+    var RMSSD_THRESHOLD: Double = 30.0
 }

@@ -15,7 +15,7 @@ class EventDetectionManager: ObservableObject {
     @Published var events: [Event] = []
     
     // The RMSSD threshold to trigger events.
-    let rmssdThreshold: Double = 30.0
+    let rmssdThreshold: Double = ProjectConfig.active.RMSSD_THRESHOLD
     
     /// Evaluate HRV values and start or end an event accordingly.
     func evaluateHRV(using hrvCalculator: HRVCalculator) {

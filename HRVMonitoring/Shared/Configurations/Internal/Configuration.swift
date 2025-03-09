@@ -14,6 +14,8 @@ protocol Configuration {
     var HRV_WINDOW_SIZE: Double {get}
     /// If true, use the mock data generator, otherwise if False, use live data.
     var MOCK_DATA: Bool {get}
+    /// The RMSSD threshold to trigger events.
+    var RMSSD_THRESHOLD: Double {get}
 }
 
 enum ConfigurationFile {

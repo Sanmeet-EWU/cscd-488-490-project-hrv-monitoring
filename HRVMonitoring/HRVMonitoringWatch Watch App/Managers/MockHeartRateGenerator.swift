@@ -20,7 +20,7 @@ class MockHeartRateGenerator: ObservableObject {
     private var isIncreasing = true
     
     private let hrvCalculator = HRVCalculator()
-    private let rmssdThreshold: Double = 30.0 // Adjust threshold as needed
+    private let rmssdThreshold: Double = ProjectConfig.active.RMSSD_THRESHOLD
     
     // No local activeEvent
     
