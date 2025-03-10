@@ -27,7 +27,7 @@
         "Gender": "varchar(37)",
         "HospitalName": "varchar(37)",
         "Injury": {
-          "type": "varchar(37)",
+          "Type": "varchar(37)",
           "Date": "yyyy-MM-dd"
         }
       }
