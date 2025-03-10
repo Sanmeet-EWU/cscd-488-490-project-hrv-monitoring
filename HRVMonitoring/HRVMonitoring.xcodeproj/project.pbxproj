@@ -173,19 +173,13 @@
 			);
 			target = BE956ACD2D64706A00581E0F /* HRVMonitoringUITests */;
 		};
-		BE3F24E92D7E557D008B499C /* Exceptions for "HRVMonitoringWatch Watch AppTests" folder in "HRVMonitoringWatch Watch AppTests" target */ = {
+		F015E1202D7F796900C0501B /* Exceptions for "Shared" folder in "HRVMonitoring" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				"HRVMonitoringWatch-Watch-AppTests-Info.plist",
+				Configurations/Internal/Development.xcconfig,
+				Configurations/Internal/Production.xcconfig,
 			);
-			target = BE956B222D6470A800581E0F /* HRVMonitoringWatch Watch AppTests */;
-		};
-		BE3F24EB2D7E557E008B499C /* Exceptions for "HRVMonitoringWatch Watch AppUITests" folder in "HRVMonitoringWatch Watch AppUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"HRVMonitoringWatch-Watch-AppUITests-Info.plist",
-			);
-			target = BE956B2C2D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests */;
+			target = BE956AB32D64706900581E0F /* HRVMonitoring */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -193,6 +187,7 @@
 		285DBFF72D6545A700A43E77 /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				F015E1202D7F796900C0501B /* Exceptions for "Shared" folder in "HRVMonitoring" target */,
 				BE3F24D32D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringTests" target */,
 				BE3F24D42D7E4EA9008B499C /* Exceptions for "Shared" folder in "HRVMonitoringUITests" target */,
 				285DC0012D65461E00A43E77 /* Exceptions for "Shared" folder in "HRVMonitoringWatch Watch App" target */,
@@ -237,17 +232,11 @@
 		};
 		BE956B262D6470A800581E0F /* HRVMonitoringWatch Watch AppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				BE3F24E92D7E557D008B499C /* Exceptions for "HRVMonitoringWatch Watch AppTests" folder in "HRVMonitoringWatch Watch AppTests" target */,
-			);
 			path = "HRVMonitoringWatch Watch AppTests";
 			sourceTree = "<group>";
 		};
 		BE956B302D6470A800581E0F /* HRVMonitoringWatch Watch AppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				BE3F24EB2D7E557E008B499C /* Exceptions for "HRVMonitoringWatch Watch AppUITests" folder in "HRVMonitoringWatch Watch AppUITests" target */,
-			);
 			path = "HRVMonitoringWatch Watch AppUITests";
 			sourceTree = "<group>";
 		};
@@ -512,7 +501,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1610;
-				LastUpgradeCheck = 1610;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					BE956AB32D64706900581E0F = {
 						CreatedOnToolsVersion = 16.1;

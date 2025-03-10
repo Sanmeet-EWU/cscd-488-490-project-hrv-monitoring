@@ -4,7 +4,6 @@
 //
 //  Created by Tyler Woody and Austin Harrison on 2/18/25.
 //
-
 import Foundation
 
 struct AddHRVDataRequest: Codable {
@@ -30,6 +29,16 @@ struct AddHRVDataRequest: Codable {
             case pnn50 = "PNN50"
             case heartBeats = "HeartBeats"
         }
+        
+        // Custom encoding: Convert heartBeats to an array of Ints.
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(sdnn, forKey: .sdnn)
+            try container.encode(rmssd, forKey: .rmssd)
+            try container.encode(pnn50, forKey: .pnn50)
+            let intHeartBeats = heartBeats.map { Int($0) }
+            try container.encode(intHeartBeats, forKey: .heartBeats)
+        }
     }
     
     struct Flags: Codable {
@@ -47,7 +56,7 @@ struct AddHRVDataRequest: Codable {
         let date: Date
         
         enum CodingKeys: String, CodingKey {
-            case type
+            case type = "Type"
             case date = "Date"
         }
         
@@ -87,12 +96,14 @@ struct AddHRVDataRequest: Codable {
     struct PersonalData: Codable {
         let age: Int
         let bmi: Double
+        let gender: String?
         let hospitalName: String
         let injury: Injury
         
         enum CodingKeys: String, CodingKey {
             case age = "Age"
             case bmi = "BMI"
+            case gender = "Gender"
             case hospitalName = "HospitalName"
             case injury = "Injury"
         }
@@ -109,7 +120,7 @@ struct AddHRVDataRequest: Codable {
         enum CodingKeys: String, CodingKey {
             case authInfo = "AuthInfo"
             case type = "Type"
-            case creationDate = "creationDate"
+            case creationDate = "CreationDate"
             case hrvInfo = "HRVInfo"
             case flags = "Flags"
             case personalData = "PersonalData"

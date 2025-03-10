@@ -16,7 +16,7 @@ struct QuestionView: View {
             Text(question.text)
                 .font(.headline)
                 .padding(.bottom, 20)
-            ForEach(0..<5, id: \.self) { index in
+            ForEach(0..<4, id: \.self) { index in
                 Button(action: {
                     answer = index
                 }) {
@@ -44,7 +44,6 @@ struct QuestionView: View {
         case 1: return "Several days"
         case 2: return "More than half the days"
         case 3: return "Nearly every day"
-        case 4: return "Always"
         default: return ""
         }
     }

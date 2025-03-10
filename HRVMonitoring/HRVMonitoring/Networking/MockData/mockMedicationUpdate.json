@@ -2,13 +2,13 @@
   "body": {
     "RequestData": {
       "AuthInfo": {
-        "AnonymizedID": "123e4567-e89b-12d3-a456-426614174000",
-        "AccessKey": "abcdef123456"
+        "AnonymizedID": "your-mock-id",
+        "AccessKey": "your-mock-key"
       },
       "Type": "UpdateMedications",
       "Medications": [
-        "MedicationA",
-        "MedicationB"
+        "Medication1",
+        "Medication2"
       ]
     }
   }

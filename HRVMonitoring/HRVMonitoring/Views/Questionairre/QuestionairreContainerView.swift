@@ -15,10 +15,11 @@ struct QuestionnaireContainerView: View {
         QuestionnaireQuestion(id: 3, text: "Over the last two weeks, how often did you have trouble relaxing?"),
         QuestionnaireQuestion(id: 4, text: "Over the last two weeks, how often did you feel so restless that it is hard to sit still?"),
         QuestionnaireQuestion(id: 5, text: "Over the last two weeks, how often did you become easily annoyed or irritable?"),
-        QuestionnaireQuestion(id: 6, text: "Over the last two weeks, how often did you feel afraid as if something awful might happen?")
+        QuestionnaireQuestion(id: 6, text: "Over the last two weeks, how often did you feel afraid as if something awful might happen?"),
+        QuestionnaireQuestion(id: 7, text:"If you checked any problems, how difficult have they made it for you to do your work, take care of things at home, or get along with other people?")
     ]
     
-    @State private var answers: [Int] = Array(repeating: -1, count: 7)
+    @State private var answers: [Int] = Array(repeating: -1, count: 8)
     @State private var currentQuestionIndex = 0
     @State private var isSubmitting = false
 
@@ -71,6 +72,13 @@ struct QuestionnaireContainerView: View {
                                                    questions: answers)
         let request = QuestionnaireRequest(requestData: requestData)
         
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        if let jsonData = try? encoder.encode(request),
+           let jsonString = String(data: jsonData, encoding: .utf8) {
+            print("📜 JSON being sent: \(jsonString)")
+        }
+        
         CloudManager.shared.sendQuestionnaireData(request: request) { result in
             DispatchQueue.main.async {
                 isSubmitting = false
@@ -90,6 +98,7 @@ struct QuestionnaireContainerView: View {
     }
     
     private func getAccessKey() -> String {
-        UserDefaults.standard.string(forKey: "AccessKey") ?? ""
+        let accessKey = UserDefaults.standard.string(forKey: "AccessKey") ?? ""
+        return accessKey
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os.log
 
 class OnboardingViewModel: ObservableObject {
     // User inputs for height, weight, hospital, age, and injury.
@@ -25,6 +26,9 @@ class OnboardingViewModel: ObservableObject {
     
     // For showing a local confirmation alert.
     @Published var showConfirmation: Bool = false
+    
+    // Logger using OSLog.
+    private let logger = OSLog(subsystem: Bundle.main.bundleIdentifier ?? "com.yourapp.HRVMonitoring", category: "OnboardingViewModel")
     
     /// Checks that required fields are valid. Medications are optional, but if present, they must have non-empty names.
     var isFormValid: Bool {
@@ -68,42 +72,59 @@ class OnboardingViewModel: ObservableObject {
     // Called when the user taps "Complete Onboarding".
     func completeOnboarding() {
         let userID = retrieveOrGenerateUserID()
-        let heightVal = Double(heightText) ?? 0.0
-        let weightVal = Double(weightText) ?? 0.0
-        let age = Int(ageText) ?? 0
         
-        let heightMeters = convertHeightToMeters(value: heightVal, unit: selectedHeightUnit)
-        let weightKg = convertWeightToKg(value: weightVal, unit: selectedWeightUnit)
-        
-        let bmi = (heightMeters > 0) ? (weightKg / (heightMeters * heightMeters)) : 0
-        
-        // Build the user profile using only the required fields.
-        let userData = UserProfile(
+        // Create AuthInfo object
+        let authInfo = CreateUserRequest.AuthInfo(
             anonymizedID: userID,
-            bmi: bmi,
-            hospitalName: hospitalName,
-            age: age,
-            injuryType: injuryType,
-            injuryDate: injuryDate,
-            medications: medications
+            accessKey: UUID().uuidString // Generate a placeholder access key for first-time creation
         )
-        
-        // Mark onboarding as completed.
-        UserDefaults.standard.set(true, forKey: "HasCompletedOnboarding")
-        
-        // Send the user profile to your backend.
-        CloudManager.shared.addOrUpdateUser(userData: userData) { result in
-            switch result {
-            case .success:
-                print("User data uploaded successfully")
-            case .failure(let error):
-                print("Failed to upload user data: \(error)")
+
+        // Create RequestData object
+        let requestData = CreateUserRequest.RequestData(
+            authInfo: authInfo,
+            type: "CreateUser"
+        )
+
+        // Create the full request object (wrapped inside "body")
+        let requestBody = CreateUserRequest.Body(requestData: requestData)
+        let createUserRequest = CreateUserRequest(body: requestBody)
+
+        // Store the user anonymized ID
+        UserDefaults.standard.set(userID, forKey: "AnonymizedID")
+
+        os_log("🚀 Creating user with ID: %@", log: self.logger, type: .info, userID)
+
+        // Debug print JSON before sending
+        do {
+            let jsonData = try JSONEncoder().encode(createUserRequest)
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                print("📜 Final JSON Sent: \(jsonString)")
+            }
+        } catch {
+            print("🚨 JSON Encoding Error: \(error)")
+        }
+
+        // Send the create user request
+        CloudManager.shared.sendCreateUser(request: createUserRequest) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let (userNameGUID, accessKeyGUID)):
+                    os_log("✅ User successfully created!", log: self.logger, type: .info)
+                    os_log("🆔 User Name GUID: %@", log: self.logger, type: .info, userNameGUID)
+                    os_log("🔑 Access Key: %@", log: self.logger, type: .info, accessKeyGUID)
+
+                    // Store in UserDefaults
+                    UserDefaults.standard.set(userNameGUID, forKey: "AnonymizedID")
+                    UserDefaults.standard.set(accessKeyGUID, forKey: "AccessKey")
+                    UserDefaults.standard.synchronize()
+
+                case .failure(let error):
+                    os_log("🚨 Failed to create user: %@", log: self.logger, type: .error, error.localizedDescription)
+                }
             }
         }
-        
-        showConfirmation = true
-        print("Onboarding complete. ID: \(userID), BMI: \(bmi)")
     }
+
     
     // MARK: - Helpers
     
@@ -135,4 +156,3 @@ class OnboardingViewModel: ObservableObject {
         }
     }
 }
-

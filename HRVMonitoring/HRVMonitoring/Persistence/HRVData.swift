@@ -12,7 +12,6 @@ import CoreData
 
 struct HRVdata: Codable {
     let id: UUID
-    let creationDate: Date
     let heartBeats: [Double]
     let pnn50: Double
     let rmssd: Double
@@ -25,12 +24,10 @@ extension HRVdata {
     // Initialize an HRVdata instance from a Core Data HRVDataModel.
     init?(from model: HRVDataModel) {
         guard let id = model.id,
-              let creationDate = model.creationDate,
               let heartBeats = model.heartBeats else {
             return nil
         }
         self.id = id
-        self.creationDate = creationDate
         self.heartBeats = heartBeats as! [Double]
         self.pnn50 = model.pnn50
         self.rmssd = model.rmssd
@@ -41,7 +38,6 @@ extension HRVdata {
     func toCoreDataModel(in context: NSManagedObjectContext) -> HRVDataModel {
         let model = HRVDataModel(context: context)
         model.id = self.id
-        model.creationDate = self.creationDate
         model.heartBeats = self.heartBeats as NSArray
         model.pnn50 = self.pnn50
         model.rmssd = self.rmssd
@@ -49,4 +45,3 @@ extension HRVdata {
         return model
     }
 }
-

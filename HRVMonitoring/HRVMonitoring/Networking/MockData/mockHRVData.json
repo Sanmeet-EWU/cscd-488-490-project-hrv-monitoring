@@ -2,15 +2,16 @@
   "body": {
     "RequestData": {
       "AuthInfo": {
-        "AnonymizedID": "123e4567-e89b-12d3-a456-426614174000",
-        "AccessKey": "abcdef123456"
+        "AnonymizedID": "replace-with-user-guid",
+        "AccessKey": "replace-with-access-key"
       },
       "Type": "AddData",
+      "CreationDate": "2025-02-25T00:00:00Z",
       "HRVInfo": {
-        "SDNN": 50.0,
-        "RMSSD": 30.0,
-        "PNN50": 5.0,
-        "HeartBeats": [800, 810, 805, 820]
+        "SDNN": 50.5,
+        "RMSSD": 40.7,
+        "PNN50": 85.3,
+        "HeartBeats": [70, 72, 68, 75]
       },
       "Flags": {
         "UserFlagged": false,
@@ -19,11 +20,10 @@
       "PersonalData": {
         "Age": 30,
         "BMI": 22.5,
-        "Gender": "Male",
-        "HospitalName": "City Hospital",
+        "HospitalName": "Sample Hospital",
         "Injury": {
-          "type": "None",
-          "Date": "2025-03-01"
+          "Type": "Sprained Ankle",
+          "Date": "2025-01-10"
         }
       }
     }
