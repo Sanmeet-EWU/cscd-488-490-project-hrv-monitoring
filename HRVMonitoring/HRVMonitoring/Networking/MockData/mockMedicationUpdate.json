@@ -1,0 +1,15 @@
+{
+  "body": {
+    "RequestData": {
+      "AuthInfo": {
+        "AnonymizedID": "123e4567-e89b-12d3-a456-426614174000",
+        "AccessKey": "abcdef123456"
+      },
+      "Type": "UpdateMedications",
+      "Medications": [
+        "MedicationA",
+        "MedicationB"
+      ]
+    }
+  }
+}
