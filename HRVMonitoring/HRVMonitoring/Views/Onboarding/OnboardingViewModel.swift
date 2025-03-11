@@ -72,7 +72,11 @@ class OnboardingViewModel: ObservableObject {
     // Called when the user taps "Complete Onboarding".
     func completeOnboarding() {
         let userID = retrieveOrGenerateUserID()
-        
+
+        // Store onboarding completion status
+        UserDefaults.standard.set(true, forKey: "HasCompletedOnboarding")
+        UserDefaults.standard.synchronize()  // Ensure it’s saved immediately
+
         // Create AuthInfo object
         let authInfo = CreateUserRequest.AuthInfo(
             anonymizedID: userID,
@@ -85,39 +89,20 @@ class OnboardingViewModel: ObservableObject {
             type: "CreateUser"
         )
 
-        // Create the full request object (wrapped inside "body")
         let requestBody = CreateUserRequest.Body(requestData: requestData)
         let createUserRequest = CreateUserRequest(body: requestBody)
 
         // Store the user anonymized ID
         UserDefaults.standard.set(userID, forKey: "AnonymizedID")
 
-        os_log("🚀 Creating user with ID: %@", log: self.logger, type: .info, userID)
-
-        // Debug print JSON before sending
-        do {
-            let jsonData = try JSONEncoder().encode(createUserRequest)
-            if let jsonString = String(data: jsonData, encoding: .utf8) {
-                print("📜 Final JSON Sent: \(jsonString)")
-            }
-        } catch {
-            print("🚨 JSON Encoding Error: \(error)")
-        }
-
-        // Send the create user request
         CloudManager.shared.sendCreateUser(request: createUserRequest) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let (userNameGUID, accessKeyGUID)):
                     os_log("✅ User successfully created!", log: self.logger, type: .info)
-                    os_log("🆔 User Name GUID: %@", log: self.logger, type: .info, userNameGUID)
-                    os_log("🔑 Access Key: %@", log: self.logger, type: .info, accessKeyGUID)
-
-                    // Store in UserDefaults
                     UserDefaults.standard.set(userNameGUID, forKey: "AnonymizedID")
                     UserDefaults.standard.set(accessKeyGUID, forKey: "AccessKey")
                     UserDefaults.standard.synchronize()
-
                 case .failure(let error):
                     os_log("🚨 Failed to create user: %@", log: self.logger, type: .error, error.localizedDescription)
                 }
