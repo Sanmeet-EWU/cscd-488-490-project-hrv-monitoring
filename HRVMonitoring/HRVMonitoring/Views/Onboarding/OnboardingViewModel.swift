@@ -69,6 +69,39 @@ class OnboardingViewModel: ObservableObject {
         }
     }
     
+    func sendMedicationUpdate() {
+        guard let userID = UserDefaults.standard.string(forKey: "AnonymizedID"),
+              let accessKey = UserDefaults.standard.string(forKey: "AccessKey") else {
+            os_log("🚨 Missing user credentials. Cannot send medications.", log: self.logger, type: .error)
+            return
+        }
+
+        let medicationList = medications.map { $0.medication }.filter { !$0.isEmpty }
+        
+        guard !medicationList.isEmpty else {
+            os_log("⚠️ No medications to send. Skipping update.", log: self.logger, type: .info)
+            return
+        }
+
+        let authInfo = AuthInfo(anonymizedID: userID, accessKey: accessKey)
+        let requestData = MedicationUpdateRequest.RequestData(authInfo: authInfo, type: "UpdateMedications", medications: medicationList)
+        
+        let medicationUpdateRequest = MedicationUpdateRequest(requestData: requestData)
+
+        os_log("🚀 Sending Medications: %@", log: self.logger, type: .info, medicationList.description)
+
+        CloudManager.shared.sendMedicationUpdate(request: medicationUpdateRequest) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    os_log("✅ Medications updated successfully.", log: self.logger, type: .info)
+                case .failure(let error):
+                    os_log("🚨 Failed to update medications: %@", log: self.logger, type: .error, error.localizedDescription)
+                }
+            }
+        }
+    }
+    
     // Called when the user taps "Complete Onboarding".
     func completeOnboarding() {
         let userID = retrieveOrGenerateUserID()
@@ -102,6 +135,8 @@ class OnboardingViewModel: ObservableObject {
                     os_log("✅ User successfully created!", log: self.logger, type: .info)
                     UserDefaults.standard.set(userNameGUID, forKey: "AnonymizedID")
                     UserDefaults.standard.set(accessKeyGUID, forKey: "AccessKey")
+                    
+                    self.sendMedicationUpdate()
                     UserDefaults.standard.synchronize()
                 case .failure(let error):
                     os_log("🚨 Failed to create user: %@", log: self.logger, type: .error, error.localizedDescription)

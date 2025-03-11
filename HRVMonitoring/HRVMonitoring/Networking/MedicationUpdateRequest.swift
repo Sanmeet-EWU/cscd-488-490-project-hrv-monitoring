@@ -30,6 +30,11 @@ struct MedicationUpdateRequest: Codable {
         case RequestData
     }
     
+    //Explicit initializer to allow creating an instance
+    init(requestData: RequestData) {
+        self.requestData = requestData
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: OuterKeys.self)
         let bodyContainer = try container.nestedContainer(keyedBy: BodyKeys.self, forKey: .body)
