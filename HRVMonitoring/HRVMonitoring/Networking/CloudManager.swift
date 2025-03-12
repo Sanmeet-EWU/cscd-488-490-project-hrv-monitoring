@@ -79,11 +79,34 @@ class CloudManager {
         }.resume()
     }
     
+    /// Helper function to check if the user has given consent
+    private func hasUserConsented() -> Bool {
+        if let consent = UserDefaults.standard.object(forKey: "hasConsentedToSendData") as? Bool {
+            return consent
+        }
+        os_log("CloudManager: Consent is not set, defaulting to NO.", log: OSLog.default, type: .info)
+        return false
+    }
+    
+    public func canSendData() -> Bool {
+    // Additional checks before sending data
+        guard hasUserConsented() else {
+            os_log("CloudManager: User has not consented to sending data.", log: OSLog.default, type: .info)
+            return false
+        }
+        return true
+    }
+    
     // MARK: - Public API Methods
     
     /// Sends HRV data and returns the server's response code.
     func sendHRVData(request: AddHRVDataRequest,
                      completion: @escaping (Result<Int, Error>) -> Void) {
+        guard canSendData() else {
+            os_log("CloudManager: User has not consented to sending HRV data. Skipping.", log: OSLog.default, type: .info)
+            completion(.failure(NSError(domain: "CloudManager", code: 403, userInfo: [NSLocalizedDescriptionKey: "User has not consented"])))
+            return
+        }
         var urlRequest = URLRequest(url: baseURL)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -116,6 +139,11 @@ class CloudManager {
     /// Sends questionnaire data. Assumes that a response code of 10 indicates success.
     func sendQuestionnaireData(request: QuestionnaireRequest,
                                completion: @escaping (Result<Void, Error>) -> Void) {
+        guard canSendData() else {
+            os_log("CloudManager: User has not consented to sending questionnaire data. Skipping.", log: OSLog.default, type: .info)
+            completion(.failure(NSError(domain: "CloudManager", code: 403, userInfo: [NSLocalizedDescriptionKey: "User has not consented"])))
+            return
+        }
         var urlRequest = URLRequest(url: baseURL)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -150,6 +178,11 @@ class CloudManager {
     /// Sends a medication update. Assumes a response code of 10 indicates success.
     func sendMedicationUpdate(request: MedicationUpdateRequest,
                               completion: @escaping (Result<Void, Error>) -> Void) {
+        guard canSendData() else {
+            os_log("CloudManager: User has not consented to sending medication data. Skipping.", log: OSLog.default, type: .info)
+            completion(.failure(NSError(domain: "CloudManager", code: 403, userInfo: [NSLocalizedDescriptionKey: "User has not consented"])))
+            return
+        }
         var urlRequest = URLRequest(url: baseURL)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
