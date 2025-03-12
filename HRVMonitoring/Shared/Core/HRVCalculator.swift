@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Collections
 
 /// Represents a single heart beat with its timestamp and heart rate.
 struct Beat {
@@ -25,10 +26,14 @@ struct Beat {
 class HRVCalculator: ObservableObject {
     /// Window size in seconds. Default is 5 minutes (300 seconds).
     var windowSize: TimeInterval = ProjectConfig.active.HRV_WINDOW_SIZE
+    private var lastSaved: Date?
+
+    @Published private(set) var beats: Deque<Beat> = []
     
     /// The collected beats within the current window.
-    @Published private(set) var beats: [Beat] = []
+//    @Published private(set) var beats: [Beat] = []
     
+
     /// Computed RMSSD (Root Mean Square of Successive Differences)
     /// Requires at least two beats.
     var rmssd: Double? {
@@ -68,58 +73,47 @@ class HRVCalculator: ObservableObject {
         return (Double(count) / Double(ibis.count - 1)) * 100.0
     }
     
-    // Adds a new beat
-    // In a fixed window, we simply accumulate beats until the window duration is reached.
     func addBeat(heartRate: Double, at timestamp: Date = Date()) {
         let newBeat = Beat(timestamp: timestamp, heartRate: heartRate)
         beats.append(newBeat)
-        print("Added a beat at \(timestamp)")
-        checkWindowAndCreateRecord()
+        print("Added beat at \(timestamp)")
+        maintainRollingWindow(currentTime: timestamp)
+        periodicallySaveData(currentTime: timestamp)
     }
-    
-    // Checks if the fixed window duration has been reached
-    // If so, computes metrics, cretaes a record, and resets the window
-    private func checkWindowAndCreateRecord() {
-        guard let firstBeat = beats.first, let lastBeat = beats.last else {
-            print("No beats available to evaluate window.")
+
+    private func maintainRollingWindow(currentTime: Date) {
+        while let firstBeat = beats.first,
+              currentTime.timeIntervalSince(firstBeat.timestamp) > windowSize {
+            beats.removeFirst()
+        }
+        print("Window maintained. Current beat count: \(beats.count)")
+    }
+
+    private func periodicallySaveData(currentTime: Date) {
+        guard let lastSaved = lastSaved else {
+            self.lastSaved = currentTime
+            return
+        }
+
+        if currentTime.timeIntervalSince(lastSaved) >= windowSize {
+            saveData()
+            self.lastSaved = currentTime
+        }
+    }
+
+    private func saveData() {
+        guard !beats.isEmpty else {
+            print("No data to save.")
             return
         }
         
-        let windowDuration = lastBeat.timestamp.timeIntervalSince(firstBeat.timestamp)
-        print("Current window duration: \(windowDuration) seconds (Window size required: \(windowSize) seconds)")
+        HRVDataManager.shared.createHRVData(
+            heartBeats: beats.map { $0.heartRate },
+            pnn50: pnn50 ?? 0.0,
+            rmssd: rmssd ?? 0.0,
+            sdnn: sdnn ?? 0.0
+        )
         
-        if windowDuration >= windowSize {
-            let heartRates = beats.map { $0.heartRate }
-            let computedRMSSD = self.rmssd ?? 0.0
-            let computedSDNN = self.sdnn ?? 0.0
-            let computedPNN50 = self.pnn50 ?? 0.0
-            
-            // Create a record using HRVDataManager.
-            HRVDataManager.shared.createHRVData(
-                heartBeats: heartRates,
-                pnn50: computedPNN50,
-                rmssd: computedRMSSD,
-                sdnn: computedSDNN
-            )
-            
-            print("Data saved at \(Date()): Heart rates: \(heartRates)")
-            
-            #if os(iOS)
-            HRVLiveDataSender.shared.sendLiveHRVData(using: self)
-            #endif
-            
-            // Fetch the last saved record and print it.
-            let records = HRVDataManager.shared.fetchHRVData()
-            if let lastRecord = records.last {
-                print("Last record: \(lastRecord)")
-            } else {
-                print("No records found.")
-            }
-            
-            // Reset the fixed window by clearing all beats.
-            beats.removeAll()
-        } else {
-            print("Window not reached yet. Current window duration: \(windowDuration) seconds")
-        }
+        print("Saved data: RMSSD=\(rmssd ?? 0.0), SDNN=\(sdnn ?? 0.0), pNN50=\(pnn50 ?? 0.0)")
     }
 }
