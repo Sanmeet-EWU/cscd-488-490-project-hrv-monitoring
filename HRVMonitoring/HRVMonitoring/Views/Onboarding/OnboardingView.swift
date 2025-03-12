@@ -56,6 +56,14 @@ struct OnboardingView: View {
                         .textFieldStyle(.roundedBorder)
                         .padding([.leading, .trailing])
                     
+                    Picker("Gender", selection: $viewModel.gender) {
+                        Text("Male").tag("Male")
+                        Text("Female").tag("Female")
+                        Text("Other").tag("Other")
+                    }
+                    .pickerStyle(.segmented)
+                    .padding([.leading, .trailing])
+                    
                     // Injury type input
                     TextField("Injury Type", text: $viewModel.injuryType)
                         .textFieldStyle(.roundedBorder)

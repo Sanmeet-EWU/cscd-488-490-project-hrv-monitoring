@@ -16,6 +16,7 @@ class OnboardingViewModel: ObservableObject {
     @Published var ageText: String = ""
     @Published var injuryType: String = ""
     @Published var injuryDate: Date = Date()
+    @Published var gender: String = ""
     
     // Unit selections.
     @Published var selectedHeightUnit: HeightUnit = .inches
@@ -37,12 +38,14 @@ class OnboardingViewModel: ObservableObject {
         let trimmedHospital = hospitalName.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedAge = ageText.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedInjuryType = injuryType.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedGender = gender.trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard !trimmedHeight.isEmpty,
               !trimmedWeight.isEmpty,
               !trimmedHospital.isEmpty,
               !trimmedAge.isEmpty,
               !trimmedInjuryType.isEmpty,
+              !trimmedGender.isEmpty,
               Double(trimmedHeight) != nil,
               Double(trimmedWeight) != nil,
               Int(trimmedAge) != nil else {
@@ -106,17 +109,17 @@ class OnboardingViewModel: ObservableObject {
     func completeOnboarding() {
         let userID = retrieveOrGenerateUserID()
 
-        // Store onboarding completion status
+        // Store onboarding completion status.
         UserDefaults.standard.set(true, forKey: "HasCompletedOnboarding")
         UserDefaults.standard.synchronize()  // Ensure it’s saved immediately
 
-        // Create AuthInfo object
+        // Create AuthInfo object.
         let authInfo = CreateUserRequest.AuthInfo(
             anonymizedID: userID,
             accessKey: UUID().uuidString // Generate a placeholder access key for first-time creation
         )
 
-        // Create RequestData object
+        // Create RequestData object.
         let requestData = CreateUserRequest.RequestData(
             authInfo: authInfo,
             type: "CreateUser"
@@ -125,7 +128,7 @@ class OnboardingViewModel: ObservableObject {
         let requestBody = CreateUserRequest.Body(requestData: requestData)
         let createUserRequest = CreateUserRequest(body: requestBody)
 
-        // Store the user anonymized ID
+        // Store the user anonymized ID.
         UserDefaults.standard.set(userID, forKey: "AnonymizedID")
 
         CloudManager.shared.sendCreateUser(request: createUserRequest) { result in
@@ -136,15 +139,33 @@ class OnboardingViewModel: ObservableObject {
                     UserDefaults.standard.set(userNameGUID, forKey: "AnonymizedID")
                     UserDefaults.standard.set(accessKeyGUID, forKey: "AccessKey")
                     
-                    self.sendMedicationUpdate()
+                    // Set the user profile details from onboarding.
+                    UserDefaults.standard.set(self.hospitalName, forKey: "HospitalName")
+                    if let age = Int(self.ageText) {
+                        UserDefaults.standard.set(age, forKey: "Age")
+                    }
+                    // Compute BMI from height and weight.
+                    if let height = Double(self.heightText), let weight = Double(self.weightText) {
+                        let heightInMeters = self.convertHeightToMeters(value: height, unit: self.selectedHeightUnit)
+                        let weightInKg = self.convertWeightToKg(value: weight, unit: self.selectedWeightUnit)
+                        let bmiValue = weightInKg / (heightInMeters * heightInMeters)
+                        UserDefaults.standard.set(bmiValue, forKey: "BMI")
+                    }
+                    // Save gender, injury type, and injury date.
+                    UserDefaults.standard.set(self.gender, forKey: "Gender")
+                    UserDefaults.standard.set(self.injuryType, forKey: "InjuryType")
+                    UserDefaults.standard.set(self.injuryDate, forKey: "InjuryDate")
+                    
+                    // Synchronize UserDefaults.
                     UserDefaults.standard.synchronize()
+                    
+                    self.sendMedicationUpdate()
                 case .failure(let error):
                     os_log("🚨 Failed to create user: %@", log: self.logger, type: .error, error.localizedDescription)
                 }
             }
         }
     }
-
     
     // MARK: - Helpers
     

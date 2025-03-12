@@ -85,10 +85,8 @@ struct AddHRVDataRequest: Codable {
             var container = encoder.container(keyedBy: CodingKeys.self)
             try container.encode(type, forKey: .type)
             
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd"
-            formatter.locale = Locale(identifier: "en_US_POSIX")
-            let dateString = formatter.string(from: date)
+            let isoFormatter = ISO8601DateFormatter()
+            let dateString = isoFormatter.string(from: date)
             try container.encode(dateString, forKey: .date)
         }
     }

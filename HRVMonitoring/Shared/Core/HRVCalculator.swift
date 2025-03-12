@@ -104,6 +104,10 @@ class HRVCalculator: ObservableObject {
             
             print("Data saved at \(Date()): Heart rates: \(heartRates)")
             
+            #if os(iOS)
+            HRVLiveDataSender.shared.sendLiveHRVData(using: self)
+            #endif
+            
             // Fetch the last saved record and print it.
             let records = HRVDataManager.shared.fetchHRVData()
             if let lastRecord = records.last {
