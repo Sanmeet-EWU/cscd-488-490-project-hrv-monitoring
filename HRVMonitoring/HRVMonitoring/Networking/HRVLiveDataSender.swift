@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os.log
 
 class HRVLiveDataSender {
     static let shared = HRVLiveDataSender()
@@ -13,14 +14,16 @@ class HRVLiveDataSender {
     func sendLiveHRVData(using hrvCalculator: HRVCalculator) {
         // Retrieve live HRV metrics from HRVCalculator.
         guard let hrvInfo = buildHRVInfo(from: hrvCalculator) else {
-            print("HRV metrics are not available yet.")
+            os_log("HRVLiveDataSender: HRV metrics are not available yet.", log: OSLog.default, type: .info)
             return
         }
+        
+        os_log("HRVLiveDataSender: HRV metrics: %{public}@", log: OSLog.default, type: .info, String(describing: hrvInfo))
         
         // Retrieve authentication information from UserDefaults.
         guard let anonymizedID = UserDefaults.standard.string(forKey: "AnonymizedID"),
               let accessKey = UserDefaults.standard.string(forKey: "AccessKey") else {
-            print("Missing authentication credentials.")
+            os_log("HRVLiveDataSender: Missing authentication credentials.", log: OSLog.default, type: .error)
             return
         }
         
@@ -28,9 +31,9 @@ class HRVLiveDataSender {
         
         // Retrieve user profile values saved during onboarding.
         let hospitalName = UserDefaults.standard.string(forKey: "HospitalName") ?? "Default Hospital"
-        let age = UserDefaults.standard.integer(forKey: "Age") // returns 0 if not set
-        let bmi = UserDefaults.standard.double(forKey: "BMI")    // returns 0.0 if not set
-        let gender = UserDefaults.standard.string(forKey: "Gender") // optional
+        let age = UserDefaults.standard.integer(forKey: "Age")
+        let bmi = UserDefaults.standard.double(forKey: "BMI")
+        let gender = UserDefaults.standard.string(forKey: "Gender")
         let injuryType = UserDefaults.standard.string(forKey: "InjuryType") ?? "None"
         let injuryDate = UserDefaults.standard.object(forKey: "InjuryDate") as? Date ?? Date()
         
@@ -42,33 +45,47 @@ class HRVLiveDataSender {
             injury: AddHRVDataRequest.Injury(type: injuryType, date: injuryDate)
         )
         
-        // Build Flags (adjust if you have any custom logic here).
+        // Build Flags.
         let flags = AddHRVDataRequest.Flags(userFlagged: false, programFlagged: false)
         
-        // Construct the request data using the live HRV metrics and the saved personal data.
+        // Construct the request data.
         let requestData = AddHRVDataRequest.RequestData(
             authInfo: authInfo,
-            type: "AddData",           // Must match the expected type on your backend.
-            creationDate: Date(),      // Using current date/time.
+            type: "AddData",
+            creationDate: Date(),
             hrvInfo: hrvInfo,
             flags: flags,
             personalData: personalData
         )
         
-        // Wrap the requestData inside the outer "body" structure.
+        // Wrap the requestData.
         let liveHRVRequest = AddHRVDataRequest(requestData: requestData)
+        
+        // Encode and print the JSON.
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        encoder.outputFormatting = .prettyPrinted
+        do {
+            let jsonData = try encoder.encode(liveHRVRequest)
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                os_log("HRVLiveDataSender - Final HRV JSON being sent: %{public}@", log: OSLog.default, type: .info, jsonString)
+            }
+        } catch {
+            os_log("HRVLiveDataSender: Failed to encode HRVLiveDataRequest: %{public}@", log: OSLog.default, type: .error, error.localizedDescription)
+        }
         
         // Send the live HRV data via CloudManager.
         CloudManager.shared.sendHRVData(request: liveHRVRequest) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let responseCode):
-                    print("Live HRV data sent successfully. Response code: \(responseCode)")
+                    os_log("HRVLiveDataSender: Live HRV data sent successfully. Response code: %d", log: OSLog.default, type: .info, responseCode)
                 case .failure(let error):
-                    print("Failed to send live HRV data: \(error.localizedDescription)")
+                    os_log("HRVLiveDataSender: Failed to send live HRV data: %{public}@", log: OSLog.default, type: .error, error.localizedDescription)
                 }
             }
         }
     }
-
 }
+
+

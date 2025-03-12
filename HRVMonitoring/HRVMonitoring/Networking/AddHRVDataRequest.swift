@@ -36,7 +36,7 @@ struct AddHRVDataRequest: Codable {
             try container.encode(sdnn, forKey: .sdnn)
             try container.encode(rmssd, forKey: .rmssd)
             try container.encode(pnn50, forKey: .pnn50)
-            let intHeartBeats = heartBeats.map { Int($0) }
+            let intHeartBeats = heartBeats.map { Int($0.rounded()) }
             try container.encode(intHeartBeats, forKey: .heartBeats)
         }
     }
@@ -85,8 +85,10 @@ struct AddHRVDataRequest: Codable {
             var container = encoder.container(keyedBy: CodingKeys.self)
             try container.encode(type, forKey: .type)
             
-            let isoFormatter = ISO8601DateFormatter()
-            let dateString = isoFormatter.string(from: date)
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let dateString = formatter.string(from: date)
+            
             try container.encode(dateString, forKey: .date)
         }
     }
