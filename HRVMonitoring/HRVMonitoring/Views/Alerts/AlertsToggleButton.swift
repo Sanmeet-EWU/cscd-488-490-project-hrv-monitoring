@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AlertsButton: View {
     var text: String
-    @State var selected: Bool
+    @Binding var selected: Bool
     
     var body: some View {
         Button {
@@ -28,5 +28,5 @@ struct AlertsButton: View {
 }
 
 #Preview {
-    AlertsButton(text: "Warnings", selected: true)
+    AlertsButton(text: "Warnings", selected: .constant(true))
 }

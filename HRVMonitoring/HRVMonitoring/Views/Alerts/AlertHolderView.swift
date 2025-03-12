@@ -9,19 +9,22 @@ import SwiftUI
 
 struct AlertHolderView: View {
     let events: [Event]
+    @Binding var showAlerts: Bool
 
     var body: some View {
         ScrollView {
             VStack {
-                ForEach(Array(events)) { event in
-                    ZStack {
-                        AlertView(event: event)
-                            .padding(.bottom, 8)
-                            
+                if showAlerts {
+                    ForEach(Array(events)) { event in
+                        ZStack {
+                            AlertView(event: event)
+                                .padding(.bottom, 8)
+                                
+                        }
+                        .zIndex(1)
+                        .transition(.opacity)
+                        
                     }
-                    .zIndex(1)
-                    .transition(.opacity)
-                    
                 }
             }
         }
@@ -37,7 +40,8 @@ struct AlertHolderView: View {
                 endTime: Date.now,
                 isConfirmed: false
             )
-        ]
+        ],
+        showAlerts: .constant(true)
     )
 }
 

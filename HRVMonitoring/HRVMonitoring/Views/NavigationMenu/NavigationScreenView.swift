@@ -21,11 +21,6 @@ let navigationViewData: [NavigationViewData] = [
         navigateTo: HomeScreenView()
     ),
     NavigationViewData(
-        imageName: "chart.bar.xaxis",
-        buttonText: "Analytics",
-        navigateTo: AnalyticsScreenView()
-    ),
-    NavigationViewData(
         imageName: "exclamationmark.triangle.fill",
         buttonText: "Alerts",
         navigateTo: AlertsScreenView()

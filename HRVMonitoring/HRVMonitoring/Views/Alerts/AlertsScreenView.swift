@@ -10,6 +10,9 @@ import SwiftUI
 struct AlertsScreenView: View {
     @ObservedObject private var eventDetector = EventDetectionManager.shared
     @State var createEvent: Bool = false
+    @State var alertsSelected: Bool = true
+    @State var warningsSelected: Bool = true
+    @State var infoSelected: Bool = false
     
     func createEventFunc() {
         EventDetectionManager.shared.newEvent()
@@ -41,13 +44,16 @@ struct AlertsScreenView: View {
                 .background(.hrvSecondaryButton)
                 .cornerRadius(16)
                 
-                AlertsButton(text: "Info", selected: false)
-                AlertsButton(text: "Warnings", selected: true)
-                AlertsButton(text: "Alerts", selected: true)
+                AlertsButton(text: "Info", selected: $infoSelected)
+                AlertsButton(text: "Warnings", selected: $warningsSelected)
+                AlertsButton(text: "Alerts", selected: $alertsSelected)
             }
             .padding(.bottom, 20)
             
-            AlertHolderView(events: eventDetector.events)
+            AlertHolderView(
+                events: eventDetector.events,
+                showAlerts: $alertsSelected
+            )
         }
     }
 }

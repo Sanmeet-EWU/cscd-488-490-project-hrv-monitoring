@@ -8,36 +8,22 @@
 import SwiftUI
 
 struct SettingsContainerView: View {
+    @State var showPersonalInfoSheet = false
+
     var body: some View {
         VStack {
             ScrollView() {
                 VStack {
+                    PersonalInfoSettingView(
+                        name: "Personal Information",
+                        description: "Change personal information.",
+                        show: $showPersonalInfoSheet
+                    )
                     Divider()
                         .padding(10)
                     ToggleSettingView(
                         name: "Soothing messages",
-                        description: "Placeholder description.",
-                        toggled: false
-                    )
-                    Divider()
-                        .padding(10)
-                    ToggleSettingView(
-                        name: "Example 1",
-                        description: "Placeholder description.",
-                        toggled: false
-                    )
-                    Divider()
-                        .padding(10)
-                    ToggleSettingView(
-                        name: "Example 2",
-                        description: "Placeholder description.",
-                        toggled: false
-                    )
-                    Divider()
-                        .padding(10)
-                    ToggleSettingView(
-                        name: "Example 3",
-                        description: "Placeholder description.",
+                        description: "Toggle soothing messages.",
                         toggled: false
                     )
                     Divider()
@@ -46,6 +32,14 @@ struct SettingsContainerView: View {
             }
             .padding([.leading, .trailing], 20)
         }
+        .sheet(
+            isPresented: $showPersonalInfoSheet,
+            content: {
+                OnboardingView(onCompleted: {
+                    showPersonalInfoSheet = !showPersonalInfoSheet
+                })
+            }
+        )
     }
 }
 
