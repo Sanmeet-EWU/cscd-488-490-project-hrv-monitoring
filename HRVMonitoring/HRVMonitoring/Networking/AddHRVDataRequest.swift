@@ -137,6 +137,9 @@ struct AddHRVDataRequest: Codable {
     enum BodyKeys: String, CodingKey {
         case RequestData
     }
+    init(requestData: RequestData) {
+        self.requestData = requestData
+    }
     
     init(from decoder: Decoder) throws {
         let outerContainer = try decoder.container(keyedBy: OuterKeys.self)
