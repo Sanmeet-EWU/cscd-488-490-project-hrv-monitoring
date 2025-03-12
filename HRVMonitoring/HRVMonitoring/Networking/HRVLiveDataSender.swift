@@ -12,6 +12,10 @@ class HRVLiveDataSender {
     static let shared = HRVLiveDataSender()
     
     func sendLiveHRVData(using hrvCalculator: HRVCalculator) {
+        guard CloudManager.shared.canSendData() else {
+            os_log("HRVLiveDataSender: Data sending blocked due to lack of user consent.", log: OSLog.default, type: .info)
+            return
+        }
         // Retrieve live HRV metrics from HRVCalculator.
         guard let hrvInfo = buildHRVInfo(from: hrvCalculator) else {
             os_log("HRVLiveDataSender: HRV metrics are not available yet.", log: OSLog.default, type: .info)

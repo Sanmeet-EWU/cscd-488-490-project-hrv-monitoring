@@ -56,6 +56,20 @@ struct OnboardingView: View {
                         .textFieldStyle(.roundedBorder)
                         .padding([.leading, .trailing])
                     
+                    Text("Do you consent to sending HRV data?")
+                        .font(.headline)
+                        .padding(.top, 10)
+
+                    Picker(selection: $viewModel.hasConsentedToSendData, label: Text("Consent")) {
+                        Text("Yes, I consent").tag(true as Bool?)
+                        Text("No, I do not consent").tag(false as Bool?)
+                    }
+                    .pickerStyle(.segmented)
+                    .padding([.leading, .trailing])
+                    
+                    Text("Select your gender")
+                        .font(.headline)
+                        .padding(.top, 10)
                     Picker("Gender", selection: $viewModel.gender) {
                         Text("Male").tag("Male")
                         Text("Female").tag("Female")

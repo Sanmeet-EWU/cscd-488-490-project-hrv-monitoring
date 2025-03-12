@@ -17,6 +17,7 @@ class OnboardingViewModel: ObservableObject {
     @Published var injuryType: String = ""
     @Published var injuryDate: Date = Date()
     @Published var gender: String = ""
+    @Published var hasConsentedToSendData: Bool? = nil
     
     // Unit selections.
     @Published var selectedHeightUnit: HeightUnit = .inches
@@ -46,6 +47,7 @@ class OnboardingViewModel: ObservableObject {
               !trimmedAge.isEmpty,
               !trimmedInjuryType.isEmpty,
               !trimmedGender.isEmpty,
+              hasConsentedToSendData != nil,
               Double(trimmedHeight) != nil,
               Double(trimmedWeight) != nil,
               Int(trimmedAge) != nil else {
@@ -107,11 +109,24 @@ class OnboardingViewModel: ObservableObject {
     
     // Called when the user taps "Complete Onboarding".
     func completeOnboarding() {
-        let userID = retrieveOrGenerateUserID()
+        guard let consentGiven = hasConsentedToSendData else {
+            os_log("Onboarding cannot be completed without explicit consent selection.", log: OSLog.default, type: .error)
+            return
+        }
 
-        // Store onboarding completion status.
+        let userID = retrieveOrGenerateUserID()
         UserDefaults.standard.set(true, forKey: "HasCompletedOnboarding")
-        UserDefaults.standard.synchronize()  // Ensure it’s saved immediately
+        UserDefaults.standard.set(consentGiven, forKey: "hasConsentedToSendData")
+        UserDefaults.standard.synchronize()
+        
+        if consentGiven {
+            os_log("✅ User has given consent, starting HRV data transmission.", log: self.logger, type: .info)
+            DispatchQueue.global(qos: .background).async {
+                HRVLiveDataSender.shared.sendLiveHRVData(using: HRVCalculator())
+            }
+        }
+                
+        os_log("User consent to send data: %d", log: self.logger, type: .info, consentGiven ? 1 : 0)
 
         // Create AuthInfo object.
         let authInfo = CreateUserRequest.AuthInfo(
