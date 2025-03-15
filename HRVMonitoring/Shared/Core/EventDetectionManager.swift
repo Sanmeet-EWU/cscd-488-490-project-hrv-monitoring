@@ -26,7 +26,9 @@ class EventDetectionManager: ObservableObject {
             return
         }
         
-        if currentRMSSD >= rmssdThreshold, let event = activeEvent {
+        if currentRMSSD < rmssdThreshold, activeEvent == nil {
+            startEvent()
+        } else if currentRMSSD >= rmssdThreshold, let event = activeEvent {
             endEvent(event: event)
             #if os(iOS)
             HRVLiveDataSender.shared.sendLiveHRVData(using: hrvCalculator)
@@ -44,7 +46,6 @@ class EventDetectionManager: ObservableObject {
         let newEvent = Event(id: UUID(), startTime: Date(), endTime: Date(), isConfirmed: nil)
         activeEvent = newEvent
         print("New event started: \(newEvent.id)")
-        // Optionally, send an event-start message.
     }
     
     private func endEvent(event: Event) {

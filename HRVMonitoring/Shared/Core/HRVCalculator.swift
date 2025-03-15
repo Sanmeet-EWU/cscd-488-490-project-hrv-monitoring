@@ -78,7 +78,7 @@ class HRVCalculator: ObservableObject {
         beats.append(newBeat)
         print("Added beat at \(timestamp)")
         maintainRollingWindow(currentTime: timestamp)
-        periodicallySaveData(currentTime: timestamp)
+        periodicallySaveAndSendData(currentTime: timestamp)
     }
 
     private func maintainRollingWindow(currentTime: Date) {
@@ -89,19 +89,19 @@ class HRVCalculator: ObservableObject {
         print("Window maintained. Current beat count: \(beats.count)")
     }
 
-    private func periodicallySaveData(currentTime: Date) {
+    private func periodicallySaveAndSendData(currentTime: Date) {
         guard let lastSaved = lastSaved else {
             self.lastSaved = currentTime
             return
         }
 
         if currentTime.timeIntervalSince(lastSaved) >= windowSize {
-            saveData()
+            saveAndSendData()
             self.lastSaved = currentTime
         }
     }
 
-    private func saveData() {
+    private func saveAndSendData() {
         guard !beats.isEmpty else {
             print("No data to save.")
             return
@@ -115,5 +115,9 @@ class HRVCalculator: ObservableObject {
         )
         
         print("Saved data: RMSSD=\(rmssd ?? 0.0), SDNN=\(sdnn ?? 0.0), pNN50=\(pnn50 ?? 0.0)")
+        
+        #if os(iOS)
+        HRVLiveDataSender.shared.sendLiveHRVData(using: self)
+        #endif
     }
 }
