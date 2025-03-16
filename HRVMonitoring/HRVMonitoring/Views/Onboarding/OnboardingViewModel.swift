@@ -30,7 +30,7 @@ class OnboardingViewModel: ObservableObject {
     @Published var showConfirmation: Bool = false
     
     // Logger using OSLog.
-    private let logger = OSLog(subsystem: Bundle.main.bundleIdentifier ?? "com.yourapp.HRVMonitoring", category: "OnboardingViewModel")
+    private let logger = OSLog(subsystem: Bundle.main.bundleIdentifier ?? "ewu.HRVMonitoring2025.", category: "OnboardingViewModel")
     
     /// Checks that required fields are valid. Medications are optional, but if present, they must have non-empty names.
     var isFormValid: Bool {
@@ -122,7 +122,7 @@ class OnboardingViewModel: ObservableObject {
         if consentGiven {
             os_log("✅ User has given consent, starting HRV data transmission.", log: self.logger, type: .info)
             DispatchQueue.global(qos: .background).async {
-                HRVLiveDataSender.shared.sendLiveHRVData(using: HRVCalculator())
+                HRVLiveDataSender.shared.sendLiveHRVData(using: HRVCalculator(), programTriggered: false)
             }
         }
                 

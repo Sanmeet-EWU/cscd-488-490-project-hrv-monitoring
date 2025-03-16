@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import os
 
 class EventDetectionManager: ObservableObject {
     static let shared = EventDetectionManager()
@@ -19,21 +20,23 @@ class EventDetectionManager: ObservableObject {
     
     /// Evaluate HRV values and start or end an event accordingly.
     func evaluateHRV(using hrvCalculator: HRVCalculator) {
-        // Only evaluate if there are at least 5 beats and RMSSD is non-zero.
         guard hrvCalculator.beats.count >= 5,
               let currentRMSSD = hrvCalculator.rmssd,
               currentRMSSD > 0 else {
             return
         }
+<<<<<<< HEAD
         
         if currentRMSSD < rmssdThreshold, activeEvent == nil {
             print("Start")
+=======
+        if currentRMSSD < rmssdThreshold, activeEvent == nil {
+>>>>>>> main
             startEvent()
         } else if currentRMSSD >= rmssdThreshold, let event = activeEvent {
             endEvent(event: event)
-            #if os(iOS)
-            HRVLiveDataSender.shared.sendLiveHRVData(using: hrvCalculator)
-            #endif
+            
+            os_log("EventDetectionManager: HRV Data being sent from event trigger.", log: OSLog.default, type: .info)
         }
     }
     
@@ -47,7 +50,6 @@ class EventDetectionManager: ObservableObject {
         let newEvent = Event(id: UUID(), startTime: Date(), endTime: Date(), isConfirmed: nil)
         activeEvent = newEvent
         print("New event started: \(newEvent.id)")
-        // Optionally, send an event-start message.
     }
     
     private func endEvent(event: Event) {
@@ -57,8 +59,16 @@ class EventDetectionManager: ObservableObject {
         events.append(endedEvent)
         activeEvent = nil
         print("Event ended: \(endedEvent.id)")
+        
+        // Send HRV data on event completion
+        #if os(iOS)
+        os_log("EventDetectionManager: Sending HRV data on event completion.", log: OSLog.default, type: .info)
+        HRVLiveDataSender.shared.sendLiveHRVData(using: HRVCalculator(), programTriggered: true)
+        #endif
+
         DataSender.shared.sendEventEndData(event: endedEvent)
     }
+
     
     /// Called when a connectivity message indicates the event was handled.
     func handleEventHandled(eventID: UUID) {
