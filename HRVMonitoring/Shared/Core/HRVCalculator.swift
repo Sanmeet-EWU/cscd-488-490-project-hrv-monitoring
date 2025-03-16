@@ -29,6 +29,9 @@ class HRVCalculator: ObservableObject {
     private var lastSaved: Date?
 
     @Published private(set) var beats: Deque<Beat> = []
+    @Published var latestRMSSD: Double? = nil
+    @Published var latestSDNN: Double? = nil
+    @Published var latestPNN50: Double? = nil
     
     /// The collected beats within the current window.
 //    @Published private(set) var beats: [Beat] = []
@@ -77,6 +80,11 @@ class HRVCalculator: ObservableObject {
         let newBeat = Beat(timestamp: timestamp, heartRate: heartRate)
         beats.append(newBeat)
         print("Added beat at \(timestamp)")
+        
+        self.latestRMSSD = rmssd
+        self.latestSDNN = sdnn
+        self.latestPNN50 = pnn50
+    
         maintainRollingWindow(currentTime: timestamp)
         periodicallySaveAndSendData(currentTime: timestamp)
     }
@@ -107,14 +115,16 @@ class HRVCalculator: ObservableObject {
             return
         }
         
+        self.latestRMSSD = rmssd
+        self.latestSDNN = sdnn
+        self.latestPNN50 = pnn50
+        
         HRVDataManager.shared.createHRVData(
             heartBeats: beats.map { $0.heartRate },
-            pnn50: pnn50 ?? 0.0,
-            rmssd: rmssd ?? 0.0,
-            sdnn: sdnn ?? 0.0
+            pnn50: self.latestPNN50 ?? 0.0,
+            rmssd: self.latestRMSSD ?? 0.0,
+            sdnn: self.latestSDNN ?? 0.0
         )
-        
-        print("Saved data: RMSSD=\(rmssd ?? 0.0), SDNN=\(sdnn ?? 0.0), pNN50=\(pnn50 ?? 0.0)")
         
         #if os(iOS)
         HRVLiveDataSender.shared.sendLiveHRVData(using: self, programTriggered: false)

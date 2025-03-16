@@ -8,6 +8,11 @@
 import WatchConnectivity
 import SwiftUI
 
+
+enum HeartRateStatSelector {
+    
+}
+
 class PhoneConnectivityManager: NSObject, WCSessionDelegate, ObservableObject {
     static let shared = PhoneConnectivityManager()
 

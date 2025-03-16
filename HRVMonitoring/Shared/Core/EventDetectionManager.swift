@@ -25,13 +25,7 @@ class EventDetectionManager: ObservableObject {
               currentRMSSD > 0 else {
             return
         }
-<<<<<<< HEAD
-        
         if currentRMSSD < rmssdThreshold, activeEvent == nil {
-            print("Start")
-=======
-        if currentRMSSD < rmssdThreshold, activeEvent == nil {
->>>>>>> main
             startEvent()
         } else if currentRMSSD >= rmssdThreshold, let event = activeEvent {
             endEvent(event: event)
