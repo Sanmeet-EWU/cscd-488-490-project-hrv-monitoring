@@ -26,7 +26,10 @@ class EventDetectionManager: ObservableObject {
             return
         }
         
-        if currentRMSSD >= rmssdThreshold, let event = activeEvent {
+        if currentRMSSD < rmssdThreshold, activeEvent == nil {
+            print("Start")
+            startEvent()
+        } else if currentRMSSD >= rmssdThreshold, let event = activeEvent {
             endEvent(event: event)
             #if os(iOS)
             HRVLiveDataSender.shared.sendLiveHRVData(using: hrvCalculator)

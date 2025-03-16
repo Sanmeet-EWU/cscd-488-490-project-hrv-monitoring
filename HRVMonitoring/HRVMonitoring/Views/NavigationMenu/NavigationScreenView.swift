@@ -29,11 +29,6 @@ let navigationViewData: [NavigationViewData] = [
         imageName: "gear.circle.fill",
         buttonText: "Settings",
         navigateTo: SettingsContainerView()
-    ),
-    NavigationViewData(
-        imageName: "phone.fill",
-        buttonText: "Contact",
-        navigateTo: HomeScreenView()
     )
 ]
 

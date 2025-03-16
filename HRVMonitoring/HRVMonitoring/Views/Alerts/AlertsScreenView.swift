@@ -11,7 +11,7 @@ struct AlertsScreenView: View {
     @ObservedObject private var eventDetector = EventDetectionManager.shared
     @State var createEvent: Bool = false
     @State var alertsSelected: Bool = true
-    @State var warningsSelected: Bool = true
+    @State var warningsSelected: Bool = false
     @State var infoSelected: Bool = false
     
     func createEventFunc() {
