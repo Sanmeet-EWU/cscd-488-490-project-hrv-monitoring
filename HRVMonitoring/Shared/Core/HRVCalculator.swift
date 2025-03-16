@@ -117,7 +117,7 @@ class HRVCalculator: ObservableObject {
         print("Saved data: RMSSD=\(rmssd ?? 0.0), SDNN=\(sdnn ?? 0.0), pNN50=\(pnn50 ?? 0.0)")
         
         #if os(iOS)
-        HRVLiveDataSender.shared.sendLiveHRVData(using: self)
+        HRVLiveDataSender.shared.sendLiveHRVData(using: self, programTriggered: false)
         #endif
     }
 }

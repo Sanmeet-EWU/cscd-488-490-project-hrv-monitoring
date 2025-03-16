@@ -11,36 +11,34 @@ import os.log
 class HRVLiveDataSender {
     static let shared = HRVLiveDataSender()
     
-    func sendLiveHRVData(using hrvCalculator: HRVCalculator) {
+    func sendLiveHRVData(using hrvCalculator: HRVCalculator, programTriggered: Bool) {
         guard CloudManager.shared.canSendData() else {
             os_log("HRVLiveDataSender: Data sending blocked due to lack of user consent.", log: OSLog.default, type: .info)
             return
         }
-        // Retrieve live HRV metrics from HRVCalculator.
+
         guard let hrvInfo = buildHRVInfo(from: hrvCalculator) else {
             os_log("HRVLiveDataSender: HRV metrics are not available yet.", log: OSLog.default, type: .info)
             return
         }
-        
+
         os_log("HRVLiveDataSender: HRV metrics: %{public}@", log: OSLog.default, type: .info, String(describing: hrvInfo))
-        
-        // Retrieve authentication information from UserDefaults.
+
         guard let anonymizedID = UserDefaults.standard.string(forKey: "AnonymizedID"),
               let accessKey = UserDefaults.standard.string(forKey: "AccessKey") else {
             os_log("HRVLiveDataSender: Missing authentication credentials.", log: OSLog.default, type: .error)
             return
         }
-        
+
         let authInfo = AddHRVDataRequest.AuthInfo(anonymizedID: anonymizedID, accessKey: accessKey)
-        
-        // Retrieve user profile values saved during onboarding.
+
         let hospitalName = UserDefaults.standard.string(forKey: "HospitalName") ?? "Default Hospital"
         let age = UserDefaults.standard.integer(forKey: "Age")
         let bmi = UserDefaults.standard.double(forKey: "BMI")
         let gender = UserDefaults.standard.string(forKey: "Gender")
         let injuryType = UserDefaults.standard.string(forKey: "InjuryType") ?? "None"
         let injuryDate = UserDefaults.standard.object(forKey: "InjuryDate") as? Date ?? Date()
-        
+
         let personalData = AddHRVDataRequest.PersonalData(
             age: age,
             bmi: bmi,
@@ -48,11 +46,9 @@ class HRVLiveDataSender {
             hospitalName: hospitalName,
             injury: AddHRVDataRequest.Injury(type: injuryType, date: injuryDate)
         )
-        
-        // Build Flags.
-        let flags = AddHRVDataRequest.Flags(userFlagged: false, programFlagged: false)
-        
-        // Construct the request data.
+
+        let flags = AddHRVDataRequest.Flags(userFlagged: false, programFlagged: programTriggered)
+
         let requestData = AddHRVDataRequest.RequestData(
             authInfo: authInfo,
             type: "AddData",
@@ -61,11 +57,9 @@ class HRVLiveDataSender {
             flags: flags,
             personalData: personalData
         )
-        
-        // Wrap the requestData.
+
         let liveHRVRequest = AddHRVDataRequest(requestData: requestData)
-        
-        // Encode and print the JSON.
+
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         encoder.outputFormatting = .prettyPrinted
@@ -77,8 +71,7 @@ class HRVLiveDataSender {
         } catch {
             os_log("HRVLiveDataSender: Failed to encode HRVLiveDataRequest: %{public}@", log: OSLog.default, type: .error, error.localizedDescription)
         }
-        
-        // Send the live HRV data via CloudManager.
+
         CloudManager.shared.sendHRVData(request: liveHRVRequest) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -90,6 +83,16 @@ class HRVLiveDataSender {
             }
         }
     }
+    func logToFile(_ message: String) {
+        let logMessage = "\(Date()): \(message)\n"
+        let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent("simulator_log.txt")
+        
+        if let handle = try? FileHandle(forWritingTo: fileURL) {
+            handle.seekToEndOfFile()
+            handle.write(logMessage.data(using: .utf8)!)
+            handle.closeFile()
+        } else {
+            try? logMessage.write(to: fileURL, atomically: true, encoding: .utf8)
+        }
+    }
 }
-
-
