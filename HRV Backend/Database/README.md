@@ -76,8 +76,6 @@ CREATE INDEX `TimeSectionDetails_index_4` ON `TimeSectionDetails` (`Questionnair
 
 ALTER TABLE `TimeSectionDetails` ADD FOREIGN KEY (`AnonymizedID`) REFERENCES `UserData` (`AnonymizedID`);
 
-ALTER TABLE `HeartRateData` ADD FOREIGN KEY (`HeartRateDataID`) REFERENCES `TimeSectionDetails` (`HeartRateDataID`);
-
 ALTER TABLE `Medication` ADD FOREIGN KEY (`MedicationsID`) REFERENCES `TimeSectionDetails` (`MedicationsID`);
 
 ALTER TABLE `Medication` ADD FOREIGN KEY (`MedicationsID`) REFERENCES `UserData` (`CurrentMedicationsID`);
@@ -146,3 +144,4 @@ select * from HeartRateData;
 
 
 For the lambda, ensure that you use the auto connect feature, and check out the code in below files to implement.
+Code that creates the queries is within FrontAndBack Lambda, but the creation code above can be good to modify and change how you'd like (Perhaps adding an injury table ect)
