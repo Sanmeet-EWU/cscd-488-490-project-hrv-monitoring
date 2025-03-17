@@ -217,28 +217,33 @@ public class Function
 
         try
         {
+            Console.WriteLine("Getting full body in method time section");
             (string? questionaireID, string? medicationsID) = getUserDataIDS();
             DateTime dateTime = DateTime.Now;
-           
+            Console.WriteLine("getting body");
             JsonDocument doc = JsonDocument.Parse(Request!.Body);
             string body = doc.RootElement.GetProperty("body").ToString();
             JsonDocument bodyDoc = JsonDocument.Parse(body);
+            Console.WriteLine("Getting request data");
             string requestDataString = bodyDoc.RootElement.GetProperty("RequestData").ToString();
             JsonDocument requestData = JsonDocument.Parse(requestDataString);
             //get hrv info
+            Console.WriteLine("Getting HRV Info");
             string hrvInfoString = requestData.RootElement.GetProperty("HRVInfo").ToString();
             JsonDocument hrvInfoJson = JsonDocument.Parse(hrvInfoString);
             double sdnn = hrvInfoJson.RootElement.GetProperty("SDNN").GetDouble();
             double rmssd = hrvInfoJson.RootElement.GetProperty("RMSSD").GetDouble();
             double pnn50 = hrvInfoJson.RootElement.GetProperty("PNN50").GetDouble();
-           
+            Console.WriteLine("Getting flags...");
             //get flags
             string flagsString = requestData.RootElement.GetProperty("Flags").ToString();
             JsonDocument Flags = JsonDocument.Parse(flagsString);
             bool userFlagged = Flags.RootElement.GetProperty("UserFlagged").GetBoolean();
             bool programFlagged = Flags.RootElement.GetProperty("ProgramFlagged").GetBoolean();
             //get personal Data
+            Console.WriteLine("Attempting to get Personal Data from "+requestData.ToString() + " and root data is " + requestData.RootElement.ToString());
             string personalDataString = requestData.RootElement.GetProperty("PersonalData").ToString();
+            Console.WriteLine("Personal data acquired.");
             JsonDocument personalDataJson = JsonDocument.Parse(personalDataString);
             string injuryString = personalDataJson.RootElement.GetProperty("Injury").ToString();
             JsonDocument InjuryDataJson = JsonDocument.Parse(injuryString);
