@@ -1,0 +1,31 @@
+{
+  "body": {
+    "RequestData": {
+      "AuthInfo": {
+        "AnonymizedID": "replace-with-user-guid",
+        "AccessKey": "replace-with-access-key"
+      },
+      "Type": "AddData",
+      "CreationDate": "2025-02-25T00:00:00Z",
+      "HRVInfo": {
+        "SDNN": 50.5,
+        "RMSSD": 40.7,
+        "PNN50": 85.3,
+        "HeartBeats": [70, 72, 68, 75]
+      },
+      "Flags": {
+        "UserFlagged": false,
+        "ProgramFlagged": false
+      },
+      "PersonalData": {
+        "Age": 30,
+        "BMI": 22.5,
+        "HospitalName": "Sample Hospital",
+        "Injury": {
+          "Type": "Sprained Ankle",
+          "Date": "2025-01-10"
+        }
+      }
+    }
+  }
+}
