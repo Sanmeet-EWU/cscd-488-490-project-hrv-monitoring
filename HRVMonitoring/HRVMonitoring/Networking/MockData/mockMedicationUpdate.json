@@ -1,0 +1,15 @@
+{
+  "body": {
+    "RequestData": {
+      "AuthInfo": {
+        "AnonymizedID": "your-mock-id",
+        "AccessKey": "your-mock-key"
+      },
+      "Type": "UpdateMedications",
+      "Medications": [
+        "Medication1",
+        "Medication2"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+//
+//  Development.xcconfig
+//  HRVMonitoring
+//
+//  Created by William Reese on 3/9/25.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+// General
+RUN_ENVIRONMENT = Development

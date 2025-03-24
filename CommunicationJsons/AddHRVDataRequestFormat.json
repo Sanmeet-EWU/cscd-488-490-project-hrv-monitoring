@@ -1,0 +1,36 @@
+{
+  "body": {
+    "RequestData": {
+      "AuthInfo": {
+        "AnonymizedID": varchar(37),
+        "AccessKey": varchar(37)
+      },
+      "Type": "AddData",
+      "HRVInfo": {
+        "SDNN": "double",
+        "RMSSD": "double",
+        "PNN50": "double",
+        "HeartBeats": [
+          "integer",
+          "integer",
+          "integer",
+          "so on"
+        ]
+      },
+      "Flags": {
+        "UserFlagged": "bool",
+        "ProgramFlagged": "bool"
+      },
+      "PersonalData": {
+        "Age": "int",
+        "BMI": "double",
+        "Gender": "varchar(37)",
+        "HospitalName": "varchar(37)",
+        "Injury": {
+          "Type": "varchar(37)",
+          "Date": "yyyy-MM-dd"
+        }
+      }
+    }
+  }
+}
